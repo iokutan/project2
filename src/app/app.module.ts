@@ -14,7 +14,10 @@ import { SliderComponent } from './components/slider/slider.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { LoginComponent } from './pages/login/login.component';
 import { SingUpComponent } from './components/sing-up/sing-up.component';
-import { FormComponent } from './components/form/form.component';
+import { FormDemandComponent } from './components/form-demand/form-demand.component';
+import { FormPurchaseGoldComponent } from './components/form-purchase-gold/form-purchase-gold.component';
+import { FormPurchaseWatchComponent } from './components/form-purchase-watch/form-purchase-watch.component';
+import { FormContactComponent } from './components/form-contact/form-contact.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +33,10 @@ import { FormComponent } from './components/form/form.component';
     SidebarComponent,
     LoginComponent,
     SingUpComponent,
-    FormComponent,
+    FormDemandComponent,
+    FormPurchaseGoldComponent,
+    FormPurchaseWatchComponent,
+    FormContactComponent,
   ],
   imports: [
     BrowserModule,
