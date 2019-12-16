@@ -18,6 +18,8 @@ import { FormDemandComponent } from './components/form-demand/form-demand.compon
 import { FormPurchaseGoldComponent } from './components/form-purchase-gold/form-purchase-gold.component';
 import { FormPurchaseWatchComponent } from './components/form-purchase-watch/form-purchase-watch.component';
 import { FormContactComponent } from './components/form-contact/form-contact.component';
+import { TrackingComponent } from './components/tracking/tracking.component';
+import { AppointmentComponent } from './components/appointment/appointment.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +39,8 @@ import { FormContactComponent } from './components/form-contact/form-contact.com
     FormPurchaseGoldComponent,
     FormPurchaseWatchComponent,
     FormContactComponent,
+    TrackingComponent,
+    AppointmentComponent,
   ],
   imports: [
     BrowserModule,

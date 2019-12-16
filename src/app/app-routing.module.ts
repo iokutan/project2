@@ -5,6 +5,8 @@ import { LoginComponent } from './pages/login/login.component';
 import { FormPurchaseGoldComponent } from './components/form-purchase-gold/form-purchase-gold.component';
 import { FormPurchaseWatchComponent } from './components/form-purchase-watch/form-purchase-watch.component';
 import { FormDemandComponent } from './components/form-demand/form-demand.component';
+import { TrackingComponent } from './components/tracking/tracking.component';
+import { AppointmentComponent } from './components/appointment/appointment.component';
 
 
 const routes: Routes = [
@@ -17,7 +19,9 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent},
   { path: 'offerte-g', component: FormPurchaseGoldComponent},
   { path: 'offerte-w', component: FormPurchaseWatchComponent},
-  { path: 'offerte-d', component: FormDemandComponent}
+  { path: 'offerte-d', component: FormDemandComponent},
+  { path: 'tracking', component: TrackingComponent},
+  { path: 'appointment', component: AppointmentComponent}
 ];
 
 @NgModule({
