@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.min.css";
-
+@import "~@fortawesome/fontawesome-free/css/all.min.css";
 .cristal-header {
     line-height: 1;
     border-bottom: 1px solid #e5e5e5;
