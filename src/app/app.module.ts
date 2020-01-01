@@ -20,6 +20,10 @@ import { FormPurchaseWatchComponent } from './components/form-purchase-watch/for
 import { FormContactComponent } from './components/form-contact/form-contact.component';
 import { TrackingComponent } from './components/tracking/tracking.component';
 import { AppointmentComponent } from './components/appointment/appointment.component';
+import { ServicesComponent } from './pages/services/services.component';
+import { ContactComponent } from './pages/contact/contact.component';
+import { WatchRepairComponent } from './pages/services/watch-repair/watch-repair.component';
+import { JeweleryRepairComponent } from './pages/services/jewelery-repair/jewelery-repair.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +45,10 @@ import { AppointmentComponent } from './components/appointment/appointment.compo
     FormContactComponent,
     TrackingComponent,
     AppointmentComponent,
+    ServicesComponent,
+    ContactComponent,
+    WatchRepairComponent,
+    JeweleryRepairComponent,
   ],
   imports: [
     BrowserModule,

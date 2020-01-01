@@ -7,6 +7,10 @@ import { FormPurchaseWatchComponent } from './components/form-purchase-watch/for
 import { FormDemandComponent } from './components/form-demand/form-demand.component';
 import { TrackingComponent } from './components/tracking/tracking.component';
 import { AppointmentComponent } from './components/appointment/appointment.component';
+import { ContactComponent } from './pages/contact/contact.component';
+import { ServicesComponent } from './pages/services/services.component';
+import { WatchRepairComponent } from './pages/services/watch-repair/watch-repair.component';
+import { JeweleryRepairComponent } from './pages/services/jewelery-repair/jewelery-repair.component';
 
 
 const routes: Routes = [
@@ -17,11 +21,17 @@ const routes: Routes = [
   },
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent},
-  { path: 'offerte-g', component: FormPurchaseGoldComponent},
-  { path: 'offerte-w', component: FormPurchaseWatchComponent},
-  { path: 'offerte-d', component: FormDemandComponent},
+  { path: 'gold-ankauf', component: FormPurchaseGoldComponent},
+  { path: 'uhren-ankauf', component: FormPurchaseWatchComponent},
+  { path: 'offerte', component: FormDemandComponent},
   { path: 'tracking', component: TrackingComponent},
-  { path: 'appointment', component: AppointmentComponent}
+  { path: 'appointment', component: AppointmentComponent},
+  { path: 'contact', component: ContactComponent},
+  { path: 'services', component: ServicesComponent,
+  children: [
+    { path: 'uhren-reparatur', component: WatchRepairComponent},
+    { path: 'schmuck-reparatur', component: JeweleryRepairComponent}
+  ]}
 ];
 
 @NgModule({
