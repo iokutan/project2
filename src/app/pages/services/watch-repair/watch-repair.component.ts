@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
+  // tslint:disable-next-line:component-selector
   selector: 'cristal-watch-repair',
   templateUrl: './watch-repair.component.html',
   styleUrls: ['./watch-repair.component.css']

@@ -24,6 +24,11 @@ import { ServicesComponent } from './pages/services/services.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { WatchRepairComponent } from './pages/services/watch-repair/watch-repair.component';
 import { JeweleryRepairComponent } from './pages/services/jewelery-repair/jewelery-repair.component';
+import { ServiceMainComponent } from './pages/services/service-main/service-main.component';
+import { SalesComponent } from './pages/sales/sales.component';
+import { SalesMainComponent } from './pages/sales/sales-main/sales-main.component';
+import { SaleUhrenComponent } from './pages/sales/sale-uhren/sale-uhren.component';
+import { SaleSchmuckComponent } from './pages/sales/sale-schmuck/sale-schmuck.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +54,11 @@ import { JeweleryRepairComponent } from './pages/services/jewelery-repair/jewele
     ContactComponent,
     WatchRepairComponent,
     JeweleryRepairComponent,
+    ServiceMainComponent,
+    SalesComponent,
+    SalesMainComponent,
+    SaleUhrenComponent,
+    SaleSchmuckComponent,
   ],
   imports: [
     BrowserModule,

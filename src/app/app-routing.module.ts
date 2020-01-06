@@ -11,6 +11,10 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { ServicesComponent } from './pages/services/services.component';
 import { WatchRepairComponent } from './pages/services/watch-repair/watch-repair.component';
 import { JeweleryRepairComponent } from './pages/services/jewelery-repair/jewelery-repair.component';
+import { ServiceMainComponent } from './pages/services/service-main/service-main.component';
+import { SalesMainComponent } from './pages/sales/sales-main/sales-main.component';
+import { SaleUhrenComponent } from './pages/sales/sale-uhren/sale-uhren.component';
+import { SaleSchmuckComponent } from './pages/sales/sale-schmuck/sale-schmuck.component';
 
 
 const routes: Routes = [
@@ -29,8 +33,17 @@ const routes: Routes = [
   { path: 'contact', component: ContactComponent},
   { path: 'services', component: ServicesComponent,
   children: [
+    { path: '', redirectTo: 'service-main', pathMatch: 'full'},
+    { path: 'service-main', component: ServiceMainComponent},
     { path: 'uhren-reparatur', component: WatchRepairComponent},
     { path: 'schmuck-reparatur', component: JeweleryRepairComponent}
+  ]},
+  { path: 'sales', component: ServicesComponent,
+  children: [
+    { path: '', redirectTo: 'sale-main', pathMatch: 'full'},
+    { path: 'sale-main', component: SalesMainComponent},
+    { path: 'sale-uhren', component: SaleUhrenComponent},
+    { path: 'sale-schmuck', component: SaleSchmuckComponent}
   ]}
 ];
 
