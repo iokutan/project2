@@ -21,7 +21,7 @@ export class InfoBoxComponent implements OnInit {
     { title: 'Nachfrage',
       description: 'Stellen Sie Ihre Fragen nach Verfügbarkeit und Preise oder Spezielanfertigung.',
       link: '/offerte',
-      image: '/assets/images/nachfrage.jpg'},
+      image: '/assets/images/nachfrage.png'},
 
   ];
   ngOnInit() {
