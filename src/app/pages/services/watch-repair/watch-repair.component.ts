@@ -9,7 +9,20 @@ import { Component, OnInit } from '@angular/core';
 export class WatchRepairComponent implements OnInit {
 
   constructor() { }
-
+    items: any [] = [
+      { description: 'Bateriewechsel' },
+      { description: 'Bandwechsel' },
+      { description: 'Band Anpassen' },
+      { description: 'Glas ersetzen' },
+      { description: 'Krone wechseln' },
+      { description: 'Gravuren' },
+      { description: 'Zifferblatt Reparaturen' },
+      { description: 'Zeiger Reparaturen' },
+      { description: 'Teil Revision' },
+      { description: 'Voll Revision' },
+      { description: 'PENDEL UHREN REVISION' },
+      { description: 'Und mehr' }
+    ];
   ngOnInit() {
   }
 

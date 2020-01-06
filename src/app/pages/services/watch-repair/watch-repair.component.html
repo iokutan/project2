@@ -1,18 +1,8 @@
-<div class="list-group">
-    <ul class="list-group">
-      <li class="list-group-item">Löten</li>
-      <li class="list-group-item">Ring anpassen</li>
-      <li class="list-group-item">Stein ersetzen</li>
-      <li class="list-group-item">Polieren, reinigen</li>
-      <li class="list-group-item">Gravuren</li>
-    </ul>
-  </div>
-  <div class="list-group">
-      <ul class="list-group">
-        <li class="list-group-item">Spezialanfertigung</li>
-        <li class="list-group-item">Oberfläche veredelung</li>
-        <li class="list-group-item">Vergolden</li>
-        <li class="list-group-item">Rhodineren</li>
-        <li class="list-group-item">Und mehr</li>
-      </ul>
+<div class="list-group my-5 text-center">
+  <ul class="list-group">
+    <div class="row justify-content-center">
+      <li *ngFor="let item of items" 
+      class="list-group-item col-lg-3 border border-dark rounded-pill m-1">{{item.description}}</li>
     </div>
+  </ul>
+</div>

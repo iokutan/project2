@@ -15,7 +15,6 @@ export class SaleUhrenComponent implements OnInit {
 
   ngOnInit() {
     this.uhrenService.getSaleUhren().subscribe(data => {
-      console.log(data);
       this.uhren = data;
     });
   }

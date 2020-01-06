@@ -1,32 +1,9 @@
 <div class="row">
-  <div class="col-lg-4  text-center">
-    <svg class="bd-placeholder-img rounded"  height="140" xmlns="http://www.w3.org/2000/svg"
-      preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140">
-      <title>Placeholder</title>
-      <rect width="100%" height="100%" fill="#777" /><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text>
-    </svg>
-    <h2>Gold Ankauf</h2>
-    <p>Wir antworten Ihnen innerhalb weniger Stunden auf Ihre Anfrage mit einem Vorabangebot.</p>
-    <p><a class="btn btn-secondary" href="#" role="button">Offerte einholen &raquo;</a></p>
+  <div *ngFor="let item of items" class="col-lg-4  text-center">
+    <img src="{{item.image}}" height="150px" width="300px" class="border border-secondary rounded" alt="" 
+    [routerLink]="item.link" routerLinkActive="router-link-active">
+    <h2>{{item.title}}</h2>
+    <p>{{item.description}}</p>
+    <p><a class="btn btn-secondary" [routerLink]="item.link" routerLinkActive="router-link-active" href="#" role="button">Offerte einholen &raquo;</a></p>
   </div><!-- /.col-lg-4 -->
-  <div class="col-lg-4  text-center">
-    <svg class="bd-placeholder-img rounded"  height="140" xmlns="http://www.w3.org/2000/svg"
-      preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140">
-      <title>Placeholder</title>
-      <rect width="100%" height="100%" fill="#777" /><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text>
-    </svg>
-    <h2>Uhren Ankauf</h2>
-    <p>Die Anfragen sind natürlich für Sie absolut unverbindlich und kostenfrei.</p>
-    <p><a class="btn btn-secondary" href="#" role="button">Offerte einholen &raquo;</a></p>
-  </div><!-- /.col-lg-4 -->
-  <div class="col-lg-4 text-center">
-    <svg class="bd-placeholder-img rounded"  height="140" xmlns="http://www.w3.org/2000/svg"
-      preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140">
-      <title>Placeholder</title>
-      <rect width="100%" height="100%" fill="#777" /><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text>
-    </svg>
-    <h2>Nachfrage</h2>
-    <p> Stellen Sie Ihre Fragen nach Verfügbarkeit und Preise oder Spezielanfertigung.</p>
-    <p><a class="btn btn-secondary" href="#" role="button">Offerte einholen &raquo;</a></p>
-  </div>
 </div>

@@ -9,6 +9,19 @@ import { Component, OnInit } from '@angular/core';
 export class JeweleryRepairComponent implements OnInit {
 
   constructor() { }
+  items: any [] = [
+    { description: 'Löten' },
+    { description: 'Ring Anpassen' },
+    { description: 'Stein ersetzen' },
+    { description: 'Polieren' },
+    { description: 'Reinigen' },
+    { description: 'Gravuren' },
+    { description: 'Spezialanfertigung' },
+    { description: 'Oberfläche veredelung' },
+    { description: 'Vergolden' },
+    { description: 'Rhodieneren' },
+    { description: 'Und mehr' },
+  ];
 
   ngOnInit() {
   }
