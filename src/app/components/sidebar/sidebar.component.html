@@ -1,21 +1,11 @@
 <div class="container marketing">
-  <div class="row featurette-divider">
-    <div class="col-md-6 text-center">
-      <h2 class="featurette-heading">Auftrag verfolgen</h2>
-      <p class="lead">Erfahren Sie mehr über Status Ihren Auftrag.</p>
+  <div *ngFor="let line of lines" class="row featurette-divider">
+    <div class="col-md-6 {{line.position}} text-center">
+      <h2 class="featurette-heading">{{line.title}}</h2>
+      <p class="lead">{{line.description}}</p>
     </div>
     <div class="col-md-6">
-      <img src="/assets/images/tracking.jpg" class="w-100 p-3" height="300px" alt="">
-    </div>
-  </div>
-  <hr _ngcontent-dsa-c6="" class="featurette-divider">
-  <div class="row featurette-divider ">
-    <div class="col-md-6 order-md-2 text-center">
-      <h2 class="featurette-heading">Termin vereinbaren</h2>
-      <p class="lead">Vermeiden Sie ungewünschte Wartezeiten.</p>
-    </div>
-    <div class="col-md-6 order-md-1">
-      <img src="/assets/images/termin.jpg" class="w-100 p-3" height="300px" alt="">
+      <img src="{{line.image}}" class="w-100 p-3" height="300px" alt="">
     </div>
   </div>
 </div>
