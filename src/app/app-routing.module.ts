@@ -15,6 +15,7 @@ import { ServiceMainComponent } from './pages/services/service-main/service-main
 import { SalesMainComponent } from './pages/sales/sales-main/sales-main.component';
 import { SaleUhrenComponent } from './pages/sales/sale-uhren/sale-uhren.component';
 import { SaleSchmuckComponent } from './pages/sales/sale-schmuck/sale-schmuck.component';
+import { AktuelComponent } from './pages/aktuel/aktuel.component';
 
 
 const routes: Routes = [
@@ -24,6 +25,7 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   { path: 'home', component: HomeComponent },
+  { path: 'aktuel', component: AktuelComponent},
   { path: 'login', component: LoginComponent},
   { path: 'gold-ankauf', component: FormPurchaseGoldComponent},
   { path: 'uhren-ankauf', component: FormPurchaseWatchComponent},

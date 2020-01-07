@@ -1,0 +1,11 @@
+<div class="container marketing">
+    <div *ngFor="let aktuel of aktuels" class="row featurette-divider">
+      <div class="col-md-6 {{aktuel.position}} text-center">
+        <h2 class="featurette-heading">{{aktuel.title}}</h2>
+        <p class="lead">{{aktuel.description}}</p>
+      </div>
+      <div class="col-md-6">
+        <img src="{{aktuel.image}}" class="w-100 p-3" height="300px" alt="">
+      </div>
+    </div>
+  </div>

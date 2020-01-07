@@ -29,6 +29,7 @@ import { SalesComponent } from './pages/sales/sales.component';
 import { SalesMainComponent } from './pages/sales/sales-main/sales-main.component';
 import { SaleUhrenComponent } from './pages/sales/sale-uhren/sale-uhren.component';
 import { SaleSchmuckComponent } from './pages/sales/sale-schmuck/sale-schmuck.component';
+import { AktuelComponent } from './pages/aktuel/aktuel.component';
 
 @NgModule({
   declarations: [
@@ -59,6 +60,7 @@ import { SaleSchmuckComponent } from './pages/sales/sale-schmuck/sale-schmuck.co
     SalesMainComponent,
     SaleUhrenComponent,
     SaleSchmuckComponent,
+    AktuelComponent,
   ],
   imports: [
     BrowserModule,

@@ -13,10 +13,12 @@ export class SidebarComponent implements OnInit {
     { title: 'Auftrag Verfolgen',
       description: 'Erfahren Sie mehr über Status Ihren Auftrag.',
       position: '',
+      link: '/tracking',
       image: '/assets/images/tracking.jpg'},
     { title: 'Termin Vereinbaren',
       description: 'Vermeiden Sie ungewünschte Wartezeiten.',
       position: 'order-md-2',
+      link: '/appointment',
       image: '/assets/images/termin.jpg'}
   ];
 

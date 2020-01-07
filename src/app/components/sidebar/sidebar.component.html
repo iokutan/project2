@@ -1,11 +1,12 @@
 <div class="container marketing">
   <div *ngFor="let line of lines" class="row featurette-divider">
     <div class="col-md-6 {{line.position}} text-center">
-      <h2 class="featurette-heading">{{line.title}}</h2>
+      <h2 class="featurette-heading" [routerLink]="line.link" routerLinkActive="router-link-active" >{{line.title}}</h2>
       <p class="lead">{{line.description}}</p>
     </div>
     <div class="col-md-6">
-      <img src="{{line.image}}" class="w-100 p-3" height="300px" alt="">
+      <img src="{{line.image}}" class="w-100 p-3" height="300px" alt=""
+      [routerLink]="line.link" routerLinkActive="router-link-active">
     </div>
   </div>
 </div>
