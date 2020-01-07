@@ -1,8 +1,18 @@
-<ul class="row my-5" >
-    <li class="col-md-3 mx-3" *ngFor="let uhr of uhren">
-        <div class="col-md-6">
-            <img [src]="uhr.image" width="300" alt="">
+<div class="row my-5">
+  <div class="col-md-3 m-3 border border-succes rounded" *ngFor="let uhr of uhren">
+    <div class="col-md-12">
+      <img [src]="uhr.image" width="" height="250" alt="">
+    </div>
+    <div class="col-md-12 text-center">
+      <div class="justify-content-center">
+        <div>
+          <h4>{{uhr.name}}</h4>
         </div>
-        <div class="col-md-6">{{uhr.name}} {{uhr.price | currency: 'CHF'}} {{uhr.description}} </div>
-    </li>
-</ul>
+        <div>
+          <p>{{uhr.model}}</p>
+        </div>
+        <div><strong>{{uhr.price | currency: 'CHF'}}</strong></div>
+      </div>
+    </div>
+  </div>
+</div>
