@@ -5,7 +5,7 @@
       <p class="lead">{{repair.description}}</p>
     </div>
     <div class="col-md-6">
-      <img src="{{repair.image}}" class="w-100 p-3" height="300px" alt=""
+      <img [src]="repair.image" class="w-100 p-3" height="300px" alt=""
       [routerLink]="repair.link" routerLinkActive="router-link-active">
     </div>
   </div>

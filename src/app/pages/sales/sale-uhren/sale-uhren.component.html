@@ -1,8 +1,8 @@
 <ul class="row my-5" >
     <li class="col-md-3 mx-3" *ngFor="let uhr of uhren">
         <div class="col-md-6">
-            <img src="{{uhr.image}}" width="300" alt="">
+            <img [src]="uhr.image" width="300" alt="">
         </div>
-        <div class="col-md-6">{{uhr.name}} {{uhr.price}} {{uhr.description}} </div>
+        <div class="col-md-6">{{uhr.name}} {{uhr.price | currency: 'CHF'}} {{uhr.description}} </div>
     </li>
 </ul>
