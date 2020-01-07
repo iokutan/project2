@@ -24,4 +24,16 @@ export class SaleService {
     return of(data);
   }
 
+  public getSaleSchmuck(): Observable<any> {
+    const data =  [
+      { id: 1, image: '/assets/images/ring.jpeg', name: 'Damenring', model: 'Gold', price: '890' },
+      { id: 2, image: '/assets/images/halskette.jpg', name: 'Herren Halskette', model: 'Silber', price: '200' },
+      { id: 3, image: '/assets/images/diamant.jpg', name: 'Diamant Set', model: 'Gold/Diamant', price: '1650' },
+      { id: 4, image: '/assets/images/babyschmuck.jpg', name: 'Baby Braccelet', model: 'Gold', price: '450' },
+      { id: 5, image: '/assets/images/ohrring.jpeg', name: 'Ohrringe', model: 'Swarowski', price: '350' }
+    ];
+
+    return of(data);
+  }
+
 }
