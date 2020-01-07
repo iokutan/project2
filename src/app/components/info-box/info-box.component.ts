@@ -1,4 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  OnInit
+} from '@angular/core';
+import {
+  Feature
+} from 'src/app/Feature';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -8,23 +14,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InfoBoxComponent implements OnInit {
 
-  constructor() { }
-  items: any [] = [
-    { title: 'Uhren Ankauf',
+  constructor() {}
+  infoboxes: Feature[] = [{
+      title: 'Uhren Ankauf',
       description: 'Wir antworten Ihnen innerhalb weniger Stunden auf Ihre Anfrage mit einem Vorabangebot.',
       link: '/uhren-ankauf',
-      image: '/assets/images/uhren-ankauf.png'},
-    { title: 'Gold Ankauf',
+      position: '',
+      image: '/assets/images/uhren-ankauf.png'
+    },
+
+    {
+      title: 'Gold Ankauf',
       description: 'Die Anfragen sind natürlich für Sie absolut unverbindlich und kostenfrei.',
       link: '/gold-ankauf',
-      image: '/assets/images/gold-ankauf.jpg'},
-    { title: 'Nachfrage',
+      position: '',
+      image: '/assets/images/gold-ankauf.jpg'
+    },
+
+    {
+      title: 'Nachfrage',
       description: 'Stellen Sie Ihre Fragen nach Verfügbarkeit und Preise oder Spezielanfertigung.',
       link: '/offerte',
-      image: '/assets/images/nachfrage.png'},
+      position: '',
+      image: '/assets/images/nachfrage.png'
+    },
 
   ];
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
 }

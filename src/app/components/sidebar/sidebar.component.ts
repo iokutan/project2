@@ -1,4 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  OnInit
+} from '@angular/core';
+import {
+  Feature
+} from 'src/app/Feature';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -8,21 +14,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
 
-  constructor() { }
-  lines: any [] = [
-    { title: 'Auftrag Verfolgen',
+  constructor() {}
+  lines: Feature[] = [{
+      title: 'Auftrag Verfolgen',
       description: 'Erfahren Sie mehr über Status Ihren Auftrag.',
       position: '',
       link: '/tracking',
-      image: '/assets/images/tracking.jpg'},
-    { title: 'Termin Vereinbaren',
+      image: '/assets/images/tracking.jpg'
+    },
+
+    {
+      title: 'Termin Vereinbaren',
       description: 'Vermeiden Sie ungewünschte Wartezeiten.',
       position: 'order-md-2',
       link: '/appointment',
-      image: '/assets/images/termin.jpg'}
+      image: '/assets/images/termin.jpg'
+    }
   ];
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
 }

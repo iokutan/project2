@@ -1,9 +1,9 @@
 <div class="row">
-  <div *ngFor="let item of items" class="col-lg-4  text-center">
-    <img src="{{item.image}}" height="150px" width="300px" class="border border-secondary rounded" alt="" 
-    [routerLink]="item.link" routerLinkActive="router-link-active">
-    <h2>{{item.title}}</h2>
-    <p>{{item.description}}</p>
-    <p><a class="btn btn-secondary" [routerLink]="item.link" routerLinkActive="router-link-active" href="#" role="button">Offerte einholen &raquo;</a></p>
+  <div *ngFor="let infobox of infoboxes" class="col-lg-4  text-center">
+    <img src="{{infobox.image}}" height="150px" width="300px" class="border border-secondary rounded" alt="" 
+    [routerLink]="infobox.link" routerLinkActive="router-link-active">
+    <h2>{{infobox.title}}</h2>
+    <p>{{infobox.description}}</p>
+    <p><a class="btn btn-secondary" [routerLink]="infobox.link" routerLinkActive="router-link-active" href="#" role="button">Offerte einholen &raquo;</a></p>
   </div><!-- /.col-lg-4 -->
 </div>

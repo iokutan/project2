@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  OnInit
+} from '@angular/core';
+import { Feature } from 'src/app/Feature';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -8,21 +12,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SalesMainComponent implements OnInit {
 
-  constructor() { }
-  sales: any [] = [
-    { title: 'Uhren in Sale',
+  constructor() {}
+  sales: Feature[] = [{
+      title: 'Uhren in Sale',
       description: 'Solange vorrat',
       position: '',
       link: '/sales/sale-uhren',
-      image: '/assets/images/watches.jpg'},
-    { title: 'Schmuck in Sale',
+      image: '/assets/images/watches.jpg'
+    },
+
+    {
+      title: 'Schmuck in Sale',
       description: 'Speziele einheiten von uns',
       position: 'order-md-2',
       link: '/sales/sale-schmuck',
-      image: '/assets/images/jewelery.jpg'}
+      image: '/assets/images/jewelery.jpg'
+    }
   ];
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
 }

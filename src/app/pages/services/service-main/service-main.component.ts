@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Feature } from 'src/app/Feature';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -9,12 +10,13 @@ import { Component, OnInit } from '@angular/core';
 export class ServiceMainComponent implements OnInit {
 
   constructor() { }
-  repairs: any [] = [
+  repairs: Feature [] = [
     { title: 'Uhren Reparatur',
       description: '',
       position: '',
       link: '/services/uhren-reparatur',
       image: '/assets/images/watch-repair.jpg'},
+
     { title: 'Schmuck Reparatur',
       description: '',
       position: 'order-md-2',

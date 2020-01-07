@@ -1,4 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  OnInit
+} from '@angular/core';
+import {
+  Feature
+} from 'src/app/Feature';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -8,19 +14,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AktuelComponent implements OnInit {
 
-  constructor() { }
-  aktuels: any [] = [
-    { title: 'Valentinstag Aktion',
+  constructor() {}
+  aktuels: Feature[] = [{
+      title: 'Valentinstag Aktion',
       description: '20% Rabatt auf alle Uhren Ab 1. Februar bis 14 Februar !',
       position: '',
-      image: '/assets/images/valentinstag.jpg'},
-    { title: 'Bateriewechsel Aktion',
+      link: '',
+      image: '/assets/images/valentinstag.jpg'
+    },
+
+    {
+      title: 'Bateriewechsel Aktion',
       description: 'Ab 03. März bis 18. März ist Bateriewechsel statt 18.- CHF für 10.-CHF',
       position: 'order-md-2',
-      image: '/assets/images/batterie.jpg'}
+      link: '',
+      image: '/assets/images/batterie.jpg'
+    }
   ];
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
 }
