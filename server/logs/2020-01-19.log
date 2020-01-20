@@ -1,0 +1,98 @@
+2020-01-19T18:00:54.518Z - error: Failed to initialize database message=Dialect needs to be explicitly supplied as of v4.0.0, stack=Error: Dialect needs to be explicitly supplied as of v4.0.0
+    at new Sequelize (/Users/Dogan/cddev/HSR/ilyas-backend/node_modules/sequelize/lib/sequelize.js:181:13)
+    at new Sequelize (/Users/Dogan/cddev/HSR/ilyas-backend/node_modules/sequelize-typescript/lib/models/v4/Sequelize.js:24:13)
+    at new Models (/Users/Dogan/cddev/HSR/ilyas-backend/dist/models/index.js:20:26)
+    at Function.initializeDatabase (/Users/Dogan/cddev/HSR/ilyas-backend/dist/server.js:47:24)
+    at Function.<anonymous> (/Users/Dogan/cddev/HSR/ilyas-backend/dist/server.js:31:34)
+    at Generator.next (<anonymous>)
+    at /Users/Dogan/cddev/HSR/ilyas-backend/dist/server.js:7:71
+    at new Promise (<anonymous>)
+    at __awaiter (/Users/Dogan/cddev/HSR/ilyas-backend/dist/server.js:3:12)
+    at Function.initializeApp (/Users/Dogan/cddev/HSR/ilyas-backend/dist/server.js:24:16)
+    at Object.<anonymous> (/Users/Dogan/cddev/HSR/ilyas-backend/dist/app.js:7:17)
+    at Module._compile (internal/modules/cjs/loader.js:688:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:699:10)
+    at Module.load (internal/modules/cjs/loader.js:598:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:537:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:529:3)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:741:12)
+    at startup (internal/bootstrap/node.js:285:19)
+    at bootstrapNodeJSCore (internal/bootstrap/node.js:739:3)
+2020-01-19T18:01:40.918Z - error: Failed to initialize database message=SQLITE_ERROR: no such table: main.Client, stack=SequelizeDatabaseError: SQLITE_ERROR: no such table: main.Client
+    at Query.formatError (/Users/Dogan/cddev/HSR/ilyas-backend/node_modules/sequelize/lib/dialects/sqlite/query.js:423:16)
+    at afterExecute (/Users/Dogan/cddev/HSR/ilyas-backend/node_modules/sequelize/lib/dialects/sqlite/query.js:119:32)
+    at replacement (/Users/Dogan/cddev/HSR/ilyas-backend/node_modules/sqlite3/lib/trace.js:19:31)
+    at Statement.errBack (/Users/Dogan/cddev/HSR/ilyas-backend/node_modules/sqlite3/lib/sqlite3.js:16:21), name=SequelizeDatabaseError, errno=1, code=SQLITE_ERROR, sql=DROP TABLE IF EXISTS `User`;, $ref=$["parent"], sql=DROP TABLE IF EXISTS `User`;
+2020-01-19T18:01:47.795Z - error: Failed to initialize database message=SQLITE_ERROR: no such table: main.Client, stack=SequelizeDatabaseError: SQLITE_ERROR: no such table: main.Client
+    at Query.formatError (/Users/Dogan/cddev/HSR/ilyas-backend/node_modules/sequelize/lib/dialects/sqlite/query.js:423:16)
+    at afterExecute (/Users/Dogan/cddev/HSR/ilyas-backend/node_modules/sequelize/lib/dialects/sqlite/query.js:119:32)
+    at replacement (/Users/Dogan/cddev/HSR/ilyas-backend/node_modules/sqlite3/lib/trace.js:19:31)
+    at Statement.errBack (/Users/Dogan/cddev/HSR/ilyas-backend/node_modules/sqlite3/lib/sqlite3.js:16:21), name=SequelizeDatabaseError, errno=1, code=SQLITE_ERROR, sql=DROP TABLE IF EXISTS `User`;, $ref=$["parent"], sql=DROP TABLE IF EXISTS `User`;
+2020-01-19T18:31:43.922Z - error: Failed to initialize database message=SQLITE_ERROR: no such table: main.Client, stack=SequelizeDatabaseError: SQLITE_ERROR: no such table: main.Client
+    at Query.formatError (/Users/Dogan/cddev/HSR/ilyas-backend/node_modules/sequelize/lib/dialects/sqlite/query.js:423:16)
+    at afterExecute (/Users/Dogan/cddev/HSR/ilyas-backend/node_modules/sequelize/lib/dialects/sqlite/query.js:119:32)
+    at replacement (/Users/Dogan/cddev/HSR/ilyas-backend/node_modules/sqlite3/lib/trace.js:19:31)
+    at Statement.errBack (/Users/Dogan/cddev/HSR/ilyas-backend/node_modules/sqlite3/lib/sqlite3.js:16:21), name=SequelizeDatabaseError, errno=1, code=SQLITE_ERROR, sql=DROP TABLE IF EXISTS `User`;, $ref=$["parent"], sql=DROP TABLE IF EXISTS `User`;
+2020-01-19T18:35:42.724Z - error: Failed to initialize database message=SQLITE_ERROR: no such table: main.Client, stack=SequelizeDatabaseError: SQLITE_ERROR: no such table: main.Client
+    at Query.formatError (/Users/Dogan/cddev/HSR/ilyas-backend/node_modules/sequelize/lib/dialects/sqlite/query.js:423:16)
+    at afterExecute (/Users/Dogan/cddev/HSR/ilyas-backend/node_modules/sequelize/lib/dialects/sqlite/query.js:119:32)
+    at replacement (/Users/Dogan/cddev/HSR/ilyas-backend/node_modules/sqlite3/lib/trace.js:19:31)
+    at Statement.errBack (/Users/Dogan/cddev/HSR/ilyas-backend/node_modules/sqlite3/lib/sqlite3.js:16:21), name=SequelizeDatabaseError, errno=1, code=SQLITE_ERROR, sql=DROP TABLE IF EXISTS `User`;, $ref=$["parent"], sql=DROP TABLE IF EXISTS `User`;
+2020-01-19T18:36:25.759Z - debug: [STARTED] Database open for business!..
+2020-01-19T18:40:34.196Z - debug: [STARTED] Database open for business!..
+2020-01-19T18:50:23.166Z - debug: [STARTED] Database open for business!..
+2020-01-19T18:55:09.820Z - debug: [STARTED] Database open for business!..
+2020-01-19T18:56:14.740Z - debug: [STARTED] Database open for business!..
+2020-01-19T18:57:28.627Z - debug: [STARTED] Database open for business!..
+2020-01-19T18:57:53.623Z - debug: [STARTED] Database open for business!..
+2020-01-19T18:57:57.880Z - debug: [STARTED] Database open for business!..
+2020-01-19T18:59:43.747Z - debug: [STARTED] Database open for business!..
+2020-01-19T19:02:20.770Z - debug: [STARTED] Database open for business!..
+2020-01-19T19:02:59.602Z - debug: [STARTED] Database open for business!..
+2020-01-19T19:03:55.400Z - debug: [STARTED] Database open for business!..
+2020-01-19T19:04:02.456Z - debug: [STARTED] Database open for business!..
+2020-01-19T19:04:18.282Z - debug: [STARTED] Database open for business!..
+2020-01-19T19:06:09.377Z - debug: [STARTED] Database open for business!..
+2020-01-19T19:06:52.723Z - debug: [STARTED] Database open for business!..
+2020-01-19T19:07:25.229Z - debug: [STARTED] Database open for business!..
+2020-01-19T19:08:20.730Z - debug: [STARTED] Database open for business!..
+2020-01-19T19:10:19.388Z - debug: [STARTED] Database open for business!..
+2020-01-19T19:15:59.256Z - debug: [STARTED] Database open for business!..
+2020-01-19T19:16:25.530Z - debug: [STARTED] Database open for business!..
+2020-01-19T19:18:00.073Z - debug: [STARTED] Database open for business!..
+2020-01-19T19:18:06.622Z - debug: [STARTED] Database open for business!..
+2020-01-19T19:20:56.002Z - debug: [STARTED] Database open for business!..
+2020-01-19T19:21:25.957Z - debug: [STARTED] Database open for business!..
+2020-01-19T19:23:15.318Z - debug: [STARTED] Database open for business!..
+2020-01-19T19:23:30.488Z - debug: [STARTED] Database open for business!..
+2020-01-19T19:25:06.339Z - debug: [STARTED] Database open for business!..
+2020-01-19T19:29:02.610Z - debug: [STARTED] Database open for business!..
+2020-01-19T19:32:23.272Z - debug: [STARTED] Database open for business!..
+2020-01-19T19:35:08.448Z - debug: [STARTED] Database open for business!..
+2020-01-19T19:36:02.907Z - debug: [STARTED] Database open for business!..
+2020-01-19T19:39:07.084Z - debug: [STARTED] Database open for business!..
+2020-01-19T19:41:27.721Z - debug: [STARTED] Database open for business!..
+2020-01-19T19:43:59.851Z - debug: [STARTED] Database open for business!..
+2020-01-19T19:45:23.083Z - debug: [STARTED] Database open for business!..
+2020-01-19T19:46:13.009Z - debug: [STARTED] Database open for business!..
+2020-01-19T19:46:37.440Z - debug: [STARTED] Database open for business!..
+2020-01-19T19:46:56.722Z - debug: [STARTED] Database open for business!..
+2020-01-19T19:48:31.941Z - debug: [STARTED] Database open for business!..
+2020-01-19T19:49:28.146Z - debug: [STARTED] Database open for business!..
+2020-01-19T19:52:07.010Z - debug: [STARTED] Database open for business!..
+2020-01-19T19:54:56.781Z - debug: [STARTED] Database open for business!..
+2020-01-19T19:56:18.555Z - debug: [STARTED] Database open for business!..
+2020-01-19T19:57:15.040Z - debug: [STARTED] Database open for business!..
+2020-01-19T19:58:06.818Z - debug: [STARTED] Database open for business!..
+2020-01-19T19:59:22.679Z - debug: [STARTED] Database open for business!..
+2020-01-19T19:59:50.166Z - debug: [STARTED] Database open for business!..
+2020-01-19T20:00:14.255Z - debug: [STARTED] Database open for business!..
+2020-01-19T20:01:12.704Z - debug: [STARTED] Database open for business!..
+2020-01-19T20:04:43.303Z - debug: [STARTED] Database open for business!..
+2020-01-19T20:04:54.157Z - debug: [STARTED] Database open for business!..
+2020-01-19T20:07:47.312Z - error: No user found with the provided userId
+2020-01-19T20:31:43.825Z - debug: [STARTED] Database open for business!..
+2020-01-19T20:35:14.994Z - debug: [STARTED] Database open for business!..
+2020-01-19T20:39:19.995Z - debug: [STARTED] Database open for business!..
+2020-01-19T20:44:22.043Z - debug: [STARTED] Database open for business!..
+2020-01-19T20:58:26.405Z - debug: [STARTED] Database open for business!..
