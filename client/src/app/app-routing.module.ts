@@ -16,6 +16,7 @@ import { SalesMainComponent } from './home/pages/sales/sales-main/sales-main.com
 import { SaleUhrenComponent } from './home/pages/sales/sale-uhren/sale-uhren.component';
 import { SaleSchmuckComponent } from './home/pages/sales/sale-schmuck/sale-schmuck.component';
 import { AktuelComponent } from './home/pages/aktuel/aktuel.component';
+import { ProductDetailComponent } from './dashboard/components/product-detail/product-detail.component';
 
 
 const routes: Routes = [
@@ -24,6 +25,7 @@ const routes: Routes = [
     redirectTo: '/home',
     pathMatch: 'full'
   },
+
   { path: 'home', component: HomeComponent },
   { path: 'aktuel', component: AktuelComponent},
   { path: 'login', component: LoginComponent},
