@@ -1,0 +1,307 @@
+2020-01-25T14:29:21.544Z - error: Failed to initialize database message=Please install sqlite3 package manually, stack=Error: Please install sqlite3 package manually
+    at new ConnectionManager (/Users/cemil/cddev/nodejs/ilyas/server/node_modules/sequelize/lib/dialects/sqlite/connection-manager.js:31:15)
+    at new SqliteDialect (/Users/cemil/cddev/nodejs/ilyas/server/node_modules/sequelize/lib/dialects/sqlite/index.js:14:30)
+    at new Sequelize (/Users/cemil/cddev/nodejs/ilyas/server/node_modules/sequelize/lib/sequelize.js:239:20)
+    at new Sequelize (/Users/cemil/cddev/nodejs/ilyas/server/node_modules/sequelize-typescript/lib/models/v4/Sequelize.js:24:13)
+    at new Models (/Users/cemil/cddev/nodejs/ilyas/server/dist/models/index.js:20:26)
+    at Function.initializeDatabase (/Users/cemil/cddev/nodejs/ilyas/server/dist/server.js:46:24)
+    at Function.<anonymous> (/Users/cemil/cddev/nodejs/ilyas/server/dist/server.js:31:34)
+    at Generator.next (<anonymous>)
+    at /Users/cemil/cddev/nodejs/ilyas/server/dist/server.js:7:71
+    at new Promise (<anonymous>)
+    at __awaiter (/Users/cemil/cddev/nodejs/ilyas/server/dist/server.js:3:12)
+    at Function.initializeApp (/Users/cemil/cddev/nodejs/ilyas/server/dist/server.js:24:16)
+    at Object.<anonymous> (/Users/cemil/cddev/nodejs/ilyas/server/dist/app.js:7:17)
+    at Module._compile (internal/modules/cjs/loader.js:955:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:991:10)
+    at Module.load (internal/modules/cjs/loader.js:811:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:723:14)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:1043:10)
+    at internal/main/run_main_module.js:17:11
+2020-01-25T15:07:41.475Z - debug: [STARTED] Database open for business!..
+2020-01-25T15:10:50.930Z - debug: [STARTED] Database open for business!..
+2020-01-25T15:11:35.154Z - debug: [STARTED] Database open for business!..
+2020-01-25T15:11:52.837Z - debug: [STARTED] Database open for business!..
+2020-01-25T15:12:24.678Z - debug: [STARTED] Database open for business!..
+2020-01-25T15:14:13.761Z - debug: [STARTED] Database open for business!..
+2020-01-25T15:14:33.004Z - debug: [STARTED] Database open for business!..
+2020-01-25T15:24:04.256Z - debug: [STARTED] Database open for business!..
+2020-01-25T15:24:55.493Z - debug: [STARTED] Database open for business!..
+2020-01-25T15:25:22.004Z - debug: [STARTED] Database open for business!..
+2020-01-25T15:25:28.586Z - debug: [STARTED] Database open for business!..
+2020-01-25T15:26:33.474Z - debug: [STARTED] Database open for business!..
+2020-01-25T15:26:52.808Z - debug: [STARTED] Database open for business!..
+2020-01-25T15:27:05.698Z - debug: [STARTED] Database open for business!..
+2020-01-25T15:27:25.104Z - debug: [STARTED] Database open for business!..
+2020-01-25T15:27:36.169Z - debug: [STARTED] Database open for business!..
+2020-01-25T15:27:46.509Z - debug: [STARTED] Database open for business!..
+2020-01-25T15:28:07.196Z - debug: [STARTED] Database open for business!..
+2020-01-25T15:28:30.297Z - debug: [STARTED] Database open for business!..
+2020-01-25T15:28:38.956Z - debug: [STARTED] Database open for business!..
+2020-01-25T15:28:56.440Z - debug: [STARTED] Database open for business!..
+2020-01-25T15:35:51.703Z - debug: [STARTED] Database open for business!..
+2020-01-25T15:36:34.124Z - debug: [STARTED] Database open for business!..
+2020-01-25T15:39:05.848Z - debug: [STARTED] Database open for business!..
+2020-01-25T15:39:19.500Z - debug: [STARTED] Database open for business!..
+2020-01-25T15:39:54.367Z - debug: [STARTED] Database open for business!..
+2020-01-25T15:40:21.161Z - debug: [STARTED] Database open for business!..
+2020-01-25T15:41:35.400Z - debug: [STARTED] Database open for business!..
+2020-01-25T15:42:09.814Z - debug: [STARTED] Database open for business!..
+2020-01-25T15:42:27.786Z - debug: [STARTED] Database open for business!..
+2020-01-25T15:42:48.751Z - debug: [STARTED] Database open for business!..
+2020-01-25T15:47:29.377Z - debug: [STARTED] Database open for business!..
+2020-01-25T15:51:19.288Z - debug: [STARTED] Database open for business!..
+2020-01-25T15:51:41.551Z - debug: [STARTED] Database open for business!..
+2020-01-25T15:52:02.172Z - debug: [STARTED] Database open for business!..
+2020-01-25T15:54:17.449Z - debug: [STARTED] Database open for business!..
+2020-01-25T15:55:35.821Z - debug: [STARTED] Database open for business!..
+2020-01-25T15:55:50.937Z - debug: [STARTED] Database open for business!..
+2020-01-25T15:59:40.843Z - debug: [STARTED] Database open for business!..
+2020-01-25T16:00:01.039Z - debug: [STARTED] Database open for business!..
+2020-01-25T16:00:17.927Z - debug: [STARTED] Database open for business!..
+2020-01-25T16:00:52.714Z - debug: [STARTED] Database open for business!..
+2020-01-25T16:01:58.749Z - debug: [STARTED] Database open for business!..
+2020-01-25T16:02:16.936Z - debug: [STARTED] Database open for business!..
+2020-01-25T16:02:34.318Z - debug: [STARTED] Database open for business!..
+2020-01-25T16:03:16.879Z - debug: [STARTED] Database open for business!..
+2020-01-25T16:03:28.183Z - debug: [STARTED] Database open for business!..
+2020-01-25T16:05:01.759Z - debug: [STARTED] Database open for business!..
+2020-01-25T16:05:16.394Z - debug: [STARTED] Database open for business!..
+2020-01-25T16:07:06.097Z - debug: [STARTED] Database open for business!..
+2020-01-25T16:11:10.993Z - debug: [STARTED] Database open for business!..
+2020-01-25T16:11:26.338Z - debug: [STARTED] Database open for business!..
+2020-01-25T16:12:29.910Z - debug: [STARTED] Database open for business!..
+2020-01-25T16:14:21.648Z - debug: [STARTED] Database open for business!..
+2020-01-25T16:14:44.814Z - debug: [STARTED] Database open for business!..
+2020-01-25T16:14:56.464Z - debug: [STARTED] Database open for business!..
+2020-01-25T16:16:33.295Z - debug: [STARTED] Database open for business!..
+2020-01-25T16:19:32.137Z - debug: [STARTED] Database open for business!..
+2020-01-25T16:21:28.681Z - debug: [STARTED] Database open for business!..
+2020-01-25T16:24:20.473Z - error: Failed to initialize database message=Cannot read property 'user_id' of undefined, stack=TypeError: Cannot read property 'user_id' of undefined
+    at new HasMany (/Users/cemil/cddev/nodejs/ilyas/server/node_modules/sequelize/lib/associations/has-many.js:76:34)
+    at Function.hasMany (/Users/cemil/cddev/nodejs/ilyas/server/node_modules/sequelize/lib/associations/mixin.js:26:25)
+    at Function._target.(anonymous function) [as hasMany] (/Users/cemil/cddev/nodejs/ilyas/server/node_modules/sequelize-typescript/lib/models/BaseModel.js:35:41)
+    at Object.processAssociation (/Users/cemil/cddev/nodejs/ilyas/server/node_modules/sequelize-typescript/lib/services/association.js:183:32)
+    at /Users/cemil/cddev/nodejs/ilyas/server/node_modules/sequelize-typescript/lib/models/BaseSequelize.js:80:80
+    at Array.forEach (<anonymous>)
+    at /Users/cemil/cddev/nodejs/ilyas/server/node_modules/sequelize-typescript/lib/models/BaseSequelize.js:80:26
+    at Array.forEach (<anonymous>)
+    at Sequelize.BaseSequelize.associateModels (/Users/cemil/cddev/nodejs/ilyas/server/node_modules/sequelize-typescript/lib/models/BaseSequelize.js:76:16)
+    at Sequelize.BaseSequelize.addModels (/Users/cemil/cddev/nodejs/ilyas/server/node_modules/sequelize-typescript/lib/models/BaseSequelize.js:62:14)
+    at Models.initModels (/Users/cemil/cddev/nodejs/ilyas/server/dist/models/index.js:35:24)
+    at Function.initializeDatabase (/Users/cemil/cddev/nodejs/ilyas/server/dist/server.js:47:23)
+    at Function.<anonymous> (/Users/cemil/cddev/nodejs/ilyas/server/dist/server.js:31:34)
+    at Generator.next (<anonymous>)
+    at /Users/cemil/cddev/nodejs/ilyas/server/dist/server.js:7:71
+    at new Promise (<anonymous>)
+    at __awaiter (/Users/cemil/cddev/nodejs/ilyas/server/dist/server.js:3:12)
+    at Function.initializeApp (/Users/cemil/cddev/nodejs/ilyas/server/dist/server.js:24:16)
+    at Object.<anonymous> (/Users/cemil/cddev/nodejs/ilyas/server/dist/app.js:7:17)
+    at Module._compile (internal/modules/cjs/loader.js:689:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:700:10)
+    at Module.load (internal/modules/cjs/loader.js:599:32)
+2020-01-25T16:26:43.529Z - error: Failed to initialize database message=Cannot read property 'user_id' of undefined, stack=TypeError: Cannot read property 'user_id' of undefined
+    at new HasMany (/Users/cemil/cddev/nodejs/ilyas/server/node_modules/sequelize/lib/associations/has-many.js:76:34)
+    at Function.hasMany (/Users/cemil/cddev/nodejs/ilyas/server/node_modules/sequelize/lib/associations/mixin.js:26:25)
+    at Function._target.(anonymous function) [as hasMany] (/Users/cemil/cddev/nodejs/ilyas/server/node_modules/sequelize-typescript/lib/models/BaseModel.js:35:41)
+    at Object.processAssociation (/Users/cemil/cddev/nodejs/ilyas/server/node_modules/sequelize-typescript/lib/services/association.js:183:32)
+    at /Users/cemil/cddev/nodejs/ilyas/server/node_modules/sequelize-typescript/lib/models/BaseSequelize.js:80:80
+    at Array.forEach (<anonymous>)
+    at /Users/cemil/cddev/nodejs/ilyas/server/node_modules/sequelize-typescript/lib/models/BaseSequelize.js:80:26
+    at Array.forEach (<anonymous>)
+    at Sequelize.BaseSequelize.associateModels (/Users/cemil/cddev/nodejs/ilyas/server/node_modules/sequelize-typescript/lib/models/BaseSequelize.js:76:16)
+    at Sequelize.BaseSequelize.addModels (/Users/cemil/cddev/nodejs/ilyas/server/node_modules/sequelize-typescript/lib/models/BaseSequelize.js:62:14)
+    at Models.initModels (/Users/cemil/cddev/nodejs/ilyas/server/dist/models/index.js:35:24)
+    at Function.initializeDatabase (/Users/cemil/cddev/nodejs/ilyas/server/dist/server.js:47:23)
+    at Function.<anonymous> (/Users/cemil/cddev/nodejs/ilyas/server/dist/server.js:31:34)
+    at Generator.next (<anonymous>)
+    at /Users/cemil/cddev/nodejs/ilyas/server/dist/server.js:7:71
+    at new Promise (<anonymous>)
+    at __awaiter (/Users/cemil/cddev/nodejs/ilyas/server/dist/server.js:3:12)
+    at Function.initializeApp (/Users/cemil/cddev/nodejs/ilyas/server/dist/server.js:24:16)
+    at Object.<anonymous> (/Users/cemil/cddev/nodejs/ilyas/server/dist/app.js:7:17)
+    at Module._compile (internal/modules/cjs/loader.js:689:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:700:10)
+    at Module.load (internal/modules/cjs/loader.js:599:32)
+2020-01-25T16:27:04.438Z - error: Failed to initialize database message=Foreign key for "User" is missing on "Address"., stack=Error: Foreign key for "User" is missing on "Address".
+    at getForeignKey (/Users/cemil/cddev/nodejs/ilyas/server/node_modules/sequelize-typescript/lib/services/association.js:100:11)
+    at Object.processAssociation (/Users/cemil/cddev/nodejs/ilyas/server/node_modules/sequelize-typescript/lib/services/association.js:168:22)
+    at /Users/cemil/cddev/nodejs/ilyas/server/node_modules/sequelize-typescript/lib/models/BaseSequelize.js:80:80
+    at Array.forEach (<anonymous>)
+    at /Users/cemil/cddev/nodejs/ilyas/server/node_modules/sequelize-typescript/lib/models/BaseSequelize.js:80:26
+    at Array.forEach (<anonymous>)
+    at Sequelize.BaseSequelize.associateModels (/Users/cemil/cddev/nodejs/ilyas/server/node_modules/sequelize-typescript/lib/models/BaseSequelize.js:76:16)
+    at Sequelize.BaseSequelize.addModels (/Users/cemil/cddev/nodejs/ilyas/server/node_modules/sequelize-typescript/lib/models/BaseSequelize.js:62:14)
+    at Models.initModels (/Users/cemil/cddev/nodejs/ilyas/server/dist/models/index.js:35:24)
+    at Function.initializeDatabase (/Users/cemil/cddev/nodejs/ilyas/server/dist/server.js:47:23)
+    at Function.<anonymous> (/Users/cemil/cddev/nodejs/ilyas/server/dist/server.js:31:34)
+    at Generator.next (<anonymous>)
+    at /Users/cemil/cddev/nodejs/ilyas/server/dist/server.js:7:71
+    at new Promise (<anonymous>)
+    at __awaiter (/Users/cemil/cddev/nodejs/ilyas/server/dist/server.js:3:12)
+    at Function.initializeApp (/Users/cemil/cddev/nodejs/ilyas/server/dist/server.js:24:16)
+    at Object.<anonymous> (/Users/cemil/cddev/nodejs/ilyas/server/dist/app.js:7:17)
+    at Module._compile (internal/modules/cjs/loader.js:689:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:700:10)
+    at Module.load (internal/modules/cjs/loader.js:599:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:538:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:530:3)
+2020-01-25T16:28:04.961Z - error: Failed to initialize database message=Cannot read property 'user_id' of undefined, stack=TypeError: Cannot read property 'user_id' of undefined
+    at new HasMany (/Users/cemil/cddev/nodejs/ilyas/server/node_modules/sequelize/lib/associations/has-many.js:76:34)
+    at Function.hasMany (/Users/cemil/cddev/nodejs/ilyas/server/node_modules/sequelize/lib/associations/mixin.js:26:25)
+    at Function._target.(anonymous function) [as hasMany] (/Users/cemil/cddev/nodejs/ilyas/server/node_modules/sequelize-typescript/lib/models/BaseModel.js:35:41)
+    at Object.processAssociation (/Users/cemil/cddev/nodejs/ilyas/server/node_modules/sequelize-typescript/lib/services/association.js:183:32)
+    at /Users/cemil/cddev/nodejs/ilyas/server/node_modules/sequelize-typescript/lib/models/BaseSequelize.js:80:80
+    at Array.forEach (<anonymous>)
+    at /Users/cemil/cddev/nodejs/ilyas/server/node_modules/sequelize-typescript/lib/models/BaseSequelize.js:80:26
+    at Array.forEach (<anonymous>)
+    at Sequelize.BaseSequelize.associateModels (/Users/cemil/cddev/nodejs/ilyas/server/node_modules/sequelize-typescript/lib/models/BaseSequelize.js:76:16)
+    at Sequelize.BaseSequelize.addModels (/Users/cemil/cddev/nodejs/ilyas/server/node_modules/sequelize-typescript/lib/models/BaseSequelize.js:62:14)
+    at Models.initModels (/Users/cemil/cddev/nodejs/ilyas/server/dist/models/index.js:35:24)
+    at Function.initializeDatabase (/Users/cemil/cddev/nodejs/ilyas/server/dist/server.js:47:23)
+    at Function.<anonymous> (/Users/cemil/cddev/nodejs/ilyas/server/dist/server.js:31:34)
+    at Generator.next (<anonymous>)
+    at /Users/cemil/cddev/nodejs/ilyas/server/dist/server.js:7:71
+    at new Promise (<anonymous>)
+    at __awaiter (/Users/cemil/cddev/nodejs/ilyas/server/dist/server.js:3:12)
+    at Function.initializeApp (/Users/cemil/cddev/nodejs/ilyas/server/dist/server.js:24:16)
+    at Object.<anonymous> (/Users/cemil/cddev/nodejs/ilyas/server/dist/app.js:7:17)
+    at Module._compile (internal/modules/cjs/loader.js:689:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:700:10)
+    at Module.load (internal/modules/cjs/loader.js:599:32)
+2020-01-25T16:29:55.022Z - error: Failed to initialize database message=Cannot read property 'userId' of undefined, stack=TypeError: Cannot read property 'userId' of undefined
+    at new HasMany (/Users/cemil/cddev/nodejs/ilyas/server/node_modules/sequelize/lib/associations/has-many.js:76:34)
+    at Function.hasMany (/Users/cemil/cddev/nodejs/ilyas/server/node_modules/sequelize/lib/associations/mixin.js:26:25)
+    at Function._target.(anonymous function) [as hasMany] (/Users/cemil/cddev/nodejs/ilyas/server/node_modules/sequelize-typescript/lib/models/BaseModel.js:35:41)
+    at Object.processAssociation (/Users/cemil/cddev/nodejs/ilyas/server/node_modules/sequelize-typescript/lib/services/association.js:183:32)
+    at /Users/cemil/cddev/nodejs/ilyas/server/node_modules/sequelize-typescript/lib/models/BaseSequelize.js:80:80
+    at Array.forEach (<anonymous>)
+    at /Users/cemil/cddev/nodejs/ilyas/server/node_modules/sequelize-typescript/lib/models/BaseSequelize.js:80:26
+    at Array.forEach (<anonymous>)
+    at Sequelize.BaseSequelize.associateModels (/Users/cemil/cddev/nodejs/ilyas/server/node_modules/sequelize-typescript/lib/models/BaseSequelize.js:76:16)
+    at Sequelize.BaseSequelize.addModels (/Users/cemil/cddev/nodejs/ilyas/server/node_modules/sequelize-typescript/lib/models/BaseSequelize.js:62:14)
+    at Models.initModels (/Users/cemil/cddev/nodejs/ilyas/server/dist/models/index.js:35:24)
+    at Function.initializeDatabase (/Users/cemil/cddev/nodejs/ilyas/server/dist/server.js:47:23)
+    at Function.<anonymous> (/Users/cemil/cddev/nodejs/ilyas/server/dist/server.js:31:34)
+    at Generator.next (<anonymous>)
+    at /Users/cemil/cddev/nodejs/ilyas/server/dist/server.js:7:71
+    at new Promise (<anonymous>)
+    at __awaiter (/Users/cemil/cddev/nodejs/ilyas/server/dist/server.js:3:12)
+    at Function.initializeApp (/Users/cemil/cddev/nodejs/ilyas/server/dist/server.js:24:16)
+    at Object.<anonymous> (/Users/cemil/cddev/nodejs/ilyas/server/dist/app.js:7:17)
+    at Module._compile (internal/modules/cjs/loader.js:689:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:700:10)
+    at Module.load (internal/modules/cjs/loader.js:599:32)
+2020-01-25T16:30:09.190Z - error: Failed to initialize database message=Cannot read property 'userId' of undefined, stack=TypeError: Cannot read property 'userId' of undefined
+    at new HasMany (/Users/cemil/cddev/nodejs/ilyas/server/node_modules/sequelize/lib/associations/has-many.js:76:34)
+    at Function.hasMany (/Users/cemil/cddev/nodejs/ilyas/server/node_modules/sequelize/lib/associations/mixin.js:26:25)
+    at Function._target.(anonymous function) [as hasMany] (/Users/cemil/cddev/nodejs/ilyas/server/node_modules/sequelize-typescript/lib/models/BaseModel.js:35:41)
+    at Object.processAssociation (/Users/cemil/cddev/nodejs/ilyas/server/node_modules/sequelize-typescript/lib/services/association.js:183:32)
+    at /Users/cemil/cddev/nodejs/ilyas/server/node_modules/sequelize-typescript/lib/models/BaseSequelize.js:80:80
+    at Array.forEach (<anonymous>)
+    at /Users/cemil/cddev/nodejs/ilyas/server/node_modules/sequelize-typescript/lib/models/BaseSequelize.js:80:26
+    at Array.forEach (<anonymous>)
+    at Sequelize.BaseSequelize.associateModels (/Users/cemil/cddev/nodejs/ilyas/server/node_modules/sequelize-typescript/lib/models/BaseSequelize.js:76:16)
+    at Sequelize.BaseSequelize.addModels (/Users/cemil/cddev/nodejs/ilyas/server/node_modules/sequelize-typescript/lib/models/BaseSequelize.js:62:14)
+    at Models.initModels (/Users/cemil/cddev/nodejs/ilyas/server/dist/models/index.js:35:24)
+    at Function.initializeDatabase (/Users/cemil/cddev/nodejs/ilyas/server/dist/server.js:47:23)
+    at Function.<anonymous> (/Users/cemil/cddev/nodejs/ilyas/server/dist/server.js:31:34)
+    at Generator.next (<anonymous>)
+    at /Users/cemil/cddev/nodejs/ilyas/server/dist/server.js:7:71
+    at new Promise (<anonymous>)
+    at __awaiter (/Users/cemil/cddev/nodejs/ilyas/server/dist/server.js:3:12)
+    at Function.initializeApp (/Users/cemil/cddev/nodejs/ilyas/server/dist/server.js:24:16)
+    at Object.<anonymous> (/Users/cemil/cddev/nodejs/ilyas/server/dist/app.js:7:17)
+    at Module._compile (internal/modules/cjs/loader.js:689:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:700:10)
+    at Module.load (internal/modules/cjs/loader.js:599:32)
+2020-01-25T16:33:52.300Z - error: Failed to initialize database message=Cannot read property 'userId' of undefined, stack=TypeError: Cannot read property 'userId' of undefined
+    at new HasMany (/Users/cemil/cddev/nodejs/ilyas/server/node_modules/sequelize/lib/associations/has-many.js:76:34)
+    at Function.hasMany (/Users/cemil/cddev/nodejs/ilyas/server/node_modules/sequelize/lib/associations/mixin.js:26:25)
+    at Function._target.(anonymous function) [as hasMany] (/Users/cemil/cddev/nodejs/ilyas/server/node_modules/sequelize-typescript/lib/models/BaseModel.js:35:41)
+    at Object.processAssociation (/Users/cemil/cddev/nodejs/ilyas/server/node_modules/sequelize-typescript/lib/services/association.js:183:32)
+    at /Users/cemil/cddev/nodejs/ilyas/server/node_modules/sequelize-typescript/lib/models/BaseSequelize.js:80:80
+    at Array.forEach (<anonymous>)
+    at /Users/cemil/cddev/nodejs/ilyas/server/node_modules/sequelize-typescript/lib/models/BaseSequelize.js:80:26
+    at Array.forEach (<anonymous>)
+    at Sequelize.BaseSequelize.associateModels (/Users/cemil/cddev/nodejs/ilyas/server/node_modules/sequelize-typescript/lib/models/BaseSequelize.js:76:16)
+    at Sequelize.BaseSequelize.addModels (/Users/cemil/cddev/nodejs/ilyas/server/node_modules/sequelize-typescript/lib/models/BaseSequelize.js:62:14)
+    at Models.initModels (/Users/cemil/cddev/nodejs/ilyas/server/dist/models/index.js:37:24)
+    at Function.initializeDatabase (/Users/cemil/cddev/nodejs/ilyas/server/dist/server.js:47:23)
+    at Function.<anonymous> (/Users/cemil/cddev/nodejs/ilyas/server/dist/server.js:31:34)
+    at Generator.next (<anonymous>)
+    at /Users/cemil/cddev/nodejs/ilyas/server/dist/server.js:7:71
+    at new Promise (<anonymous>)
+    at __awaiter (/Users/cemil/cddev/nodejs/ilyas/server/dist/server.js:3:12)
+    at Function.initializeApp (/Users/cemil/cddev/nodejs/ilyas/server/dist/server.js:24:16)
+    at Object.<anonymous> (/Users/cemil/cddev/nodejs/ilyas/server/dist/app.js:7:17)
+    at Module._compile (internal/modules/cjs/loader.js:689:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:700:10)
+    at Module.load (internal/modules/cjs/loader.js:599:32)
+2020-01-25T16:33:58.300Z - debug: [STARTED] Database open for business!..
+2020-01-25T16:36:51.967Z - debug: [STARTED] Database open for business!..
+2020-01-25T16:37:05.163Z - error: Failed to initialize database message=Foreign key for "Order" is missing on "Address"., stack=Error: Foreign key for "Order" is missing on "Address".
+    at getForeignKey (/Users/cemil/cddev/nodejs/ilyas/server/node_modules/sequelize-typescript/lib/services/association.js:100:11)
+    at Object.processAssociation (/Users/cemil/cddev/nodejs/ilyas/server/node_modules/sequelize-typescript/lib/services/association.js:168:22)
+    at /Users/cemil/cddev/nodejs/ilyas/server/node_modules/sequelize-typescript/lib/models/BaseSequelize.js:80:80
+    at Array.forEach (<anonymous>)
+    at /Users/cemil/cddev/nodejs/ilyas/server/node_modules/sequelize-typescript/lib/models/BaseSequelize.js:80:26
+    at Array.forEach (<anonymous>)
+    at Sequelize.BaseSequelize.associateModels (/Users/cemil/cddev/nodejs/ilyas/server/node_modules/sequelize-typescript/lib/models/BaseSequelize.js:76:16)
+    at Sequelize.BaseSequelize.addModels (/Users/cemil/cddev/nodejs/ilyas/server/node_modules/sequelize-typescript/lib/models/BaseSequelize.js:62:14)
+    at Models.initModels (/Users/cemil/cddev/nodejs/ilyas/server/dist/models/index.js:44:24)
+    at Function.initializeDatabase (/Users/cemil/cddev/nodejs/ilyas/server/dist/server.js:47:23)
+    at Function.<anonymous> (/Users/cemil/cddev/nodejs/ilyas/server/dist/server.js:31:34)
+    at Generator.next (<anonymous>)
+    at /Users/cemil/cddev/nodejs/ilyas/server/dist/server.js:7:71
+    at new Promise (<anonymous>)
+    at __awaiter (/Users/cemil/cddev/nodejs/ilyas/server/dist/server.js:3:12)
+    at Function.initializeApp (/Users/cemil/cddev/nodejs/ilyas/server/dist/server.js:24:16)
+    at Object.<anonymous> (/Users/cemil/cddev/nodejs/ilyas/server/dist/app.js:7:17)
+    at Module._compile (internal/modules/cjs/loader.js:689:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:700:10)
+    at Module.load (internal/modules/cjs/loader.js:599:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:538:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:530:3)
+2020-01-25T16:37:48.926Z - error: Failed to initialize database message=Foreign key for "Order" is missing on "Address"., stack=Error: Foreign key for "Order" is missing on "Address".
+    at getForeignKey (/Users/cemil/cddev/nodejs/ilyas/server/node_modules/sequelize-typescript/lib/services/association.js:100:11)
+    at Object.processAssociation (/Users/cemil/cddev/nodejs/ilyas/server/node_modules/sequelize-typescript/lib/services/association.js:168:22)
+    at /Users/cemil/cddev/nodejs/ilyas/server/node_modules/sequelize-typescript/lib/models/BaseSequelize.js:80:80
+    at Array.forEach (<anonymous>)
+    at /Users/cemil/cddev/nodejs/ilyas/server/node_modules/sequelize-typescript/lib/models/BaseSequelize.js:80:26
+    at Array.forEach (<anonymous>)
+    at Sequelize.BaseSequelize.associateModels (/Users/cemil/cddev/nodejs/ilyas/server/node_modules/sequelize-typescript/lib/models/BaseSequelize.js:76:16)
+    at Sequelize.BaseSequelize.addModels (/Users/cemil/cddev/nodejs/ilyas/server/node_modules/sequelize-typescript/lib/models/BaseSequelize.js:62:14)
+    at Models.initModels (/Users/cemil/cddev/nodejs/ilyas/server/dist/models/index.js:44:24)
+    at Function.initializeDatabase (/Users/cemil/cddev/nodejs/ilyas/server/dist/server.js:47:23)
+    at Function.<anonymous> (/Users/cemil/cddev/nodejs/ilyas/server/dist/server.js:31:34)
+    at Generator.next (<anonymous>)
+    at /Users/cemil/cddev/nodejs/ilyas/server/dist/server.js:7:71
+    at new Promise (<anonymous>)
+    at __awaiter (/Users/cemil/cddev/nodejs/ilyas/server/dist/server.js:3:12)
+    at Function.initializeApp (/Users/cemil/cddev/nodejs/ilyas/server/dist/server.js:24:16)
+    at Object.<anonymous> (/Users/cemil/cddev/nodejs/ilyas/server/dist/app.js:7:17)
+    at Module._compile (internal/modules/cjs/loader.js:689:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:700:10)
+    at Module.load (internal/modules/cjs/loader.js:599:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:538:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:530:3)
+2020-01-25T16:40:09.564Z - debug: [STARTED] Database open for business!..
+2020-01-25T16:45:04.539Z - debug: [STARTED] Database open for business!..
+2020-01-25T16:45:38.208Z - debug: [STARTED] Database open for business!..
+2020-01-25T16:50:37.980Z - debug: [STARTED] Database open for business!..
+2020-01-25T16:52:28.232Z - debug: [STARTED] Database open for business!..
+2020-01-25T16:55:25.396Z - debug: [STARTED] Database open for business!..
+2020-01-25T16:58:58.709Z - debug: [STARTED] Database open for business!..
+2020-01-25T17:07:16.405Z - debug: [STARTED] Database open for business!..
+2020-01-25T17:09:02.574Z - debug: [STARTED] Database open for business!..
+2020-01-25T17:10:56.760Z - error: uncaughtException: Cannot find module 'models' date=Sat Jan 25 2020 18:10:56 GMT+0100 (GMT+01:00), pid=35318, uid=501, gid=20, cwd=/Users/cemil/cddev/nodejs/ilyas/server, execPath=/Users/cemil/.nvm/versions/node/v10.6.0/bin/node, version=v10.6.0, argv=[/Users/cemil/.nvm/versions/node/v10.6.0/bin/node, /Users/cemil/cddev/nodejs/ilyas/server/dist/app.js], rss=53374976, heapTotal=39194624, heapUsed=21448968, external=134906, loadavg=[1.3916015625, 1.5595703125, 1.705078125], uptime=1674653, trace=[column=15, file=internal/modules/cjs/loader.js, function=Module._resolveFilename, line=581, method=_resolveFilename, native=false, column=25, file=internal/modules/cjs/loader.js, function=Module._load, line=507, method=_load, native=false, column=17, file=internal/modules/cjs/loader.js, function=Module.require, line=637, method=require, native=false, column=18, file=internal/modules/cjs/helpers.js, function=require, line=20, method=null, native=false, column=18, file=/Users/cemil/cddev/nodejs/ilyas/server/dist/controllers/UserController.js, function=null, line=16, method=null, native=false, column=30, file=internal/modules/cjs/loader.js, function=Module._compile, line=689, method=_compile, native=false, column=10, file=internal/modules/cjs/loader.js, function=Module._extensions..js, line=700, method=.js, native=false, column=32, file=internal/modules/cjs/loader.js, function=Module.load, line=599, method=load, native=false, column=12, file=internal/modules/cjs/loader.js, function=tryModuleLoad, line=538, method=null, native=false, column=3, file=internal/modules/cjs/loader.js, function=Module._load, line=530, method=_load, native=false, column=17, file=internal/modules/cjs/loader.js, function=Module.require, line=637, method=require, native=false, column=18, file=internal/modules/cjs/helpers.js, function=require, line=20, method=null, native=false, column=26, file=/Users/cemil/cddev/nodejs/ilyas/server/dist/routes/UserRouter.js, function=null, line=12, method=null, native=false, column=30, file=internal/modules/cjs/loader.js, function=Module._compile, line=689, method=_compile, native=false, column=10, file=internal/modules/cjs/loader.js, function=Module._extensions..js, line=700, method=.js, native=false, column=32, file=internal/modules/cjs/loader.js, function=Module.load, line=599, method=load, native=false, column=12, file=internal/modules/cjs/loader.js, function=tryModuleLoad, line=538, method=null, native=false, column=3, file=internal/modules/cjs/loader.js, function=Module._load, line=530, method=_load, native=false, column=17, file=internal/modules/cjs/loader.js, function=Module.require, line=637, method=require, native=false, column=18, file=internal/modules/cjs/helpers.js, function=require, line=20, method=null, native=false, column=22, file=/Users/cemil/cddev/nodejs/ilyas/server/dist/routes/index.js, function=null, line=4, method=null, native=false, column=30, file=internal/modules/cjs/loader.js, function=Module._compile, line=689, method=_compile, native=false], stack=[Error: Cannot find module 'models',     at Function.Module._resolveFilename (internal/modules/cjs/loader.js:581:15),     at Function.Module._load (internal/modules/cjs/loader.js:507:25),     at Module.require (internal/modules/cjs/loader.js:637:17),     at require (internal/modules/cjs/helpers.js:20:18),     at Object.<anonymous> (/Users/cemil/cddev/nodejs/ilyas/server/dist/controllers/UserController.js:16:18),     at Module._compile (internal/modules/cjs/loader.js:689:30),     at Object.Module._extensions..js (internal/modules/cjs/loader.js:700:10),     at Module.load (internal/modules/cjs/loader.js:599:32),     at tryModuleLoad (internal/modules/cjs/loader.js:538:12),     at Function.Module._load (internal/modules/cjs/loader.js:530:3),     at Module.require (internal/modules/cjs/loader.js:637:17),     at require (internal/modules/cjs/helpers.js:20:18),     at Object.<anonymous> (/Users/cemil/cddev/nodejs/ilyas/server/dist/routes/UserRouter.js:12:26),     at Module._compile (internal/modules/cjs/loader.js:689:30),     at Object.Module._extensions..js (internal/modules/cjs/loader.js:700:10),     at Module.load (internal/modules/cjs/loader.js:599:32),     at tryModuleLoad (internal/modules/cjs/loader.js:538:12),     at Function.Module._load (internal/modules/cjs/loader.js:530:3),     at Module.require (internal/modules/cjs/loader.js:637:17),     at require (internal/modules/cjs/helpers.js:20:18),     at Object.<anonymous> (/Users/cemil/cddev/nodejs/ilyas/server/dist/routes/index.js:4:22),     at Module._compile (internal/modules/cjs/loader.js:689:30)]
+2020-01-25T17:11:45.725Z - debug: [STARTED] Database open for business!..
+2020-01-25T17:12:46.619Z - debug: [STARTED] Database open for business!..
+2020-01-25T17:19:05.921Z - debug: [STARTED] Database open for business!..
+2020-01-25T17:19:26.178Z - debug: [STARTED] Database open for business!..
+2020-01-25T17:21:49.163Z - debug: [STARTED] Database open for business!..
+2020-01-25T17:23:13.958Z - debug: [STARTED] Database open for business!..
+2020-01-25T17:23:21.168Z - error: No user found with the provided userId
+2020-01-25T17:36:52.182Z - debug: [STARTED] Database open for business!..
+2020-01-25T17:36:56.503Z - error: No user found with the provided userId

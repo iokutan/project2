@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { OrderServiceService } from '../../services/order-service.service';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -7,10 +8,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./orders.component.css']
 })
 export class OrdersComponent implements OnInit {
-
-  constructor() { }
+  public orders: any [];
+  constructor(private orderService: OrderServiceService) { }
 
   ngOnInit() {
+    this.orderService.getAll().subscribe(data => { this.orders = data; });
+    console.log(this.orders);
   }
 
 }

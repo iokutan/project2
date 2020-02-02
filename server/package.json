@@ -19,8 +19,8 @@
     "sqlz:seed:create": "node_modules/.bin/sequelize  seed:generate"
   },
   "dependencies": {
-    "amqplib": "^0.5.2",
-    "aws-sdk": "^2.175.0",
+    "@types/express-serve-static-core": "^4.17.2",
+    "@types/superagent": "^4.1.4",
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.14.1",
     "compression": "^1.7.1",
@@ -43,8 +43,6 @@
     "nodemailer": "^4.7.0",
     "oauth2orize": "^1.2.0",
     "passport": "^0.4.0",
-    "passport-facebook-token": "^3.3.0",
-    "passport-google-oauth20": "^1.0.0",
     "passport-http": "^0.3.0",
     "passport-http-bearer": "^1.0.1",
     "passport-http-oauth": "^0.1.3",
@@ -73,7 +71,7 @@
     "@types/lodash": "^4.14.63",
     "@types/morgan": "^1.7.32",
     "@types/multer": "^1.3.6",
-    "@types/node": "^8.0.53",
+    "@types/node": "^8.10.59",
     "@types/passport": "^0.3.3",
     "@types/request": "0.0.45",
     "@types/sequelize": "^4.0.79",
@@ -85,6 +83,6 @@
     "ts-node": "^3.3.0",
     "tsc-watch": "^1.0.29",
     "tslint": "^5.0.0",
-    "typescript": "^2.6.1"
+    "typescript": "^3.5.1"
   }
 }

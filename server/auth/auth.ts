@@ -17,25 +17,20 @@ export class Auth {
         });
 
         passport.deserializeUser(function (userId: string, done) {
-            User.find<User>({where: {userId}}).then(function (user: User) {
+            User.findOne<User>({where: {userId}}).then(function (user: User) {
                 done(null, user);
             });
         });
     }
 
-    /**
-     * LocalStrategy
-     *
-     * This strategy is used to authenticate users based on a username and password.
-     * Anytime a request is made to authorize an application, we must ensure that
-     * a user is logged in before asking them to approve the request.
-     */
     static useLocalStrategy() {
         passport.use(new LocalStrategy( async(userName, password, done) => {
             try {
                 const user = await User.findOne<User>({where: {email: userName}});
+                
                 if(user) {
                     const authorized = await this.comparePasswords(password, user.password);
+                    console.log("user", authorized, password, user.password);
                     if(authorized) {
                        return done(null, _.get(user, 'dataValues'));
                     } else {
@@ -59,14 +54,6 @@ export class Auth {
         }
     }
 
-    /**
-     * BearerStrategy
-     *
-     * This strategy is used to authenticate users based on an access token (aka a
-     * bearer token).  The user must have previously authorized a client
-     * application, which is issued an access token to make requests on behalf of
-     * the authorizing user.
-     */
     static useBearerStrategy() {
         passport.use(new BearerStrategy((token, done) => {
             AccessToken.findOne<AccessToken>({where: {token: token}}).then(accessToken => {
@@ -76,7 +63,7 @@ export class Auth {
                         verify(accessToken.token, jwtSecret, (err, decodedToken: any) => {
                             if (decodedToken && accessToken.userId === decodedToken.userId) {
 
-                                User.find(
+                                User.findOne(
                                   {
                                     where:
                                     {

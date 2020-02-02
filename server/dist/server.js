@@ -1,9 +1,10 @@
 "use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
         function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
         function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
@@ -16,7 +17,7 @@ const databaseSettings = require("./config/config");
 const cors = require("cors");
 const auth_1 = require("./auth/auth");
 const models_1 = require("./models");
-const index_1 = require("./routes/index");
+const index_1 = require("./controllers/index");
 const logger_1 = require("./lib/logger");
 class Server {
     constructor() { }
@@ -26,14 +27,14 @@ class Server {
                 Server.app = express();
                 Server.configureApp();
                 Server.initializeAuth();
-                index_1.Router.initializeRoutes(Server.app);
                 try {
                     yield Server.initializeDatabase();
-                    logger_1.logger.debug('[STARTED] Database open for business!..');
+                    logger_1.logger.debug('Database open [STARTED]...');
                 }
                 catch (error) {
                     logger_1.logger.error('Failed to initialize database', error);
                 }
+                index_1.Controller.initializeControllers(Server.app);
                 return Server.app.listen(Server.app.get('port'));
             }
             catch (error) {
@@ -42,7 +43,7 @@ class Server {
         });
     }
     static initializeDatabase() {
-        const sequelizeConfig = databaseSettings.config;
+        const sequelizeConfig = databaseSettings.config.development;
         const models = new models_1.Models(sequelizeConfig);
         return models.initModels();
     }

@@ -11,8 +11,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const sequelize_typescript_1 = require("sequelize-typescript");
 const AccessToken_1 = require("./AccessToken");
+const Address_1 = require("./Address");
 const BaseModel_1 = require("./BaseModel");
+const utils_1 = require("../../utils");
 let User = class User extends BaseModel_1.BaseModel {
+    static encryptPassword(instance) {
+        instance.password = utils_1.Utils.encryptPassword(instance.password);
+    }
 };
 __decorate([
     sequelize_typescript_1.IsUUID(4),
@@ -31,6 +36,11 @@ __decorate([
     sequelize_typescript_1.Column,
     __metadata("design:type", String)
 ], User.prototype, "lastName", void 0);
+__decorate([
+    sequelize_typescript_1.AllowNull(true),
+    sequelize_typescript_1.Column,
+    __metadata("design:type", String)
+], User.prototype, "phone", void 0);
 __decorate([
     sequelize_typescript_1.AllowNull(false),
     sequelize_typescript_1.IsEmail,
@@ -52,6 +62,17 @@ __decorate([
     sequelize_typescript_1.HasOne(() => AccessToken_1.AccessToken),
     __metadata("design:type", AccessToken_1.AccessToken)
 ], User.prototype, "accessToken", void 0);
+__decorate([
+    sequelize_typescript_1.HasMany(() => Address_1.Address),
+    __metadata("design:type", Array)
+], User.prototype, "addresses", void 0);
+__decorate([
+    sequelize_typescript_1.BeforeCreate,
+    sequelize_typescript_1.BeforeUpdate,
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [User]),
+    __metadata("design:returntype", void 0)
+], User, "encryptPassword", null);
 User = __decorate([
     sequelize_typescript_1.Table
 ], User);

@@ -1,9 +1,10 @@
 "use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
         function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
         function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
@@ -22,24 +23,18 @@ class Auth {
             done(null, user.userId);
         });
         passport.deserializeUser(function (userId, done) {
-            User_1.User.find({ where: { userId } }).then(function (user) {
+            User_1.User.findOne({ where: { userId } }).then(function (user) {
                 done(null, user);
             });
         });
     }
-    /**
-     * LocalStrategy
-     *
-     * This strategy is used to authenticate users based on a username and password.
-     * Anytime a request is made to authorize an application, we must ensure that
-     * a user is logged in before asking them to approve the request.
-     */
     static useLocalStrategy() {
         passport.use(new LocalStrategy((userName, password, done) => __awaiter(this, void 0, void 0, function* () {
             try {
                 const user = yield User_1.User.findOne({ where: { email: userName } });
                 if (user) {
                     const authorized = yield this.comparePasswords(password, user.password);
+                    console.log("user", authorized, password, user.password);
                     if (authorized) {
                         return done(null, _.get(user, 'dataValues'));
                     }
@@ -66,14 +61,6 @@ class Auth {
             }
         });
     }
-    /**
-     * BearerStrategy
-     *
-     * This strategy is used to authenticate users based on an access token (aka a
-     * bearer token).  The user must have previously authorized a client
-     * application, which is issued an access token to make requests on behalf of
-     * the authorizing user.
-     */
     static useBearerStrategy() {
         passport.use(new BearerStrategy((token, done) => {
             AccessToken_1.AccessToken.findOne({ where: { token: token } }).then(accessToken => {
@@ -82,7 +69,7 @@ class Auth {
                     if (jwtSecret) {
                         jsonwebtoken_1.verify(accessToken.token, jwtSecret, (err, decodedToken) => {
                             if (decodedToken && accessToken.userId === decodedToken.userId) {
-                                User_1.User.find({
+                                User_1.User.findOne({
                                     where: {
                                         userId: accessToken.userId
                                     }

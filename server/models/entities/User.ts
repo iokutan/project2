@@ -1,6 +1,9 @@
-import {AllowNull, Column, DataType, HasOne, IsEmail, Table, Unique, Default, PrimaryKey, IsUUID} from 'sequelize-typescript';
+import {AllowNull, Column, DataType, HasOne, IsEmail, Table, BeforeCreate,
+     Unique, Default, PrimaryKey, IsUUID, HasMany, BeforeUpdate} from 'sequelize-typescript';
 import {AccessToken} from "./AccessToken";
+import {Address} from "./Address";
 import {BaseModel} from "./BaseModel";
+import { Utils } from '../../utils';
 
 
 @Table
@@ -20,6 +23,10 @@ export class User extends BaseModel<User> {
     @Column
     lastName: string;
 
+    @AllowNull(true)
+    @Column
+    phone: string;
+
     @AllowNull(false)
     @IsEmail
     @Unique
@@ -36,4 +43,13 @@ export class User extends BaseModel<User> {
 
     @HasOne(() => AccessToken)
     accessToken: AccessToken;
+
+    @HasMany(() => Address)
+    addresses: Address[];
+
+    @BeforeCreate
+    @BeforeUpdate
+    static encryptPassword(instance: User) {
+      instance.password = Utils.encryptPassword(instance.password);
+    }
 }

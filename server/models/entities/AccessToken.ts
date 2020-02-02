@@ -20,7 +20,4 @@ export class AccessToken extends BaseModel<AccessToken> {
     @ForeignKey(() => User)
     @Column(DataType.UUID)
     userId: string;
-
-    @Column
-    clientId: string;
 }

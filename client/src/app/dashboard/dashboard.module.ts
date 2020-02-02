@@ -11,6 +11,7 @@ import { UserDetailComponent } from './components/user-detail/user-detail.compon
 import { MainComponent } from './main/main.component';
 import { DashNavComponent } from './components/dash-nav/dash-nav.component';
 import { DashHeaderComponent } from './components/dash-header/dash-header.component';
+import { DashboardRoutingModule } from './app-routing.module';
 
 
 
@@ -29,7 +30,8 @@ import { DashHeaderComponent } from './components/dash-header/dash-header.compon
     DashHeaderComponent],
 
     imports: [
-    CommonModule
+    CommonModule,
+    DashboardRoutingModule
   ]
 })
 export class DashboardModule { }

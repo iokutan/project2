@@ -1,14 +1,15 @@
-import * as express from 'express';
-import * as compression from 'compression';
-import * as bodyParser from 'body-parser';
-import * as passport from 'passport';
-import * as databaseSettings from './config/config';
-import * as http from 'http';
+import * as express from "express";
+import * as compression from "compression";
+import * as bodyParser from "body-parser";
+import * as passport from "passport";
+import * as databaseSettings from "./config/config";
+import * as http from "http";
 import * as cors  from 'cors';
-import {Auth} from './auth/auth';
-import {Models} from './models';
-import {Router} from './routes/index';
-import {logger} from './lib/logger';
+import {Auth} from "./auth/auth";
+import {Models} from "./models";
+import {Controller} from "./controllers/index";
+import {logger} from "./lib/logger";
+import * as _ from 'lodash';
 
 export class Server {
 
@@ -21,15 +22,16 @@ export class Server {
             Server.app = express();
             Server.configureApp();
             Server.initializeAuth();
-            Router.initializeRoutes(Server.app);
+            
 
             try {
                 await Server.initializeDatabase();
-                logger.debug('[STARTED] Database open for business!..');
+                logger.debug('Database open [STARTED]...');
             } catch(error) {
                 logger.error('Failed to initialize database', error);
             }
 
+            Controller.initializeControllers(Server.app);
             return Server.app.listen(Server.app.get('port'));
 
         } catch(error) {
@@ -39,7 +41,7 @@ export class Server {
     }
 
     private static initializeDatabase() {
-      const sequelizeConfig = databaseSettings.config;
+      const sequelizeConfig = databaseSettings.config.development;
       const models = new Models(sequelizeConfig);
       return models.initModels();
     }

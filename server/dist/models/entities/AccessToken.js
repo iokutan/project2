@@ -34,10 +34,6 @@ __decorate([
     sequelize_typescript_1.Column(sequelize_typescript_1.DataType.UUID),
     __metadata("design:type", String)
 ], AccessToken.prototype, "userId", void 0);
-__decorate([
-    sequelize_typescript_1.Column,
-    __metadata("design:type", String)
-], AccessToken.prototype, "clientId", void 0);
 AccessToken = __decorate([
     sequelize_typescript_1.Table
 ], AccessToken);
