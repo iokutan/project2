@@ -3,6 +3,7 @@
     <div class="col-md-6 {{line.position}} text-center">
       <h2 class="featurette-heading" [routerLink]="line.link" routerLinkActive="router-link-active" >{{line.title}}</h2>
       <p class="lead">{{line.description}}</p>
+      <p><a class="btn btn-secondary" [routerLink]="line.link" routerLinkActive="router-link-active" href="#" role="button">Weiter &raquo;</a></p>
     </div>
     <div class="col-md-6">
       <img [src]="line.image" class="w-100 p-3" height="300px" alt=""
