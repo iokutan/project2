@@ -2,7 +2,10 @@ import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpParams, HttpE
 import { Injectable } from '@angular/core';
 import { Observable, of, from} from 'rxjs';
 import { TokenService } from './token.service';
-@Injectable()
+
+@Injectable({
+  providedIn: 'root'
+})
 export class AuthInterceptor implements HttpInterceptor {
   constructor(tokenService: TokenService) {}
 

@@ -3,7 +3,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { TokenService } from './token.service';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class AppHttpService {
   private headers: HttpHeaders;
   private serverUrl: string;
@@ -12,7 +14,6 @@ export class AppHttpService {
   }
 
   post(endpoint, data): Observable<any> {
-    console.log("sdlknfaälskdfn", endpoint, data, `${this.serverUrl}${endpoint}`);
     return this.http.post(`${this.serverUrl}${endpoint}`, data);
   }
 

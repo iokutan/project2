@@ -13,22 +13,23 @@
       <thead>
         <tr>
           <th scope="col">Image</th>
-          <th scope="col">Titel</th>
-          <th scope="col">Description</th>
-          <th scope="col">Stock</th>
-          <th scope="col">Price</th>
-          <th scope="col">Settings</th>
+          <th scope="col">Name</th>
+          <th scope="col">Status</th>
+          <th scope="col">Discount</th>
+          <th scope="col">Total</th>
+          <th scope="col">Due date</th>
         </tr>
       </thead>
       <tbody class="text-align-center">
-        <tr>
+        <tr *ngFor="let item of orders">
           <td scope="row">
             <img src="./assets/images/certina.jpg"  style="width: 4rem; height: 4rem;" class="" alt="">
           </td>
-          <td>Rado</td>
-          <td>HerrenUhr</td>
-          <td>2</td>
-          <td>890.-</td>
+          <td>{{item.name}}</td>
+          <td>{{item.status}}</td>
+          <td>{{item.discount}}</td>
+          <td>{{item.total}}</td>
+          <td>{{item.due_date | date : 'mediumDate'}}</td>
           <td>
             <div>
               <button type="botton" class="btn btn-success" style="width: 5rem; height: 2rem;">Edit</button>
