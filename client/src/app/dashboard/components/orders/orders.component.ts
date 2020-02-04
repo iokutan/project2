@@ -13,7 +13,6 @@ export class OrdersComponent implements OnInit {
 
   ngOnInit() {
     this.orderService.getAll().subscribe(data => { this.orders = data; });
-    console.log(this.orders);
   }
 
 }
