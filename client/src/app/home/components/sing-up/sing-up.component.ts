@@ -16,8 +16,8 @@ export class SingUpComponent implements OnInit {
   loginForm: FormGroup;
 
   constructor(private loginService: AuthService,
-    private fb: FormBuilder,
-     private router: Router, private route: ActivatedRoute ) { }
+              private fb: FormBuilder,
+              private router: Router, private route: ActivatedRoute ) { }
 
   ngOnInit() {
     this.loginForm = this.fb.group({
@@ -29,14 +29,14 @@ export class SingUpComponent implements OnInit {
   login(form: FormGroup) {
     console.log(form);
     this.loginService.login(
-      form.get('email').value, 
+      form.get('email').value,
       form.get('password').value)
     .subscribe(
       (data) => {
           this.router.navigate(['/dashboard'], { relativeTo: this.route });
       },
       (error) => {
-        console.log('login was not successfull')
+        console.log('login was not successfull');
       }
     );
   }

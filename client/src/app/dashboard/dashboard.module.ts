@@ -12,7 +12,7 @@ import { MainComponent } from './main/main.component';
 import { DashNavComponent } from './components/dash-nav/dash-nav.component';
 import { DashHeaderComponent } from './components/dash-header/dash-header.component';
 import { DashboardRoutingModule } from './app-routing.module';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -31,7 +31,9 @@ import { DashboardRoutingModule } from './app-routing.module';
 
     imports: [
     CommonModule,
-    DashboardRoutingModule
+    DashboardRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class DashboardModule { }
