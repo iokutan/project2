@@ -1,43 +1,53 @@
 <div class="">
-    <div class="row">
+  <div class="row">
+    <form [formGroup]="orderForm" (ngSubmit)="add()" class="row">
       <div class="row col-sm-5 text-center">
         <img src="./assets/images/tracking.jpg" class="w-100 rounded" alt="...">
       </div>
       <div class="col-sm-6 m-5">
         <div class="input-group mb-3">
           <div class="custom-file">
-            <input type="file" class="custom-file-input" id="inputGroupFile02">
-            <label class="custom-file-label" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02">Choose
-              Image</label>
-          </div>
-          <div class="input-group-append">
-            <span class="input-group-text" id="inputGroupFileAddon02">Upload</span>
+            <input type="file" class="custom-file-input form-control" formControlName="image" id="inputGroupFile02">
+            <label class="custom-file-label" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02">Choose Image</label>
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Titel">
+          <select class="custom-select form-control" formControlName="status" placeholder="Select Status" >
+            <option value="" disabled selected>Status</option>
+            <option value="1">in Bearbeitung</option>
+            <option value="2">Bereit</option>
+          </select>
+          <i class="fas fa-exclamation"
+            *ngIf="orderForm.get('status').hasError('required') && orderForm.get('status').touched"></i>
         </div>
         <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Description">
+          <input type="text" class="form-control" formControlName="titel" placeholder="Titel">
+          <i class="fas fa-exclamation"
+            *ngIf="orderForm.get('titel').hasError('required') && orderForm.get('titel').touched"></i>
         </div>
         <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Price">
-          </div>
+          <input type="text" class="form-control" formControlName="description" placeholder="Description">
+          <i class="fas fa-exclamation"
+            *ngIf="orderForm.get('description').hasError('required') && orderForm.get('description').touched"></i>
+        </div>
         <div class="input-group mb-3">
-            <select class="custom-select" id="inputGroupSelect02">
-              <option selected>Status</option>
-              <option value="1">In Bearbeitung</option>
-              <option value="2">Fertig</option>
-            </select>
-          </div>
-          <div class="input-group-append">
-            <input type="date" class="form-control" placeholder="Due Date">
-          </div>
+          <input type="date" class="form-control" formControlName="date" placeholder="Date">
+          <i class="fas fa-exclamation"
+            *ngIf="orderForm.get('date').hasError('required') && orderForm.get('date').touched"></i>
+        </div>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" formControlName="price" placeholder="Price">
+          <i class="fas fa-exclamation"
+            *ngIf="orderForm.get('price').hasError('required') && orderForm.get('price').touched"></i>
+        </div>
       </div>
-    </div>
-    <div class="text-center m-5">
-      <button type="button" class="btn btn-success mx-4">Speichern</button>
-      <button type="button" class="btn btn-warning mx-4">Abbrechen</button>
-      <button type="button" class="btn btn-danger mx-4">Löschen</button>
-    </div>
+      <div class="text-center m-5">
+        <button type="submit" class="btn btn-success mx-4" [disabled]="!orderForm.valid">Speichern</button>
+        <button type="button" class="btn btn-warning mx-4">Abbrechen</button>
+        <button type="button" class="btn btn-danger mx-4">Löschen</button>
+        <h6>{{orderForm.value}}</h6>
+        <h6>{{orderForm.status}}</h6>
+      </div>
+    </form>
   </div>
+</div>

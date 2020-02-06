@@ -2,42 +2,60 @@
     <div class="">
         <h2>User Detail</h2>
     </div>
+    <form action="" [formGroup]="userForm" (ngSubmit)="add()" class="">
       <div class="row">
         <div class="col-md-6 mb-3">
-          <input type="text" class="form-control" placeholder="Firstname" value="" required="">
+          <input type="text" class="form-control" placeholder="Firstname" formControlName="firstname">
+          <i class="fas fa-exclamation"
+          *ngIf="userForm.get('firstname').hasError('required') && userForm.get('firstname').touched"></i>
         </div>
         <div class="col-md-6 mb-3">
-          <input type="text" class="form-control" placeholder="Lastname" value="" required="">
+          <input type="text" class="form-control" placeholder="Lastname" formControlName="lastname">
+          <i class="fas fa-exclamation"
+          *ngIf="userForm.get('lastname').hasError('required') && userForm.get('lastname').touched"></i>
         </div>
       </div>
       <div class="mb-3">
-        <input type="email" class="form-control" placeholder="Email">
+        <input type="email" class="form-control" placeholder="Email" formControlName="email">
+        <i class="fas fa-exclamation"
+        *ngIf="userForm.get('email').hasError('required') && userForm.get('email').touched"></i>
       </div>
 
       <div class="mb-3">
         <div class="input-group">
-          <input type="text" class="form-control" placeholder="Username" required="">
+          <input type="text" class="form-control" placeholder="Username" formControlName="username">
+          <i class="fas fa-exclamation"
+          *ngIf="userForm.get('username').hasError('required') && userForm.get('username').touched"></i>
         </div>
       </div>
 
       <div class="mb-3">
-        <input type="text" class="form-control" placeholder="Adress" required="">
+        <input type="text" class="form-control" placeholder="Adress" formControlName="adress">
+        <i class="fas fa-exclamation"
+        *ngIf="userForm.get('adress').hasError('required') && userForm.get('adress').touched"></i>
       </div>
 
       <div class="row">
         <div class="col-md-5 mb-3">
-          <input type="text" class="form-control" placeholder="Country" required="">
+          <input type="text" class="form-control" placeholder="Country" formControlName="country">
+          <i class="fas fa-exclamation"
+          *ngIf="userForm.get('country').hasError('required') && userForm.get('country').touched"></i>
         </div>
         <div class="col-md-4 mb-3">
-          <input type="text" class="form-control" placeholder="State" required="">
+          <input type="text" class="form-control" placeholder="State" formControlName="state">
+          <i class="fas fa-exclamation"
+          *ngIf="userForm.get('state').hasError('required') && userForm.get('state').touched"></i>
         </div>
         <div class="col-md-3 mb-3">
-          <input type="text" class="form-control" placeholder="Zip" required="">
+          <input type="text" class="form-control" placeholder="Zip" formControlName="zip">
+          <i class="fas fa-exclamation"
+          *ngIf="userForm.get('zip').hasError('required') && userForm.get('zip').touched"></i>
         </div>
       </div>
       <div class="text-center m-5">
-        <button type="button" class="btn btn-success mx-4">Speichern</button>
+        <button type="submit" class="btn btn-success mx-4" [disabled]="!userForm.valid">Speichern</button>
         <button type="button" class="btn btn-warning mx-4">Abbrechen</button>
         <button type="button" class="btn btn-danger mx-4">Löschen</button>
       </div>
+    </form>
   </div>
