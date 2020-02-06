@@ -1,7 +1,7 @@
-<form>
-  <div class="container col">
+<form [formGroup]="trackingForm" (ngSubmit)="add()">
+  <div class="container col my-5">
     <div class="col">
-      <div class="col text-center">
+      <div class="col text-center my-5">
         <h3>Status Ihres Auftrags</h3>
         <p>Bitte füllen Sie alle Felder für Ihre Anfrage so weit wie möglich aus.</p>
         <p>Natürlich werden Ihre Daten sicher per SSL verschlüsselt an uns übertragen, und nicht an dritte
@@ -13,9 +13,12 @@
       <cristal-form-contact></cristal-form-contact>
     </div>
     <div class="col">
-      <input type="number" class="form-control mb-1" placeholder="Auftragsnummer" required>
+      <input type="number" class="form-control mb-1" formControlName="orderNo" placeholder="Auftragsnummer">
+      <i class="fas fa-exclamation"
+      *ngIf="trackingForm.get('orderNo').hasError('required') && trackingForm.get('orderNo').touched"></i>
     </div>
     <div class="col">
-      <button type="submit" class="btn btn-primary my-3">Senden</button>
+      <button type="submit" class="btn btn-primary my-3" [disabled]="!trackingForm.valid">Senden</button>
     </div>
   </div>
+</form>

@@ -1,7 +1,7 @@
-<form>
-  <div class="container col">
+<form [formGroup]="appointmentForm" (ngSubmit)="add()">
+  <div class="container col my-5">
     <div class="col">
-      <div class="col text-center">
+      <div class="col text-center my-5">
         <h3>Termin vereinbaren</h3>
         <p>Bitte füllen Sie alle Felder für Ihre Anfrage so weit wie möglich aus.</p>
         <p>Ihre Daten werden sicher per SSL verschlüsselt an uns übertragen, und nicht an dritte
@@ -13,12 +13,17 @@
       <cristal-form-contact></cristal-form-contact>
     </div>
     <div class="col">
-      <input type="date" class="form-control mb-1" placeholder="" required>
+      <input type="date" class="form-control mb-1" formContronName="date" placeholder="">
+      <i class="fas fa-exclamation"
+        *ngIf="appointmentForm.get('date').hasError('required') && appointmentForm.get('date').touched"></i>
     </div>
     <div class="col">
-      <input type="text" class="form-control mb-1" placeholder="09:00 - 18:00" required>
+      <input type="text" class="form-control mb-1" formContronName="time" placeholder="09:00 - 18:00">
+      <i class="fas fa-exclamation"
+        *ngIf="appointmentForm.get('time').hasError('required') && appointmentForm.get('time').touched"></i>
     </div>
     <div class="col">
       <button type="submit" class="btn btn-primary my-3">Senden</button>
     </div>
   </div>
+</form>

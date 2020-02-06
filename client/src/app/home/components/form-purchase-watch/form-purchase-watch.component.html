@@ -1,7 +1,7 @@
-<form>
-  <div class="container col">
+<form [formGroup]="watchForm" (ngSubmit)="add()">
+  <div class="container col my-5">
     <div class="col">
-      <div class="col text-center">
+      <div class="col text-center my-5">
         <h3>Kostenfreie Bewertungsanfrage für Uhren</h3>
         <p>Interessant für unseren Uhren Ankauf sind die Marken: Breitling, Rolex, IWC, Omega, Zenith,
           Cartier, Jaeger LeCoultre, Tag Heuer, Hublot, Chopard, Rado, Longines und andere.</p>
@@ -19,7 +19,9 @@
       <div class="form">
         <div class="col mt-4">
           <label>Uhren Daten</label>
-          <input type="text" class="form-control mb-1" placeholder="Uhren Marke">
+          <input type="text" class="form-control mb-1" formControlName="marke" placeholder="Uhren Marke">
+          <i class="fas fa-exclamation"
+            *ngIf="watchForm.get('marke').hasError('required') && watchForm.get('marke').touched"></i>
         </div>
         <div class="col">
           <input type="number" class="form-control mb-1" placeholder="Model von Marke">
@@ -37,29 +39,35 @@
           <input type="number" class="form-control mb-1" placeholder="Armbandmaterial">
         </div>
         <div class="col mb-1">
+          <select class="form-control" formControlName="zertifikat" id="exampleFormControlSelect1">
+            <option value="" disabled selected>Orginal Papiere Vorhanden</option>
+            <option>Ja</option>
+            <option>Nein</option>
+          </select>
+          <i class="fas fa-exclamation"
+            *ngIf="watchForm.get('zertifikat').hasError('required') && watchForm.get('zertifikat').touched"></i>
+        </div>
+        <div class="col mb-1">
           <select class="form-control" id="exampleFormControlSelect1">
-            <option>Orginal Papiere Vorhanden</option>
+            <option value="" disabled selected>Original Box vorhanden</option>
             <option>Ja</option>
             <option>Nein</option>
           </select>
         </div>
         <div class="col mb-1">
-          <select class="form-control" id="exampleFormControlSelect1">
-            <option>Original Box vorhanden</option>
-            <option>Ja</option>
-            <option>Nein</option>
-          </select>
-        </div>
-        <div class="col mb-1">
-          <select class="form-control" id="exampleFormControlSelect1">
-            <option>Zustand</option>
+          <select class="form-control" formControlName="zustand" id="exampleFormControlSelect1">
+            <option value="" disabled selected>Zustand</option>
             <option>Ungetragen ohne Gebrauchsspuren</option>
             <option>Normale Gebrauchsspuren</option>
             <option>Defekt</option>
           </select>
+          <i class="fas fa-exclamation"
+            *ngIf="watchForm.get('zustand').hasError('required') && watchForm.get('zustand').touched"></i>
         </div>
         <div class="col mb-1">
-          <input type="number" class="form-control mb-1" placeholder="Ihre Preisvorstellung">
+          <input type="number" class="form-control mb-1" formControlName="preis" placeholder="Ihre Preisvorstellung">
+          <i class="fas fa-exclamation"
+            *ngIf="watchForm.get('preis').hasError('required') && watchForm.get('preis').touched"></i>
         </div>
         <div class="col-md-3 ml-3 mb-1 custom-file">
           <input type="file" class="custom-file-input" id="customFile">
@@ -76,7 +84,7 @@
       </div>
     </div>
     <div class="col">
-      <button type="submit" class="btn btn-primary my-3">Senden</button>
+      <button type="submit" class="btn btn-primary my-3" [disabled]="!watchForm.valid">Senden</button>
     </div>
   </div>
 </form>

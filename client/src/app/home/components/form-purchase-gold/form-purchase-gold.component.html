@@ -1,7 +1,7 @@
-<form>
-  <div class="container col">
+<form [formGroup]="goldForm" (ngSubmit)="add()">
+  <div class="container col my-5">
     <div class="col">
-      <div class="col text-center">
+      <div class="col text-center my-5">
         <h3>Kostenfreie Bewertungsanfrage für Gold</h3>
         <p>Bitte füllen Sie alle Felder für Ihre Anfrage so weit wie möglich aus, dies ermöglicht uns ein genaues
           Angebot für Ihr Gold zu kalkulieren.</p>
@@ -17,17 +17,34 @@
       <div class="form">
         <div class="col mt-4">
           <label>Schmuck Daten</label>
-          <input type="text" class="form-control mb-1" placeholder="Schmuckart">
+          <input type="text" class="form-control mb-1" formControlName="schmuckart" placeholder="Schmuckart">
         </div>
         <div class="col">
-          <input type="number" class="form-control mb-1" placeholder="Gewicht">
-        </div>
-        <div class="col">
-          <input type="number" class="form-control mb-1" placeholder="Edelsteine z.B Diamanten">
+          <input type="number" class="form-control mb-1" formControlName="edelsteine"
+            placeholder="Edelsteine z.B Diamanten">
         </div>
         <div class="col mb-1">
-          <select class="form-control" id="exampleFormControlSelect1">
-            <option>Feingehalt</option>
+          <select class="form-control" formControlName="zertifikat" id="exampleFormControlSelect1">
+            <option value="" disabled selected>Zertifikat</option>
+            <option>Ja</option>
+            <option>Nein</option>
+          </select>
+          <i class="fas fa-exclamation"
+            *ngIf="goldForm.get('zertifikat').hasError('required') && goldForm.get('zertifikat').touched"></i>
+        </div>
+        <div class="col mb-1">
+          <select class="form-control" formControlName="zustand" id="exampleFormControlSelect1">
+            <option value="" disabled selected>Zustand</option>
+            <option>Ungetragen ohne Gebrauchsspuren</option>
+            <option>Normale Gebrauchsspuren</option>
+            <option>Defekt</option>
+          </select>
+          <i class="fas fa-exclamation"
+            *ngIf="goldForm.get('zustand').hasError('required') && goldForm.get('zustand').touched"></i>
+        </div>
+        <div class="col mb-1">
+          <select class="form-control" formControlName="feingehalt" id="exampleFormControlSelect1">
+            <option value="" disabled selected>Feingehalt</option>
             <option>333 - 8 Karat</option>
             <option>375 - 9 Karat</option>
             <option>585 - 14 Karat</option>
@@ -36,24 +53,18 @@
             <option>916 - 22 Karat</option>
             <option>999 - 24 Karat</option>
           </select>
+          <i class="fas fa-exclamation"
+            *ngIf="goldForm.get('feingehalt').hasError('required') && goldForm.get('feingehalt').touched"></i>
+        </div>
+        <div class="col">
+          <input type="number" class="form-control mb-1" formControlName="gewicht" placeholder="Gewicht">
+          <i class="fas fa-exclamation"
+            *ngIf="goldForm.get('gewicht').hasError('required') && goldForm.get('gewicht').touched"></i>
         </div>
         <div class="col mb-1">
-          <select class="form-control" id="exampleFormControlSelect1">
-            <option>Zertifikat</option>
-            <option>Ja</option>
-            <option>Nein</option>
-          </select>
-        </div>
-        <div class="col mb-1">
-          <select class="form-control" id="exampleFormControlSelect1">
-            <option>Zustand</option>
-            <option>Ungetragen ohne Gebrauchsspuren</option>
-            <option>Normale Gebrauchsspuren</option>
-            <option>Defekt</option>
-          </select>
-        </div>
-        <div class="col mb-1">
-          <input type="number" class="form-control mb-1" placeholder="Ihre Preisvorstellung">
+          <input type="number" class="form-control mb-1" formControlName="preis" placeholder="Ihre Preisvorstellung">
+          <i class="fas fa-exclamation"
+            *ngIf="goldForm.get('preis').hasError('required') && goldForm.get('preis').touched"></i>
         </div>
         <div class="col-md-3 ml-3 mb-1 custom-file">
           <input type="file" class="custom-file-input" id="customFile">
@@ -70,7 +81,7 @@
       </div>
     </div>
     <div class="col">
-      <button type="submit" class="btn btn-primary my-3">Senden</button>
+      <button type="submit" class="btn btn-primary my-3" [disabled]="!goldForm.valid">Senden</button>
     </div>
   </div>
 </form>

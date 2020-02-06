@@ -1,6 +1,6 @@
-<form>
-  <div class="container col">
-    <div class="col">
+<form action="" [formGroup]="demandForm" (ngSubmit)="add()">
+  <div class="container col mt-5">
+    <div class="col my-5">
       <div class="col text-center">
         <h3>Nachfrage für bestimmte Artikel</h3>
         <p>Bitte füllen Sie alle Felder für Ihre Anfrage so weit wie möglich aus, dies ermöglicht uns ein genauer
@@ -14,10 +14,14 @@
       <cristal-form-contact></cristal-form-contact>
     </div>
     <div class="col mb-1">
-      <textarea class="form-control" rows="3"
+      <textarea class="form-control" rows="3" formControlName="description"
         placeholder="Ich habe noch einige Fragen in Bezug Preise und/oder Verfügbarkeit :"></textarea>
+        <i class="fas fa-exclamation"
+        *ngIf="demandForm.get('description').hasError('required') && demandForm.get('description').touched"></i>
     </div>
     <div class="col">
-      <button type="submit" class="btn btn-primary my-3">Senden</button>
+      <button type="submit" class="btn btn-primary my-3" [disabled]="!demandForm.valid">Senden</button>
     </div>
   </div>
+</form>
+
