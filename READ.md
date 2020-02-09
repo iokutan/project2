@@ -1,4 +1,4 @@
-# Christal Schmuck
+# Cristal Schmuck
 
 # Setup
 - node version v12.14.1
@@ -6,7 +6,7 @@
 
 ## Client
 - navigate into client folder and run `npm i`
-- after succuesfully installing node packages then run `npm start`
+- after succesfully installing node packages then run `npm start`
 
 ## Server
 - navigate into server folder and run `npm i`
