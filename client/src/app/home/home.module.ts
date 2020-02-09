@@ -11,7 +11,6 @@ import { AppRoutingModule } from '../app-routing.module';
 import { HeaderComponent } from './components/header/header.component';
 import { ContentComponent } from './components/content/content.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { ChatComponent } from './components/chat/chat.component';
 import { MainMenuComponent } from './components/main-menu/main-menu.component';
 import { HomeComponent } from './pages/home/home.component';
 import { InfoBoxComponent } from './components/info-box/info-box.component';
@@ -43,7 +42,6 @@ import { HomePageRoutesModule } from './app-routing.module';
     HeaderComponent,
     ContentComponent,
     FooterComponent,
-    ChatComponent,
     MainMenuComponent,
     HomeComponent,
     InfoBoxComponent,

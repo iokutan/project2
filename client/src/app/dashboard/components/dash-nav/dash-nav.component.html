@@ -1,11 +1,12 @@
 <div class="row my-5 border-circle">
     <div class="col-3 ">
       <nav class="nav nav-pills flex-column">
-        <a class="nav-link active" href="#">Orders</a>
-        <a class="nav-link" href="#">Products</a>
-        <a class="nav-link" href="#">Aktuels</a>
-        <a class="nav-link" href="#">Users</a>
-        <a class="nav-link" href="#">Inbox</a>
+        <a class="nav-link" [routerLink]="['dashboard-main']" routerLinkActive="active">Orders</a>
+        <a class="nav-link" [routerLink]="['product-list']" routerLinkActive="active">Products</a>
+        <a class="nav-link" [routerLink]="['news-list']" routerLinkActive="active">Aktuels</a>
+        <a class="nav-link" [routerLink]="['inbox-list']" routerLinkActive="active">Inbox</a>
+        <a class="nav-link" [routerLink]="['category-list']" routerLinkActive="active">Categories</a>
+        <a class="nav-link" [routerLink]="['model-list']" routerLinkActive="active">Models</a>
       </nav>
     </div>
   </div>

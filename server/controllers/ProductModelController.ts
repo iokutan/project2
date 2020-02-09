@@ -1,5 +1,5 @@
 import * as express from "express";
-import {ProductModel} from "../models";
+import {ProductModel, ProductCategory} from "../models";
 import {Auth} from "../auth/auth";
 import {BaseController} from "./BaseController";
 import * as _ from 'lodash';
@@ -13,8 +13,24 @@ export class ProductModelController extends BaseController{
 
     public async get(req: express.Request, res: express.Response, next: express.NextFunction) {
         try {
-            const productCategories = await ProductModel.findAll<ProductModel>();
+            const productCategories = await ProductModel.findAll<ProductModel>({
+                include: [ProductCategory]
+            });
             res.json(productCategories);
+        } catch (error) {
+            res.status(400).send(error);
+        }
+    }
+
+    public async getById(req: express.Request, res: express.Response, next: express.NextFunction) {
+        try {
+            const model = await ProductModel
+                  .findOne<ProductModel>({where: { model_id: req.params.model_id }});
+            if(model){
+                res.status(201).send(model);
+            } else {
+                res.status(404).send("model not found");
+            }
         } catch (error) {
             res.status(400).send(error);
         }
@@ -67,6 +83,7 @@ export class ProductModelController extends BaseController{
  
     private buildRoutes() {
         this.router.get("/", Auth.getBearerMiddleware(), this.get.bind(this));
+        this.router.get("/:model_id", Auth.getBearerMiddleware(), this.getById.bind(this));
         this.router.post("/:category_id", Auth.getBearerMiddleware(), this.post.bind(this));
         this.router.delete("/:model_id", Auth.getBearerMiddleware(), this.delete.bind(this));
         this.router.put("/:model_id", Auth.getBearerMiddleware(), this.put.bind(this));

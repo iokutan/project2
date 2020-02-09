@@ -15,6 +15,15 @@ import { DashboardRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InboxComponent } from './components/inbox/inbox.component';
 import { InboxDetailComponent } from './components/inbox-detail/inbox-detail.component';
+import { IsAuthorizedGuard } from './services/authorized-guard.service';
+import { CategoryComponent } from './components/category/category.component';
+import { CategoryNewComponent } from './components/category/category-new/category-new.component';
+import { CategoryUpdateComponent } from './components/category/category-update/category-update.component';
+import { CategoryService } from './services/category.service';
+import { ModelComponent } from './components/model/model.component';
+import { ModelNewComponent } from './components/model/model-new/model-new.component';
+import { ModelUpdateComponent } from './components/model/model-update/model-update.component';
+import { ModelService } from './services/model.service';
 
 
 @NgModule({
@@ -31,9 +40,20 @@ import { InboxDetailComponent } from './components/inbox-detail/inbox-detail.com
     DashNavComponent,
     DashHeaderComponent,
     InboxComponent,
-    InboxDetailComponent],
-
-    imports: [
+    InboxDetailComponent,
+    CategoryComponent,
+    CategoryNewComponent,
+    CategoryUpdateComponent,
+    ModelComponent,
+    ModelNewComponent,
+    ModelUpdateComponent
+  ],
+  providers: [
+    IsAuthorizedGuard,
+    CategoryService,
+    ModelService
+  ], 
+  imports: [
     CommonModule,
     DashboardRoutingModule,
     FormsModule,

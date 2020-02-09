@@ -20,8 +20,27 @@ class ProductModelController extends BaseController_1.BaseController {
     get(req, res, next) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const productCategories = yield models_1.ProductModel.findAll();
+                const productCategories = yield models_1.ProductModel.findAll({
+                    include: [models_1.ProductCategory]
+                });
                 res.json(productCategories);
+            }
+            catch (error) {
+                res.status(400).send(error);
+            }
+        });
+    }
+    getById(req, res, next) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const model = yield models_1.ProductModel
+                    .findOne({ where: { model_id: req.params.model_id } });
+                if (model) {
+                    res.status(201).send(model);
+                }
+                else {
+                    res.status(404).send("model not found");
+                }
             }
             catch (error) {
                 res.status(400).send(error);
@@ -84,6 +103,7 @@ class ProductModelController extends BaseController_1.BaseController {
     }
     buildRoutes() {
         this.router.get("/", auth_1.Auth.getBearerMiddleware(), this.get.bind(this));
+        this.router.get("/:model_id", auth_1.Auth.getBearerMiddleware(), this.getById.bind(this));
         this.router.post("/:category_id", auth_1.Auth.getBearerMiddleware(), this.post.bind(this));
         this.router.delete("/:model_id", auth_1.Auth.getBearerMiddleware(), this.delete.bind(this));
         this.router.put("/:model_id", auth_1.Auth.getBearerMiddleware(), this.put.bind(this));

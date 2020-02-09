@@ -15,4 +15,10 @@ export class OrdersComponent implements OnInit {
     this.orderService.getAll().subscribe(data => { this.orders = data; });
   }
 
+  deleteOrder(orderId){
+    if(orderId){
+      this.orderService.delete(orderId).subscribe();
+    }
+  }
+
 }

@@ -1,0 +1,13 @@
+<form [formGroup]="categoryForm" (ngSubmit)="add()" class="row">
+    <div class="col-sm-12 my-5">
+      <div class="input-group mb-3 flex-row justify-content-start">
+        <div>Category Name:</div>
+        <input type="text" class="form-control" formControlName="category_name" placeholder="Titel">
+      </div>
+  
+      <div class="text-center my-5 d-flex flex-row justify-content-start">
+        <button type="submit" class="btn btn-success mx-4"  [disabled]="!categoryForm.valid">Add</button>
+        <button type="button" class="btn btn-warning mx-4" [routerLink]="['/dashboard', 'category-list']">Cancel</button>
+      </div>
+    </div>
+  </form>

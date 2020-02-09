@@ -1,0 +1,19 @@
+<form [formGroup]="modelForm" (ngSubmit)="update()" class="row">
+    <div class="col-sm-12 my-5">
+      <div class="input-group mb-3 flex-row justify-content-start">
+        <div>Model Name:</div>
+        <input type="text" class="form-control" formControlName="model_name" placeholder="Titel">
+      </div>
+      <div class="input-group mb-3 flex-row justify-content-start">
+        <div>Category type:</div>
+        <select class="custom-select form-control mx-3" formControlName="category_name" placeholder="Select Status">
+          <option [ngValue]="category" *ngFor="let category of categories">{{category?.category_name}}</option>
+        </select>
+      </div>
+      <div class="text-center my-5 d-flex flex-row justify-content-start">
+        <button type="submit" class="btn btn-success mx-4"  [disabled]="!modelForm.valid">Update</button>
+        <button type="button" class="btn btn-warning mx-4" [routerLink]="['/dashboard', 'model-list']">Cancel</button>
+        <button type="button" class="btn btn-danger mx-4" (click)="delete()">Delete</button>
+      </div>
+    </div>
+  </form>

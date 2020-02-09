@@ -27,4 +27,11 @@ export class AuthService {
         catchError((err) => throwError(new Error(err)))
       );
   }
+
+  logout(): Observable<Response> {
+    return this.appHttpService.post('oauth/logout', {})
+      .pipe(
+        catchError((err) => throwError(new Error(err)))
+      );
+  }
 }

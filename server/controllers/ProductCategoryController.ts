@@ -20,6 +20,20 @@ export class ProductCategoryController extends BaseController{
         }
     }
 
+    public async getById(req: express.Request, res: express.Response, next: express.NextFunction) {
+        try {
+            const product = await ProductCategory
+                  .findOne<ProductCategory>({where: { category_id: req.params.category_id }});
+            if(product){
+                res.status(201).send(product);
+            } else {
+                res.status(404).send("ProductCategory not found");
+            }
+        } catch (error) {
+            res.status(400).send(error);
+        }
+    }
+
     public async post(req: express.Request, res: express.Response, next: express.NextFunction) {
         try {
             var productCategorie = await ProductCategory.build(req.body);
@@ -68,6 +82,7 @@ export class ProductCategoryController extends BaseController{
     private buildRoutes() {
         this.router.get("/", Auth.getBearerMiddleware(), this.get.bind(this));
         this.router.post("/", Auth.getBearerMiddleware(), this.post.bind(this));
+        this.router.get("/:category_id", Auth.getBearerMiddleware(), this.getById.bind(this));
         this.router.delete("/:category_id", Auth.getBearerMiddleware(), this.delete.bind(this));
         this.router.put("/:category_id", Auth.getBearerMiddleware(), this.put.bind(this));
     }

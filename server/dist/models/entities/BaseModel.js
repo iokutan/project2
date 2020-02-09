@@ -8,7 +8,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var _a, _b, _c;
 Object.defineProperty(exports, "__esModule", { value: true });
 const sequelize_typescript_1 = require("sequelize-typescript");
 let BaseModel = class BaseModel extends sequelize_typescript_1.Model {
@@ -17,19 +16,19 @@ __decorate([
     sequelize_typescript_1.AllowNull(true),
     sequelize_typescript_1.Column,
     sequelize_typescript_1.CreatedAt,
-    __metadata("design:type", typeof (_a = typeof Date !== "undefined" && Date) === "function" ? _a : Object)
+    __metadata("design:type", Date)
 ], BaseModel.prototype, "creationDate", void 0);
 __decorate([
     sequelize_typescript_1.AllowNull(true),
     sequelize_typescript_1.Column,
     sequelize_typescript_1.UpdatedAt,
-    __metadata("design:type", typeof (_b = typeof Date !== "undefined" && Date) === "function" ? _b : Object)
+    __metadata("design:type", Date)
 ], BaseModel.prototype, "updatedOn", void 0);
 __decorate([
     sequelize_typescript_1.AllowNull(true),
     sequelize_typescript_1.Column,
     sequelize_typescript_1.DeletedAt,
-    __metadata("design:type", typeof (_c = typeof Date !== "undefined" && Date) === "function" ? _c : Object)
+    __metadata("design:type", Date)
 ], BaseModel.prototype, "deletionDate", void 0);
 BaseModel = __decorate([
     sequelize_typescript_1.Table
