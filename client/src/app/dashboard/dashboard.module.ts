@@ -13,6 +13,8 @@ import { DashNavComponent } from './components/dash-nav/dash-nav.component';
 import { DashHeaderComponent } from './components/dash-header/dash-header.component';
 import { DashboardRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { InboxComponent } from './components/inbox/inbox.component';
+import { InboxDetailComponent } from './components/inbox-detail/inbox-detail.component';
 
 
 @NgModule({
@@ -27,7 +29,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     UserDetailComponent,
     MainComponent,
     DashNavComponent,
-    DashHeaderComponent],
+    DashHeaderComponent,
+    InboxComponent,
+    InboxDetailComponent],
 
     imports: [
     CommonModule,

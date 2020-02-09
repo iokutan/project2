@@ -9,6 +9,8 @@ import { NewsComponent } from './components/news/news.component';
 import { NewsDetailComponent } from './components/news-detail/news-detail.component';
 import { OrdersDetailComponent } from './components/orders-detail/orders-detail.component';
 import { UserDetailComponent } from './components/user-detail/user-detail.component';
+import { InboxComponent } from './components/inbox/inbox.component';
+import { InboxDetailComponent } from './components/inbox-detail/inbox-detail.component';
 
 
 const routes: Routes = [
@@ -23,6 +25,8 @@ const routes: Routes = [
       { path: 'news-detail', component: NewsDetailComponent},
       { path: 'order-detail', component: OrdersDetailComponent},
       { path: 'user-detail', component: UserDetailComponent},
+      { path: 'inbox-list', component: InboxComponent},
+      { path: 'inbox-detail', component: InboxDetailComponent},
 
   ]}
 ];
