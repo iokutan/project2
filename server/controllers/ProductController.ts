@@ -1,5 +1,5 @@
 import * as express from "express";
-import {Product} from "../models";
+import {Product, ProductModel, ProductCategory} from "../models";
 import {Auth} from "../auth/auth";
 import {BaseController} from "./BaseController";
 import * as _ from 'lodash';
@@ -13,7 +13,14 @@ export class ProductController extends BaseController{
 
     public async get(req: express.Request, res: express.Response, next: express.NextFunction) {
         try {
-            const products = await Product.findAll<Product>();
+            const products = await Product.findAll<Product>({
+                include: [
+                    {
+                        model: ProductModel,
+                        include: [ProductCategory]
+                    }
+                ]
+            });
             res.json(products);
         } catch (error) {
             res.status(400).send(error);
@@ -23,7 +30,15 @@ export class ProductController extends BaseController{
     public async getById(req: express.Request, res: express.Response, next: express.NextFunction) {
         try {
             const product = await Product
-                  .findOne<Product>({where: { product_id: req.params.productId }});
+                  .findOne<Product>({
+                      where: { product_id: req.params.productId },
+                      include: [
+                            {
+                                model: ProductModel,
+                                include: [ProductCategory]
+                            }
+                        ]
+                    });
             if(product){
                 res.status(201).send(product);
             } else {
@@ -53,9 +68,22 @@ export class ProductController extends BaseController{
 
     public async put(req: express.Request, res: express.Response, next: express.NextFunction) {
         try {
-            const product = await Product.findOne<Product>({where: { product_id: req.params.productId }});
+            let product = await Product.findOne<Product>({
+                where: { product_id: req.params.productId }
+            });
             if(product){
                 await product.updateAttributes(req.body);
+                await product.save();
+                product = await Product.findOne<Product>({
+                    where: { product_id: req.params.productId },
+                    include: [
+                        {
+                            model: ProductModel,
+                            include: [ProductCategory]
+                        }
+                    ]
+                });
+
                 res.status(201).send(product);
             } else {
                 res.status(404).send("product not found");

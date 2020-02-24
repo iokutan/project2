@@ -25,6 +25,10 @@ export class ModelService {
     return this.http.get(`${this.serverUrl}/${modelId}`).pipe(map((res: Response) => res));
   }
 
+  public getByCategory(categoryId: string): Observable<any> {
+    return this.http.get(`${this.serverUrl}/byCategory/${categoryId}`).pipe(map((res: Response) => res));
+  }
+
   public update(model: any): Observable<any> {
     console.log()
     return this.http.put(`${this.serverUrl}/${model.model_id}`, model).pipe(map((res: Response) => res));

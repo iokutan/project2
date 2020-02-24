@@ -20,7 +20,14 @@ class ProductController extends BaseController_1.BaseController {
     get(req, res, next) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const products = yield models_1.Product.findAll();
+                const products = yield models_1.Product.findAll({
+                    include: [
+                        {
+                            model: models_1.ProductModel,
+                            include: [models_1.ProductCategory]
+                        }
+                    ]
+                });
                 res.json(products);
             }
             catch (error) {
@@ -32,7 +39,15 @@ class ProductController extends BaseController_1.BaseController {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const product = yield models_1.Product
-                    .findOne({ where: { product_id: req.params.productId } });
+                    .findOne({
+                    where: { product_id: req.params.productId },
+                    include: [
+                        {
+                            model: models_1.ProductModel,
+                            include: [models_1.ProductCategory]
+                        }
+                    ]
+                });
                 if (product) {
                     res.status(201).send(product);
                 }
@@ -68,9 +83,21 @@ class ProductController extends BaseController_1.BaseController {
     put(req, res, next) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const product = yield models_1.Product.findOne({ where: { product_id: req.params.productId } });
+                let product = yield models_1.Product.findOne({
+                    where: { product_id: req.params.productId }
+                });
                 if (product) {
                     yield product.updateAttributes(req.body);
+                    yield product.save();
+                    product = yield models_1.Product.findOne({
+                        where: { product_id: req.params.productId },
+                        include: [
+                            {
+                                model: models_1.ProductModel,
+                                include: [models_1.ProductCategory]
+                            }
+                        ]
+                    });
                     res.status(201).send(product);
                 }
                 else {

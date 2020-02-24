@@ -30,6 +30,20 @@ class ProductModelController extends BaseController_1.BaseController {
             }
         });
     }
+    getByCategory(req, res, next) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const productModels = yield models_1.ProductModel.findAll({
+                    where: { category_id: req.params.category_id },
+                    include: [models_1.ProductCategory]
+                });
+                res.json(productModels);
+            }
+            catch (error) {
+                res.status(400).send(error);
+            }
+        });
+    }
     getById(req, res, next) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
@@ -104,6 +118,7 @@ class ProductModelController extends BaseController_1.BaseController {
     buildRoutes() {
         this.router.get("/", auth_1.Auth.getBearerMiddleware(), this.get.bind(this));
         this.router.get("/:model_id", auth_1.Auth.getBearerMiddleware(), this.getById.bind(this));
+        this.router.get("/byCategory/:category_id", auth_1.Auth.getBearerMiddleware(), this.getByCategory.bind(this));
         this.router.post("/:category_id", auth_1.Auth.getBearerMiddleware(), this.post.bind(this));
         this.router.delete("/:model_id", auth_1.Auth.getBearerMiddleware(), this.delete.bind(this));
         this.router.put("/:model_id", auth_1.Auth.getBearerMiddleware(), this.put.bind(this));

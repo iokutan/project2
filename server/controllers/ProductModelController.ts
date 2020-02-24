@@ -22,6 +22,18 @@ export class ProductModelController extends BaseController{
         }
     }
 
+    public async getByCategory(req: express.Request, res: express.Response, next: express.NextFunction) {
+        try {
+            const productModels = await ProductModel.findAll<ProductModel>({
+                where: { category_id: req.params.category_id },
+                include: [ProductCategory]
+            });
+            res.json(productModels);
+        } catch (error) {
+            res.status(400).send(error);
+        }
+    }
+
     public async getById(req: express.Request, res: express.Response, next: express.NextFunction) {
         try {
             const model = await ProductModel
@@ -84,6 +96,7 @@ export class ProductModelController extends BaseController{
     private buildRoutes() {
         this.router.get("/", Auth.getBearerMiddleware(), this.get.bind(this));
         this.router.get("/:model_id", Auth.getBearerMiddleware(), this.getById.bind(this));
+        this.router.get("/byCategory/:category_id", Auth.getBearerMiddleware(), this.getByCategory.bind(this));
         this.router.post("/:category_id", Auth.getBearerMiddleware(), this.post.bind(this));
         this.router.delete("/:model_id", Auth.getBearerMiddleware(), this.delete.bind(this));
         this.router.put("/:model_id", Auth.getBearerMiddleware(), this.put.bind(this));
