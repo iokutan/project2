@@ -6,6 +6,7 @@ import { ProductService } from 'src/app/dashboard/services/product.service';
 import { CategoryService } from 'src/app/dashboard/services/category.service';
 
 @Component({
+  // tslint:disable-next-line:component-selector
   selector: 'cristal-product-update',
   templateUrl: './product-update.component.html',
   styleUrls: ['./product-update.component.css']
@@ -14,28 +15,30 @@ export class ProductUpdateComponent implements OnInit {
 
   param: any;
   productForm: FormGroup;
-  product: any; 
+  product: any;
   categories: any[];
   models: any[];
   selectedModel: any;
   selectedCategory: any;
 
-  constructor(private categoryService: CategoryService, private modelService: ModelService,
-    private router: Router, private productService: ProductService,
-    private route: ActivatedRoute,
+  constructor(private categoryService: CategoryService,
+              private modelService: ModelService,
+              private router: Router,
+              private productService: ProductService,
+              private route: ActivatedRoute,
               private fb: FormBuilder) { }
 
   ngOnInit() {
     this.createModelForm();
     this.route.params.subscribe(params => {
-      this.param = params['id'];
+      this.param = params.id;
       this.getDetails(this.param);
-    });    
+    });
   }
 
-  getDetails(id){
-    
-      this.categoryService.getAll().subscribe(c => { 
+  getDetails(id) {
+
+      this.categoryService.getAll().subscribe(c => {
         this.categories = c;
         this.productService.getById(id).subscribe(data => {
           this.selectedCategory = data.model.category.category_id;
@@ -43,6 +46,7 @@ export class ProductUpdateComponent implements OnInit {
 
           this.setForm(this.product);
 
+          // tslint:disable-next-line:no-shadowed-variable
           this.modelService.getByCategory(this.selectedCategory).subscribe(c => {
             this.models = c;
             this.selectedModel = data.model.model_id;
@@ -51,17 +55,17 @@ export class ProductUpdateComponent implements OnInit {
       });
   }
 
-  setForm(product){
-    this.productForm.get('name').setValue(product.name)
-    this.productForm.get('price').setValue(product.price)
-    this.productForm.get('size').setValue(product.size)
-    this.productForm.get('color').setValue(product.color)
-    this.productForm.get('available').setValue(product.available)
-    this.productForm.get('discount').setValue(product.discount)
+  setForm(product) {
+    this.productForm.get('name').setValue(product.name);
+    this.productForm.get('price').setValue(product.price);
+    this.productForm.get('size').setValue(product.size);
+    this.productForm.get('color').setValue(product.color);
+    this.productForm.get('available').setValue(product.available);
+    this.productForm.get('discount').setValue(product.discount);
   }
 
-  setModel(categoryid){
-    this.modelService.getByCategory(categoryid).subscribe(data => { 
+  setModel(categoryid) {
+    this.modelService.getByCategory(categoryid).subscribe(data => {
       this.models = data;
       this.selectedModel = data[0].model_id;
     });
@@ -78,8 +82,8 @@ export class ProductUpdateComponent implements OnInit {
     });
   }
 
-  move(modelId){
-    
+  move(modelId) {
+
     // todo: db shema has wrong name, associations are correct.
     this.product.category_id = modelId;
     this.productService.update(this.product).subscribe(data => {
@@ -89,7 +93,7 @@ export class ProductUpdateComponent implements OnInit {
     });
   }
 
-  update(){
+  update() {
     const form = this.productForm.value;
     form.product_id = this.product.product_id;
     this.productService.update(form).subscribe(data => {
@@ -99,10 +103,10 @@ export class ProductUpdateComponent implements OnInit {
     });
   }
 
-  delete(){
+  delete() {
     this.productService.delete(this.product.product_id).subscribe(data => {
-      this.router.navigate(['/dashboard','product-list']);
-    })
+      this.router.navigate(['/dashboard', 'product-list']);
+    });
   }
 
 

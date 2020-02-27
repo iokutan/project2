@@ -26,10 +26,10 @@ export class ProductService {
   }
 
   public update(product: any): Observable<any> {
-    console.log()
     return this.http.put(`${this.serverUrl}/${product.product_id}`, product).pipe(map((res: Response) => res));
   }
 
+  // tslint:disable-next-line:variable-name
   public delete(product_id: string): Observable<any> {
     return this.http.delete(`${this.serverUrl}/${product_id}`).pipe(map((res: Response) => res));
   }
