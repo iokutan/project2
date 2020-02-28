@@ -1,7 +1,7 @@
 <div class="container">
 
-    <div class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
-        <div class="panel panel-info">
+    <div class="mainbox col-md-6 col-sm-8">
+        <div class="col panel panel-info">
             <div class="panel-body">
                 <div class="form-horizontal">
                     <input type='hidden' name='csrfmiddlewaretoken' value='' />
@@ -25,10 +25,10 @@
             </div>
         </div>
     </div>
-    <div class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+    <div class="mainbox col-md-12 col-sm-8">
         <div class="panel panel-info">
             <div class="panel-body">
-                <form [formGroup]="productForm" (ngSubmit)="add()" class="row">
+                <form [formGroup]="productForm" (ngSubmit)="add()" class="col-md-9">
                     <div class="form-horizontal">
                         <div class="form-group required">
                             <label class="control-label col-md-4  requiredField">Name</label>
@@ -66,9 +66,9 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="aab controls col-md-4 "></div>
-                            <div class="controls col-md-8 ">
-                                <input type="submit" value="Add" class="btn btn btn-primary" />
+                            <div class="aab controls col"></div>
+                            <div class="controls col">
+                                <input type="submit" value="Add" class="col-md-4 btn btn btn-primary" />
                             </div>
                         </div>
                     </div>
