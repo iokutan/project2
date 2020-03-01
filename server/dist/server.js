@@ -15,10 +15,12 @@ const bodyParser = require("body-parser");
 const passport = require("passport");
 const databaseSettings = require("./config/config");
 const cors = require("cors");
+const path = require("path");
 const auth_1 = require("./auth/auth");
 const models_1 = require("./models");
 const index_1 = require("./controllers/index");
 const logger_1 = require("./lib/logger");
+const fileUpload = require("express-fileupload");
 class Server {
     constructor() { }
     static initializeApp() {
@@ -54,11 +56,13 @@ class Server {
         auth_1.Auth.useLocalStrategy();
     }
     static configureApp() {
+        Server.app.use(fileUpload({ createParentPath: true }));
+        Server.app.use('*', cors());
         Server.app.set('port', process.env.PORT || 3001);
-        Server.app.use(bodyParser.urlencoded({ extended: true }));
-        Server.app.use(bodyParser.json());
+        Server.app.use(bodyParser.urlencoded({ extended: true, limit: '100mb' }));
+        Server.app.use(bodyParser.json({ limit: '100mb' }));
         Server.app.use(compression());
-        Server.app.use(cors());
+        Server.app.use(express.static(path.join(__dirname, '../public')));
     }
 }
 exports.Server = Server;

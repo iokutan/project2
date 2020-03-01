@@ -9,6 +9,7 @@ import { ProductModelController } from "./ProductModelController";
 import { ProductController } from "./ProductController";
 import { OrderController } from "./OrderController";
 import { OrderItemController } from "./OrderItemController";
+import { ProductServicesController } from "./ProductServicesController";
 
 export class Controller {
 
@@ -20,6 +21,7 @@ export class Controller {
         app.use('/artikelCategories', new ArtikelCategoryController().router);
         app.use('/productCategories', new ProductCategoryController().router);
         app.use('/productModels', new ProductModelController().router);
+        app.use('/productServices', new ProductServicesController().router);
         app.use('/products', new ProductController().router);
         app.use('/orders', new OrderController().router);
         app.use('/orderItems', new OrderItemController().router);

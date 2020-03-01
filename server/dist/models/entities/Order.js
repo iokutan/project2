@@ -49,6 +49,11 @@ __decorate([
     __metadata("design:type", Number)
 ], Order.prototype, "status", void 0);
 __decorate([
+    sequelize_typescript_1.AllowNull(true),
+    sequelize_typescript_1.Column,
+    __metadata("design:type", String)
+], Order.prototype, "orderNumber", void 0);
+__decorate([
     sequelize_typescript_1.HasMany(() => OrderItem_1.OrderItem),
     __metadata("design:type", Array)
 ], Order.prototype, "order_items", void 0);

@@ -11,6 +11,7 @@ const ArtikelCategory_1 = require("./entities/ArtikelCategory");
 const Address_1 = require("./entities/Address");
 const Order_1 = require("./entities/Order");
 const OrderItem_1 = require("./entities/OrderItem");
+const ProductService_1 = require("./entities/ProductService");
 var sequelize_typescript_2 = require("sequelize-typescript");
 exports.Sequelize = sequelize_typescript_2.Sequelize;
 var AccessToken_2 = require("./entities/AccessToken");
@@ -33,6 +34,8 @@ var Order_2 = require("./entities/Order");
 exports.Order = Order_2.Order;
 var OrderItem_2 = require("./entities/OrderItem");
 exports.OrderItem = OrderItem_2.OrderItem;
+var ProductService_2 = require("./entities/ProductService");
+exports.ProductService = ProductService_2.ProductService;
 /**
  *  All models must be imported from this file or else they will not be registered with Sequelize
  */
@@ -47,7 +50,7 @@ class Models {
     getModels() {
         return [
             AccessToken_1.AccessToken, User_1.User, Product_1.Product, ProductCategory_1.ProductCategory, ProductModel_1.ProductModel,
-            Artikel_1.Artikel, ArtikelCategory_1.ArtikelCategory, Address_1.Address, Order_1.Order, OrderItem_1.OrderItem
+            Artikel_1.Artikel, ArtikelCategory_1.ArtikelCategory, Address_1.Address, Order_1.Order, OrderItem_1.OrderItem, ProductService_1.ProductService
         ];
     }
 }

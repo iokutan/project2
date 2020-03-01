@@ -14,7 +14,7 @@ export class CategoryService {
    }
 
   public create(category): Observable<Response> {
-    return this.http.post(`${this.serverUrl}`, category).pipe(map((res: Response) => res));
+    return this.http.post(`${this.serverUrl}`, category, { headers: { 'Content-Type': 'application/json' }}).pipe(map((res: Response) => res));
   }
 
   public getAll(): Observable<any> {
@@ -27,7 +27,7 @@ export class CategoryService {
 
   public update(category: any): Observable<any> {
     console.log()
-    return this.http.put(`${this.serverUrl}/${category.category_id}`, category).pipe(map((res: Response) => res));
+    return this.http.put(`${this.serverUrl}/${category.category_id}`, category, { headers: { 'Content-Type': 'application/json' }}).pipe(map((res: Response) => res));
   }
 
   public delete(category_id: string): Observable<any> {

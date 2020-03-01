@@ -52,6 +52,11 @@ __decorate([
     __metadata("design:type", String)
 ], Product.prototype, "color", void 0);
 __decorate([
+    sequelize_typescript_1.AllowNull(true),
+    sequelize_typescript_1.Column,
+    __metadata("design:type", String)
+], Product.prototype, "imageUrl", void 0);
+__decorate([
     sequelize_typescript_1.ForeignKey(() => ProductModel_1.ProductModel),
     sequelize_typescript_1.Column,
     __metadata("design:type", String)

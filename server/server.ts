@@ -5,10 +5,12 @@ import * as passport from "passport";
 import * as databaseSettings from "./config/config";
 import * as http from "http";
 import * as cors  from 'cors';
+import * as path from 'path';
 import {Auth} from "./auth/auth";
 import {Models} from "./models";
 import {Controller} from "./controllers/index";
 import {logger} from "./lib/logger";
+import * as fileUpload from 'express-fileupload';
 import * as _ from 'lodash';
 
 export class Server {
@@ -54,10 +56,12 @@ export class Server {
     }
 
     private static configureApp() {
+        Server.app.use(fileUpload({createParentPath: true}));
+        Server.app.use('*', cors());
         Server.app.set('port', process.env.PORT || 3001);
-        Server.app.use(bodyParser.urlencoded({ extended: true }));
-        Server.app.use(bodyParser.json());
+        Server.app.use(bodyParser.urlencoded({ extended: true, limit:'100mb' }));
+        Server.app.use(bodyParser.json({limit:'100mb'}));
         Server.app.use(compression());
-        Server.app.use(cors());
+        Server.app.use(express.static(path.join(__dirname, '../public')));
     }
 }

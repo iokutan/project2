@@ -14,7 +14,7 @@ export class OrderServiceService {
    }
 
   public create(client): Observable<Response> {
-    return this.http.post(`${this.serverUrl}`, client).pipe(map((res: Response) => res));
+    return this.http.post(`${this.serverUrl}`, client, { headers: { 'Content-Type': 'application/json' }}).pipe(map((res: Response) => res));
   }
 
   public getAll(): Observable<any> {
@@ -27,7 +27,7 @@ export class OrderServiceService {
 
   public update(order: any): Observable<any> {
     console.log()
-    return this.http.put(`${this.serverUrl}/${order.order_id}`, order).pipe(map((res: Response) => res));
+    return this.http.put(`${this.serverUrl}/${order.order_id}`, order, { headers: { 'Content-Type': 'application/json' }}).pipe(map((res: Response) => res));
   }
 
   public delete(orderId: string): Observable<any> {

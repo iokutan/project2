@@ -46,7 +46,7 @@ export class ProductCategoryController extends BaseController{
             }
         } catch (error) {
             if(error.errors)
-                res.status(400).send(error.errors.map(a => a.message));
+                return res.status(400).send(error.errors.map(a => a.message));
             res.status(400).send(error);
         }
     }

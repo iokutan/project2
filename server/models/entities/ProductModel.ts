@@ -17,6 +17,10 @@ export class ProductModel extends BaseModel<ProductModel> {
     @Column
     model_name: string;
 
+    @AllowNull(true)
+    @Column
+    imageUrl: string;
+
     @HasMany(() => Product)
     product: Product[];
 

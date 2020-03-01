@@ -35,6 +35,10 @@ export class Order extends BaseModel<Order> {
     @Column
     status: number;
 
+    @AllowNull(true)
+    @Column
+    orderNumber: string;
+
     @HasMany(() => OrderItem)
     order_items: OrderItem[];
 

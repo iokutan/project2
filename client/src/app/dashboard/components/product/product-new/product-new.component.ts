@@ -27,10 +27,7 @@ export class ProductNewComponent implements OnInit {
 
   ngOnInit() {
     this.createModelForm();
-    this.route.params.subscribe(params => {
-      this.param = params.id;
-      this.getDetails(this.param);
-    });
+    this.getDetails();
   }
 
   createModelForm() {
@@ -40,49 +37,39 @@ export class ProductNewComponent implements OnInit {
       size: [ '', Validators.required],
       color: [ '', Validators.required],
       available: [ '', Validators.required],
-      discount: [ '', Validators.required]
+      discount: [ '', Validators.required],
+      imageUrl: [ '', Validators.required],
+      currentCategory: [ '', Validators.required],
+      category_id: [ '', Validators.required]
     });
   }
 
-  getDetails(id) {
+  setImageUrl(imageUrl){
+    this.productForm.get('imageUrl').setValue(imageUrl);
+  }
+
+  getDetails() {
     this.categoryService.getAll().subscribe(c => {
       this.categories = c;
-      this.productService.getById(id).subscribe(data => {
-        this.selectedCategory = data.model.category.category_id;
-        this.product = data;
-
-        this.setForm(this.product);
-
-        this.modelService.getByCategory(this.selectedCategory).subscribe( ctgry => {
-          this.models = ctgry;
-          this.selectedModel = data.model.model_id;
-        });
-      });
+      this.modelService.getByCategory(this.selectedCategory).subscribe( mdls => {
+        this.models = mdls;
+      }); 
     });
-}
+  }
 
-setModel(categoryid) {
-  this.modelService.getByCategory(categoryid).subscribe(data => {
-    this.models = data;
-    this.selectedModel = data[0].model_id;
-  });
-}
-
-setForm(product) {
-  this.productForm.get('name').setValue(product.name);
-  this.productForm.get('price').setValue(product.price);
-  this.productForm.get('size').setValue(product.size);
-  this.productForm.get('color').setValue(product.color);
-  this.productForm.get('available').setValue(product.available);
-  this.productForm.get('discount').setValue(product.discount);
-}
-
-add() {
-  const form = this.productForm.value;
-  form.product_id = this.product.product_id;
-  this.productService.create(form).subscribe(data => {
-    this.product = data;
-  });
-}
-
+  setModel() {
+    const categoryId = this.productForm.get('currentCategory').value;
+    this.modelService.getByCategory(categoryId).subscribe(data => {
+      this.models = data;
+      this.selectedModel = data[0].model_id;
+    });
+  }
+  
+  add() {
+    const form = this.productForm.value;
+    form.imageUrl = this.productForm.get('imageUrl').value;
+    this.productService.create(form).subscribe(data => {
+      this.product = data;
+    });
+  }
 }

@@ -1,95 +1,117 @@
 <div class="container">
-
-    <div class="mainbox col-md-6 col-sm-8">
-        <div class="col panel panel-info">
-            <div class="panel-body">
-                <div>
-                    <input type='hidden' name='csrfmiddlewaretoken' value='XFe2rTYl9WOpV8U6X5CfbIuOZOELJ97S' />
-
-                    <div class="form-horizontal">
-                        <input type='hidden' name='csrfmiddlewaretoken' value='XFe2rTYl9WOpV8U6X5CfbIuOZOELJ97S' />
-                        <div class="form-group required">
-                            <label class="control-label col-md-4  requiredField">Category</label>
-                            <select class="custom-select form-control mx-3" placeholder="Select category"
-                                [(ngModel)]="selectedCategory" (change)="setModel(selectedCategory)">
-                                <option [ngValue]="category.category_id" *ngFor="let category of categories">
-                                    {{category?.category_name}}</option>
-                            </select>
-                        </div>
-                        <div class="form-group required">
-                            <label for="id_As" class="control-label col-md-4  requiredField">Model</label>
-                            <select class="custom-select form-control mx-3" [(ngModel)]="selectedModel"
-                                placeholder="Select model">
-                                <option [ngValue]="model.model_id" *ngFor="let model of models">{{model?.model_name}}
-                                </option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="aab controls col"></div>
-                            <div class="controls col">
-                                <input type="button" (click)="move(selectedModel)" value="Move"
-                                    class="col-md-6 btn btn btn-primary" />
+   <div class="row">
+    <div class=" col-md-6 col-sm-8">
+        <div class="col-md-12">
+            <ol class="breadcrumb">
+                <li>Change product's category or model</li>
+              </ol>
+            <div class="col panel panel-info">
+                <div class="panel-body">
+                    <div>
+                          <div class="form-horizontal">
+                            <input type='hidden' name='csrfmiddlewaretoken' value='XFe2rTYl9WOpV8U6X5CfbIuOZOELJ97S' />
+                            <div class="form-group required">
+                                <label class="control-label col-md-4  requiredField">Category</label>
+                                <select class="custom-select form-control mx-3" placeholder="Select category"
+                                    [(ngModel)]="selectedCategory" (change)="setModel(selectedCategory)">
+                                    <option [ngValue]="category.category_id" *ngFor="let category of categories">
+                                        {{category?.category_name}}</option>
+                                </select>
+                            </div>
+                            <div class="form-group required">
+                                <label for="id_As" class="control-label col-md-4  requiredField">Model</label>
+                                <select class="custom-select form-control mx-3" [(ngModel)]="selectedModel"
+                                    placeholder="Select model">
+                                    <option [ngValue]="model.model_id" *ngFor="let model of models">{{model?.model_name}}
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <div class="aab controls col"></div>
+                                <div class="controls col">
+                                    <input type="button" (click)="move(selectedModel)" value="Move"
+                                        class="col-md-6 btn btn btn-primary" />
+                                </div>
                             </div>
                         </div>
-
                     </div>
-
                 </div>
             </div>
         </div>
+        
     </div>
-    <div class="mainbox col-md-12 col-sm-8">
+    <div class=" col-md-6 col-sm-8">
+        <div class="col-md-12">
+            <ol class="breadcrumb">
+                <li>Upload product image</li>
+              </ol>
+            <cristal-image-uploader [imageUrl]="product?.imageUrl" (setImageUrl)="setImageUrl($event)"></cristal-image-uploader>
+        </div>
+        
+    </div>
+   </div>
+   <div class="row">
+       <div class="col-md-12">
+        <ol class="breadcrumb">
+            <li>Change product's details</li>
+          </ol>
         <div class="panel panel-info">
             <div class="panel-body">
-                <form [formGroup]="productForm" (ngSubmit)="update()" class="col-md-9">
-                    <div class="form-horizontal">
+                <form [formGroup]="productForm" (ngSubmit)="update()" class="row">
+                    <div class="form-horizontal col-md-12">
                         <div class="form-group required">
                             <label class="control-label col-md-4  requiredField">Name</label>
-                            <div class="controls col-md-8 ">
+                            <div class="controls col-md-12 ">
                                 <input formControlName="name" class="input-md  textinput textInput form-control"
                                     type="text" />
                             </div>
                         </div>
                         <div class="form-group required">
                             <label class="control-label col-md-4  requiredField">Price</label>
-                            <div class="controls col-md-8 ">
+                            <div class="controls col-md-12 ">
                                 <input formControlName="price" class="input-md  textinput textInput form-control"
                                     type="number" />
                             </div>
                         </div>
                         <div class="form-group required">
                             <label class="control-label col-md-4  requiredField">Size</label>
-                            <div class="controls col-md-8 ">
+                            <div class="controls col-md-12 ">
                                 <input formControlName="size" class="input-md  textinput textInput form-control"
                                     type="text" />
                             </div>
                         </div>
                         <div class="form-group required">
                             <label class="control-label col-md-4  requiredField">Color</label>
-                            <div class="controls col-md-8 ">
+                            <div class="controls col-md-12 ">
                                 <input formControlName="color" class="input-md  textinput textInput form-control"
                                     type="text" />
                             </div>
                         </div>
                         <div class="form-group required">
                             <label class="control-label col-md-4  requiredField">Discount</label>
-                            <div class="controls col-md-8 ">
+                            <div class="controls col-md-12 ">
                                 <input formControlName="available" class="input-md  textinput textInput form-control"
                                     type="number" />
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="aab controls col"></div>
+                            <div class=""></div>
                             <div class="controls col">
-                                <input type="submit" value="Update" class="col-md-4 btn btn btn-primary" />
+                                <input type="submit" value="Update" class="col-md-12 btn btn btn-primary" />
                             </div>
                         </div>
 
+                        <div class="form-group">
+                            <div class=""></div>
+                            <div class="controls col">
+                                <input type="button" value="Delete" class="col-md-12 btn btn btn-danger" (click)="delete()" />
+                            </div>
+                        </div>
                     </div>
 
                 </form>
             </div>
         </div>
-    </div>
+       </div>
+   </div>
 </div>

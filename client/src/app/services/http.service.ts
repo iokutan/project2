@@ -14,7 +14,7 @@ export class AppHttpService {
   }
 
   post(endpoint, data): Observable<any> {
-    return this.http.post(`${this.serverUrl}${endpoint}`, data);
+    return this.http.post(`${this.serverUrl}${endpoint}`, data, { headers: { 'Content-Type': 'application/json' }});
   }
 
   get(endpoint): Observable<any> {

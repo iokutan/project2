@@ -37,6 +37,10 @@ export class Product extends BaseModel<Product> {
     @Column
     color: string;
 
+    @AllowNull(true)
+    @Column
+    imageUrl: string;
+
     @ForeignKey(() => ProductModel)
     @Column
     category_id: string;

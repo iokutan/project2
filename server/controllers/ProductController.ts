@@ -1,11 +1,13 @@
 import * as express from "express";
 import {Product, ProductModel, ProductCategory} from "../models";
 import {Auth} from "../auth/auth";
+import { v4 as uuidv4 } from 'uuid';
 import {BaseController} from "./BaseController";
 import * as _ from 'lodash';
+import * as path from 'path';
 
 export class ProductController extends BaseController{
-
+    private uploadHandler: any;
     constructor() {
         super();
         this.buildRoutes();
@@ -72,8 +74,7 @@ export class ProductController extends BaseController{
                 where: { product_id: req.params.productId }
             });
             if(product){
-                await product.updateAttributes(req.body);
-                await product.save();
+                await product.update(req.body);
                 product = await Product.findOne<Product>({
                     where: { product_id: req.params.productId },
                     include: [
@@ -106,11 +107,29 @@ export class ProductController extends BaseController{
             res.status(500).send(error);
         }
     }
+
+    public async uploadImage(req: express.Request, res: express.Response, next: express.NextFunction){
+        try {
+            const imagePath = path.join(__dirname, '../../public/images/');
+            if (!req.files) {
+                return res.status(404).json({error: 'Please provide an image'});
+            }
+
+            let file = req.files['file'];
+            const fileIdentifier = uuidv4();
+            file.mv(`${imagePath}/${fileIdentifier}_${file.name}`);
+
+            res.status(200).json({ name: file.name, imagePath: `${req.protocol}://${req.get('host')}/images/${fileIdentifier}_${file.name}` });
+        } catch (error) {
+            res.status(500).send(error); 
+        }
+    }
  
     private buildRoutes() {
         this.router.get("/", Auth.getBearerMiddleware(), this.get.bind(this));
         this.router.get("/:productId", Auth.getBearerMiddleware(), this.getById.bind(this));
-        this.router.post("/:productId", Auth.getBearerMiddleware(), this.post.bind(this));
+        this.router.post("/create/:productId", Auth.getBearerMiddleware(), this.post.bind(this));
+        this.router.post("/uploadImage", Auth.getBearerMiddleware(), this.uploadImage.bind(this));
         this.router.delete("/:productId", Auth.getBearerMiddleware(), this.delete.bind(this));
         this.router.put("/:productId", Auth.getBearerMiddleware(), this.put.bind(this));
     }

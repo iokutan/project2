@@ -27,6 +27,11 @@ __decorate([
     __metadata("design:type", String)
 ], ProductCategory.prototype, "category_name", void 0);
 __decorate([
+    sequelize_typescript_1.AllowNull(true),
+    sequelize_typescript_1.Column,
+    __metadata("design:type", String)
+], ProductCategory.prototype, "imageUrl", void 0);
+__decorate([
     sequelize_typescript_1.HasMany(() => ProductModel_1.ProductModel),
     __metadata("design:type", Array)
 ], ProductCategory.prototype, "models", void 0);

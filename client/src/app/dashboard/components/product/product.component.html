@@ -14,6 +14,7 @@
 <table class="table table-striped">
     <thead>
       <tr>
+        <th scope="col">Image</th>
         <th scope="col">Product</th>
         <th scope="col">Model</th>
         <th scope="col">Category</th>
@@ -22,6 +23,7 @@
     </thead>
     <tbody class="text-align-center">
       <tr *ngFor="let item of products">
+        <td><img width="50" src="{{ item?.imageUrl }}" *ngIf="item?.imageUrl"/></td> 
         <td>{{ item?.name }}</td> 
         <td>{{ item?.model?.model_name }}</td> 
         <td>{{ item?.model?.category?.category_name }}</td> 

@@ -9,6 +9,7 @@ import {ArtikelCategory} from "./entities/ArtikelCategory";
 import {Address} from "./entities/Address";
 import {Order} from "./entities/Order";
 import {OrderItem} from "./entities/OrderItem";
+import {ProductService} from "./entities/ProductService";
 
 export {Sequelize} from 'sequelize-typescript';
 export {AccessToken} from "./entities/AccessToken";
@@ -21,6 +22,7 @@ export {ProductCategory} from "./entities/ProductCategory";
 export {ProductModel} from "./entities/ProductModel";
 export {Order} from "./entities/Order";
 export {OrderItem} from "./entities/OrderItem";
+export {ProductService} from "./entities/ProductService";
 /**
  *  All models must be imported from this file or else they will not be registered with Sequelize
  */
@@ -41,7 +43,7 @@ export class Models {
     private getModels() {
         return [
             AccessToken, User, Product, ProductCategory, ProductModel,
-            Artikel, ArtikelCategory, Address, Order, OrderItem
+            Artikel, ArtikelCategory, Address, Order, OrderItem, ProductService
         ];
     }
 }

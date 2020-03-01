@@ -14,7 +14,7 @@ export class ModelService {
    }
 
   public create(model): Observable<Response> {
-    return this.http.post(`${this.serverUrl}/${model.category_id}`, model).pipe(map((res: Response) => res));
+    return this.http.post(`${this.serverUrl}/${model.category_id}`, model, { headers: { 'Content-Type': 'application/json' }}).pipe(map((res: Response) => res));
   }
 
   public getAll(): Observable<any> {
@@ -31,7 +31,7 @@ export class ModelService {
 
   public update(model: any): Observable<any> {
     console.log()
-    return this.http.put(`${this.serverUrl}/${model.model_id}`, model).pipe(map((res: Response) => res));
+    return this.http.put(`${this.serverUrl}/${model.model_id}`, model, { headers: { 'Content-Type': 'application/json' }}).pipe(map((res: Response) => res));
   }
 
   public delete(model_id: string): Observable<any> {

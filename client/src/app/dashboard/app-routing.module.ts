@@ -12,6 +12,9 @@ import { ModelUpdateComponent } from './components/model/model-update/model-upda
 import { ProductComponent } from './components/product/product.component';
 import { ProductNewComponent } from './components/product/product-new/product-new.component';
 import { ProductUpdateComponent } from './components/product/product-update/product-update.component';
+import { ProductServicesComponent } from './components/product-services/product-services.component';
+import { ServiceNewComponent } from './components/product-services/service-new/service-new.component';
+import { ServiceUpdateComponent } from './components/product-services/service-update/service-update.component';
 
 
 const routes: Routes = [
@@ -28,7 +31,10 @@ const routes: Routes = [
       { path: 'model-update/:id', component: ModelUpdateComponent},
       { path: 'product-list', component: ProductComponent},
       { path: 'product-new', component: ProductNewComponent},
-      { path: 'product-update/:id', component: ProductUpdateComponent}
+      { path: 'product-update/:id', component: ProductUpdateComponent},
+      { path: 'service-list', component: ProductServicesComponent},
+      { path: 'service-new', component: ServiceNewComponent},
+      { path: 'service-update/:id', component: ServiceUpdateComponent}
   ]}
 ];
 

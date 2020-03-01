@@ -10,6 +10,7 @@ const ProductModelController_1 = require("./ProductModelController");
 const ProductController_1 = require("./ProductController");
 const OrderController_1 = require("./OrderController");
 const OrderItemController_1 = require("./OrderItemController");
+const ProductServicesController_1 = require("./ProductServicesController");
 class Controller {
     static initializeControllers(app) {
         app.use('/oauth', new AuthController_1.AuthController().router);
@@ -19,6 +20,7 @@ class Controller {
         app.use('/artikelCategories', new ArtikelCategoryController_1.ArtikelCategoryController().router);
         app.use('/productCategories', new ProductCategoryController_1.ProductCategoryController().router);
         app.use('/productModels', new ProductModelController_1.ProductModelController().router);
+        app.use('/productServices', new ProductServicesController_1.ProductServicesController().router);
         app.use('/products', new ProductController_1.ProductController().router);
         app.use('/orders', new OrderController_1.OrderController().router);
         app.use('/orderItems', new OrderItemController_1.OrderItemController().router);

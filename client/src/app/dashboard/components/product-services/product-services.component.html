@@ -1,0 +1,37 @@
+
+
+<div class="product-status-wrap col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <div class="d-flex flex-row bd-highlight justify-content-between mb-3">
+      <div>
+        <h4>Service List</h4>
+      </div>
+    <div class="add-product">
+      <a [routerLink]="['/dashboard', 'service-new']" routerLinkActive="active">
+        <button type="button" class="btn btn-primary">Add Service</button>
+      </a>
+    </div>
+  </div>
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Product</th>
+        <th scope="col">Service name</th>
+        <th scope="col">Price</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody class="text-align-center">
+        <!--*ngFor="let item of products"-->
+      <tr >
+        <td>ddd</td> 
+        <td>ddd</td> 
+        <td>ddd</td> 
+        <td>
+          <div>
+            <button type="botton" class="btn btn-success" style="width: 5rem; height: 2rem;" [routerLink]="['/dashboard', 'service-update', 1]" routerLinkActive="active">Edit</button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

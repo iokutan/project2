@@ -7,11 +7,13 @@ export class BaseController {
     constructor() {
         this.router = express.Router();
         const limiter = require('express-limiter')(this.router);
+        /*
         limiter({
             lookup: 'user.userId',
             // 150 requests per hour
             total: 1500,
             expire: 1000 * 60 * 60
         });
+        */
     }
 }

@@ -62,6 +62,7 @@ export class ProductUpdateComponent implements OnInit {
     this.productForm.get('color').setValue(product.color);
     this.productForm.get('available').setValue(product.available);
     this.productForm.get('discount').setValue(product.discount);
+    this.productForm.get('imageUrl').setValue(product.imageUrl);
   }
 
   setModel(categoryid) {
@@ -71,6 +72,10 @@ export class ProductUpdateComponent implements OnInit {
     });
   }
 
+  setImageUrl(imageUrl){
+    this.productForm.get('imageUrl').setValue(imageUrl);
+  }
+
   createModelForm() {
     this.productForm = this.fb.group({
       name: [ '', Validators.required],
@@ -78,7 +83,8 @@ export class ProductUpdateComponent implements OnInit {
       size: [ '', Validators.required],
       color: [ '', Validators.required],
       available: [ '', Validators.required],
-      discount: [ '', Validators.required]
+      discount: [ '', Validators.required],
+      imageUrl: [ '', Validators.required]
     });
   }
 
@@ -95,6 +101,7 @@ export class ProductUpdateComponent implements OnInit {
 
   update() {
     const form = this.productForm.value;
+    form.imageUrl = this.productForm.get('imageUrl').value;
     form.product_id = this.product.product_id;
     this.productService.update(form).subscribe(data => {
       this.selectedModel = data.model.model_id;
