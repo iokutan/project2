@@ -1,15 +1,22 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductOfferService } from '../../services/product-offer.service';
 
 @Component({
+  // tslint:disable-next-line:component-selector
   selector: 'cristal-product-services',
   templateUrl: './product-services.component.html',
   styleUrls: ['./product-services.component.css']
 })
 export class ProductServicesComponent implements OnInit {
 
-  constructor() { }
+  products: any[];
+
+  constructor(private productOfferService: ProductOfferService) { }
 
   ngOnInit() {
+    this.productOfferService.getAll().subscribe(data => {
+      this.products = data;
+    });
   }
 
 }

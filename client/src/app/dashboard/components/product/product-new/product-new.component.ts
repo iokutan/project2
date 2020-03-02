@@ -20,8 +20,10 @@ export class ProductNewComponent implements OnInit {
   selectedModel: any;
   selectedCategory: any;
 
-  constructor(private categoryService: CategoryService, private modelService: ModelService,
-              private router: Router, private productService: ProductService,
+  constructor(private categoryService: CategoryService,
+              private modelService: ModelService,
+              private productService: ProductService,
+              private router: Router,
               private route: ActivatedRoute,
               private fb: FormBuilder) { }
 
@@ -44,7 +46,7 @@ export class ProductNewComponent implements OnInit {
     });
   }
 
-  setImageUrl(imageUrl){
+  setImageUrl(imageUrl) {
     this.productForm.get('imageUrl').setValue(imageUrl);
   }
 
@@ -53,7 +55,7 @@ export class ProductNewComponent implements OnInit {
       this.categories = c;
       this.modelService.getByCategory(this.selectedCategory).subscribe( mdls => {
         this.models = mdls;
-      }); 
+      });
     });
   }
 
@@ -64,7 +66,7 @@ export class ProductNewComponent implements OnInit {
       this.selectedModel = data[0].model_id;
     });
   }
-  
+
   add() {
     const form = this.productForm.value;
     form.imageUrl = this.productForm.get('imageUrl').value;

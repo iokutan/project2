@@ -1,50 +1,52 @@
-<div class="container"> 
-    <form [formGroup]="productForm" (ngSubmit)="add()" class="col-md-12"> 
-    <div class="row">
-        <div class="mainbox col-md-6 col-sm-8">
-            <ol class="breadcrumb">
-                <li>Add product category and Model</li>
-            </ol>
-            <div class="col panel panel-info">
-                <div class="panel-body">
-                    <div class="form-horizontal">
-                        <div class="form-group required">
-                            <label class="control-label col-md-4  requiredField">Category</label>
-                            <select class="custom-select form-control mx-3" formControlName="currentCategory"
-                             placeholder="Select category" (change)="setModel()">
-                                <option [ngValue]="category.category_id" *ngFor="let category of categories">
-                                    {{category?.category_name}}</option>
-                            </select>
-                        </div>
-                        <div class="form-group required">
-                            <label for="id_As" class="control-label col-md-4  requiredField">Model</label>
-                            <select class="custom-select form-control mx-3" formControlName="category_id"
-                                placeholder="Select model">
-                                <option [ngValue]="model.model_id" *ngFor="let model of models">{{model?.model_name}}
-                                </option>
-                            </select>
+<div class="container">
+    <form [formGroup]="productForm" (ngSubmit)="add()" class="col-md-12">
+        <div class="row">
+            <div class="mainbox col-md-6 col-sm-8">
+                <ol class="breadcrumb">
+                    <li>Add product category and Model</li>
+                </ol>
+                <div class="col panel panel-info">
+                    <div class="panel-body">
+                        <div class="form-horizontal">
+                            <div class="form-group required">
+                                <label class="control-label col-md-4  requiredField">Category</label>
+                                <select class="custom-select form-control mx-3" formControlName="currentCategory"
+                                    placeholder="Select category" (change)="setModel()">
+                                    <option [ngValue]="category.category_id" *ngFor="let category of categories">
+                                        {{category?.category_name}}</option>
+                                </select>
+                            </div>
+                            <div class="form-group required">
+                                <label for="id_As" class="control-label col-md-4  requiredField">Model</label>
+                                <select class="custom-select form-control mx-3" formControlName="category_id"
+                                    placeholder="Select model">
+                                    <option [ngValue]="model.model_id" *ngFor="let model of models">
+                                        {{model?.model_name}}
+                                    </option>
+                                </select>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class=" col-md-6 col-sm-8">
-            <div class="col-md-12">
-                <ol class="breadcrumb">
-                    <li>Upload product image</li>
-                  </ol>
-                <cristal-image-uploader [imageUrl]="product?.imageUrl" (setImageUrl)="setImageUrl($event)"></cristal-image-uploader>
+            <div class=" col-md-6 col-sm-8">
+                <div class="col-md-12">
+                    <ol class="breadcrumb">
+                        <li>Upload product image</li>
+                    </ol>
+                    <cristal-image-uploader [imageUrl]="product?.imageUrl" (setImageUrl)="setImageUrl($event)">
+                    </cristal-image-uploader>
+                </div>
+
             </div>
-            
         </div>
-    </div>
-    <div class="row">    
-        <div class="mainbox col-md-12 col-sm-8">
-            <ol class="breadcrumb">
-                <li>Add product details</li>
-            </ol>
-            <div class="panel panel-info">
-                <div class="panel-body"> 
+        <div class="row">
+            <div class="mainbox col-md-12 col-sm-8">
+                <ol class="breadcrumb">
+                    <li>Add product details</li>
+                </ol>
+                <div class="panel panel-info">
+                    <div class="panel-body">
                         <div class="form-horizontal">
                             <div class="form-group required">
                                 <label class="control-label col-md-4  requiredField">Name</label>
@@ -77,19 +79,19 @@
                             <div class="form-group required">
                                 <label class="control-label col-md-4  requiredField">Discount</label>
                                 <div class="controls col-md-12 ">
-                                    <input formControlName="available" class="input-md  textinput textInput form-control"
-                                        type="number" />
+                                    <input formControlName="available"
+                                        class="input-md  textinput textInput form-control" type="number" />
                                 </div>
-                            </div> 
-                        </div> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="controls col">
+                    <input type="submit" value="Add" class="col-md-12 btn btn btn-primary" />
                 </div>
             </div>
         </div>
-        <div class="col-md-12">
-            <div class="controls col">
-                <input type="submit" value="Add" class="col-md-12 btn btn btn-primary" />
-            </div>
-        </div>
-    </div>
-</form>
+    </form>
 </div>
