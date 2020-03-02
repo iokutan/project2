@@ -15,6 +15,9 @@ import { ProductUpdateComponent } from './components/product/product-update/prod
 import { ProductServicesComponent } from './components/product-services/product-services.component';
 import { ServiceNewComponent } from './components/product-services/service-new/service-new.component';
 import { ServiceUpdateComponent } from './components/product-services/service-update/service-update.component';
+import { ArtikelsComponent } from './components/artikels/artikels.component';
+import { ArtikelNewComponent } from './components/artikels/artikel-new/artikel-new.component';
+import { ArtikelUpdateComponent } from './components/artikels/artikel-update/artikel-update.component';
 
 
 const routes: Routes = [
@@ -34,7 +37,11 @@ const routes: Routes = [
       { path: 'product-update/:id', component: ProductUpdateComponent},
       { path: 'service-list', component: ProductServicesComponent},
       { path: 'service-new', component: ServiceNewComponent},
-      { path: 'service-update/:id', component: ServiceUpdateComponent}
+      { path: 'service-update/:id', component: ServiceUpdateComponent},
+      { path: 'artikel-list', component: ArtikelsComponent},
+      { path: 'artikel-new', component: ArtikelNewComponent},
+      { path: 'artikel-update/:id', component: ArtikelUpdateComponent},
+
   ]}
 ];
 

@@ -20,10 +20,10 @@ export class ServiceNewComponent implements OnInit {
               private fb: FormBuilder) { }
 
   ngOnInit() {
-    this.createModelForm();
+    this.createProductOfferForm();
   }
 
-  createModelForm() {
+  createProductOfferForm() {
     this.productOfferForm = this.fb.group({
       orderName: [ '', Validators.required],
       price: [ '', Validators.required],

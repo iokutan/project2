@@ -1,0 +1,50 @@
+<div class="container">
+    <form [formGroup]="productForm" (ngSubmit)="add()" class="col-md-12">
+        <div class=" col-md-6 col-sm-8">
+            <div class="col-md-12">
+                <ol class="breadcrumb">
+                    <li>Upload artikel image</li>
+                </ol>
+                <cristal-image-uploader [imageUrl]="artikel?.imageUrl" (setImageUrl)="setImageUrl($event)">
+                </cristal-image-uploader>
+            </div>
+        </div>
+        <div class="row">
+            <div class="mainbox col-md-12 col-sm-8">
+                <ol class="breadcrumb">
+                    <li>Add Artikel details</li>
+                </ol>
+                <div class="panel panel-info">
+                    <div class="panel-body">
+                        <div class="form-horizontal">
+                            <div class="form-group required">
+                                <label class="control-label col-md-4 requiredField">Titel</label>
+                                <div class="controls col-md-12 ">
+                                    <input formControlName="titel" class="input-md textinput textInput form-control"
+                                        type="text" />
+                                </div>
+                            </div>
+                            <div class="form-group required">
+                                <label class="control-label col-md-4 requiredField">Body</label>
+                                <div class="controls col-md-12 ">
+                                    <textarea formControlName="body"
+                                        class="input-md textinput textInput form-control"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="controls col">
+                    <input type="submit" value="Add" class="col-md-12 btn btn btn-primary" />
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="controls col">
+                    <input type="button" value="Delete" class="col-md-12 btn btn btn-danger" (click)="delete()" />
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

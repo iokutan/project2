@@ -24,6 +24,10 @@ import { ProductServicesComponent } from './components/product-services/product-
 import { ServiceNewComponent } from './components/product-services/service-new/service-new.component';
 import { ServiceUpdateComponent } from './components/product-services/service-update/service-update.component';
 import { ProductOfferService } from './services/product-offer.service';
+import { ArtikelsComponent } from './components/artikels/artikels.component';
+import { ArtikelNewComponent } from './components/artikels/artikel-new/artikel-new.component';
+import { ArtikelUpdateComponent } from './components/artikels/artikel-update/artikel-update.component';
+import { ArtikelService } from './services/artikel.service';
 
 
 @NgModule({
@@ -44,14 +48,18 @@ import { ProductOfferService } from './services/product-offer.service';
     ImageUploaderComponent,
     ProductServicesComponent,
     ServiceNewComponent,
-    ServiceUpdateComponent
+    ServiceUpdateComponent,
+    ArtikelsComponent,
+    ArtikelNewComponent,
+    ArtikelUpdateComponent
   ],
   providers: [
     IsAuthorizedGuard,
     CategoryService,
     ModelService,
     ProductService,
-    ProductOfferService
+    ProductOfferService,
+    ArtikelService
   ], 
   imports: [
     CommonModule,
