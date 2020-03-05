@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CategoryService } from 'src/app/dashboard/services/category.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -11,7 +11,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class CategoryNewComponent implements OnInit {
   categoryForm: FormGroup;
   constructor(private categoryService: CategoryService,
-    private route: ActivatedRoute,
+              private route: ActivatedRoute,
+              private router: Router,
               private fb: FormBuilder) { }
 
   ngOnInit() {
@@ -27,7 +28,7 @@ export class CategoryNewComponent implements OnInit {
   add(){
     const form = this.categoryForm.value;
     this.categoryService.create(form).subscribe(data => {
-      console.log("created", data);
+      this.router.navigate(['/dashboard','category-list']);
     })
   }
 }

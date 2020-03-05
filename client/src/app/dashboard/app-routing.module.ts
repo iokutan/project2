@@ -18,6 +18,9 @@ import { ServiceUpdateComponent } from './components/product-services/service-up
 import { ArtikelsComponent } from './components/artikels/artikels.component';
 import { ArtikelNewComponent } from './components/artikels/artikel-new/artikel-new.component';
 import { ArtikelUpdateComponent } from './components/artikels/artikel-update/artikel-update.component';
+import { ArtikelCategoryComponent } from './components/artikel-category/artikel-category.component';
+import { ArtikelCategoryNewComponent } from './components/artikel-category/artikel-category-new/artikel-category-new.component';
+import { ArtikelCategoryUpdateComponent } from './components/artikel-category/artikel-category-update/artikel-category-update.component';
 
 
 const routes: Routes = [
@@ -41,7 +44,9 @@ const routes: Routes = [
       { path: 'artikel-list', component: ArtikelsComponent},
       { path: 'artikel-new', component: ArtikelNewComponent},
       { path: 'artikel-update/:id', component: ArtikelUpdateComponent},
-
+      { path: 'artikel-category-list', component: ArtikelCategoryComponent},
+      { path: 'artikel-category-new', component: ArtikelCategoryNewComponent},
+      { path: 'artikel-category-update/:id', component: ArtikelCategoryUpdateComponent},
   ]}
 ];
 

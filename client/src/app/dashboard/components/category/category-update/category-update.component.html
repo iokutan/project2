@@ -1,14 +1,28 @@
-<form [formGroup]="categoryForm" (ngSubmit)="update()" class="row">
-    <div class="col-sm-12 my-5">
-      <div class="input-group mb-3 flex-row justify-content-start">
-        <div>Category Name:</div>
-        <input type="text" class="form-control" formControlName="category_name" placeholder="Titel">
+<div class="row">
+  <form class="col-md-12" [formGroup]="categoryForm" (ngSubmit)="update()">
+    <div class="mainbox col-md-9 col-sm-6">
+      <ol class="breadcrumb">
+        <li>Edit Category Name</li>
+      </ol>
+      <div class="panel panel-info">
+        <div class="panel-body">
+          <div class="form-horizontal">
+            <div class="form-group required">
+              <label class="control-label col-md-12  requiredField">Name</label>
+              <div class="controls col-md-12 ">
+                <input formControlName="category_name" class="input-md  textinput textInput form-control"
+                  type="text" />
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-  
-      <div class="text-center my-5 d-flex flex-row justify-content-start">
-        <button type="submit" class="btn btn-success mx-4"  [disabled]="!categoryForm.valid">Update</button>
-        <button type="button" class="btn btn-warning mx-4" [routerLink]="['/dashboard', 'category-list']">Cancel</button>
-        <button type="button" class="btn btn-danger mx-4" (click)="delete()">Delete</button>
+      <div class="row">
+        <button type="submit" class="col-md-3 btn btn-success mx-4"  [disabled]="!categoryForm.valid">Update</button>
+        <button type="button" class="col-md-3 btn btn-warning mx-4" [routerLink]="['/dashboard', 'category-list']">Cancel</button>
+        <button type="button" class="col-md-3 btn btn-danger mx-4" (click)="delete()">Delete</button>
       </div>
     </div>
   </form>
+</div>
+    

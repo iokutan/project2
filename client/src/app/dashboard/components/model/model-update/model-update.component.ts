@@ -17,8 +17,9 @@ export class ModelUpdateComponent implements OnInit {
   categories: any[];
 
   constructor(private modelService: ModelService,
-    private router: Router, private categoryService: CategoryService,
-    private route: ActivatedRoute,
+              private router: Router,
+              private categoryService: CategoryService,
+              private route: ActivatedRoute,
               private fb: FormBuilder) { }
 
   ngOnInit() {
@@ -55,6 +56,7 @@ export class ModelUpdateComponent implements OnInit {
     form.model_id = this.model.model_id;
     this.modelService.update(form).subscribe(data => {
       this.getModelDetails();
+      this.router.navigate(['/dashboard','model-list']);
     })
   }
 

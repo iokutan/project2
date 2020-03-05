@@ -51,6 +51,22 @@ export class ArtikelController extends BaseController{
         }
     }
 
+    public async getById(req: express.Request, res: express.Response, next: express.NextFunction) {
+        try {
+            const artikel = await Artikel
+                  .findOne<Artikel>({
+                      where: { artikel_id: req.params.artikelId },
+                    });
+            if(artikel){
+                res.status(201).send(artikel);
+            } else {
+                res.status(404).send("artikel not found");
+            }
+        } catch (error) {
+            res.status(400).send(error);
+        }
+    }
+
     public async delete(req: express.Request, res: express.Response, next: express.NextFunction) {
         try {
           const address = await Artikel.findOne<Artikel>({where: { artikel_id: req.params.artikelId }});
@@ -67,6 +83,7 @@ export class ArtikelController extends BaseController{
  
     private buildRoutes() {
         this.router.get("/", Auth.getBearerMiddleware(), this.get.bind(this));
+        this.router.get("/:artikelId", Auth.getBearerMiddleware(), this.getById.bind(this));
         this.router.post("/:categoryId", Auth.getBearerMiddleware(), this.post.bind(this));
         this.router.delete("/:artikelId", Auth.getBearerMiddleware(), this.delete.bind(this));
         this.router.put("/:artikelId", Auth.getBearerMiddleware(), this.put.bind(this));

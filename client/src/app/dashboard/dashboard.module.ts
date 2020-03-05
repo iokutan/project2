@@ -28,6 +28,10 @@ import { ArtikelsComponent } from './components/artikels/artikels.component';
 import { ArtikelNewComponent } from './components/artikels/artikel-new/artikel-new.component';
 import { ArtikelUpdateComponent } from './components/artikels/artikel-update/artikel-update.component';
 import { ArtikelService } from './services/artikel.service';
+import { ArtikelCategoryComponent } from './components/artikel-category/artikel-category.component';
+import { ArtikelCategoryNewComponent } from './components/artikel-category/artikel-category-new/artikel-category-new.component';
+import { ArtikelCategoryUpdateComponent } from './components/artikel-category/artikel-category-update/artikel-category-update.component';
+import { ArtikelCategoryService } from './services/artikel-category.service';
 
 
 @NgModule({
@@ -51,7 +55,10 @@ import { ArtikelService } from './services/artikel.service';
     ServiceUpdateComponent,
     ArtikelsComponent,
     ArtikelNewComponent,
-    ArtikelUpdateComponent
+    ArtikelUpdateComponent,
+    ArtikelCategoryComponent,
+    ArtikelCategoryNewComponent,
+    ArtikelCategoryUpdateComponent
   ],
   providers: [
     IsAuthorizedGuard,
@@ -59,7 +66,8 @@ import { ArtikelService } from './services/artikel.service';
     ModelService,
     ProductService,
     ProductOfferService,
-    ArtikelService
+    ArtikelService,
+    ArtikelCategoryService,
   ], 
   imports: [
     CommonModule,

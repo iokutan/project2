@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ModelService } from 'src/app/dashboard/services/model.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CategoryService } from 'src/app/dashboard/services/category.service';
 
@@ -15,7 +15,9 @@ export class ModelNewComponent implements OnInit {
   categories: any[];
 
   constructor(private modelService: ModelService,
-    private route: ActivatedRoute, private categoryService: CategoryService,
+              private route: ActivatedRoute, 
+              private router: Router,
+              private categoryService: CategoryService,
               private fb: FormBuilder) { }
 
   ngOnInit() {
@@ -38,7 +40,7 @@ export class ModelNewComponent implements OnInit {
     form.category_id = form.category_name.category_id;
 
     this.modelService.create(form).subscribe(data => {
-      console.log("created", data);
+      this.router.navigate(['/dashboard','model-list']);
     })
   }
 

@@ -19,17 +19,20 @@ export class ArtikelNewComponent implements OnInit {
               private fb: FormBuilder) { }
 
   ngOnInit() {
+    this.createArtikelForm();
   }
 
   createArtikelForm() {
     this.artikelForm = this.fb.group({
-      image: [ '', Validators.required],
+      image_url: [ '', Validators.required],
       titel: [ '', Validators.required],
       body: [ '', Validators.required],
 
     });
   }
-
+  setImageUrl(imageUrl) {
+    this.artikelForm.get('image_url').setValue(imageUrl);
+  }
   add() {
     const form = this.artikelForm.value;
     this.artikelService.create(form).subscribe(data => {

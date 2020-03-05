@@ -23,12 +23,12 @@
     <tbody class="text-align-center">
 
       <tr *ngFor="let item of artikels">
-        <td>{{item?.image_url}}</td> 
+        <td><img src="{{item?.image_url}}" width="40" alt=""></td> 
         <td>{{item?.title}}</td> 
         <td>{{item?.body}}</td> 
         <td>
           <div>
-            <button type="botton" class="btn btn-success" style="width: 5rem; height: 2rem;" [routerLink]="['/dashboard', 'artikel-update', 1]" routerLinkActive="active">Edit</button>
+            <button type="botton" class="btn btn-success" style="width: 5rem; height: 2rem;" [routerLink]="['/dashboard', 'artikel-update', item?.artikel_id]" routerLinkActive="active">Edit</button>
           </div>
         </td>
       </tr>

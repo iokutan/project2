@@ -13,6 +13,7 @@ export class ArtikelUpdateComponent implements OnInit {
 
   artikelForm: FormGroup;
   artikel: any;
+  param: any;
 
   constructor(private artikelService: ArtikelService,
               private router: Router,
@@ -20,12 +21,29 @@ export class ArtikelUpdateComponent implements OnInit {
               private fb: FormBuilder) { }
 
   ngOnInit() {
+    this.createArtikelForm();
+    this.route.params.subscribe(params => {
+      this.param = params.id;
+      this.getDetails(this.param);
+    });
+  }
+
+  getDetails(artikel_id){
+    this.artikelService.getById(artikel_id).subscribe(artkl => {
+      this.artikel = artkl;
+      this.artikelForm.get('title').setValue(this.artikel.title);
+      this.artikelForm.get('body').setValue(this.artikel.body);
+    });
+    }
+
+  setImageUrl(imageUrl) {
+    this.artikelForm.get('image_url').setValue(imageUrl);
   }
 
   createArtikelForm() {
     this.artikelForm = this.fb.group({
-      image: [ '', Validators.required],
-      titel: [ '', Validators.required],
+      image_url: [ '', Validators.required],
+      title: [ '', Validators.required],
       body: [ '', Validators.required],
 
     });
@@ -33,15 +51,15 @@ export class ArtikelUpdateComponent implements OnInit {
 
   update() {
     const form = this.artikelForm.value;
-    form.product_id = this.artikel.product_id;
+    form.artikel_id = this.artikel.artikel_id;
     this.artikelService.update(form).subscribe(data => {
       this.artikel = data;
     });
   }
 
   delete() {
-    this.artikelService.delete(this.artikel.product_id).subscribe(data => {
-      this.router.navigate(['/dashboard', 'service-list']);
+    this.artikelService.delete(this.artikel.artikel_id).subscribe(data => {
+      this.router.navigate(['/dashboard', 'artikel-list']);
     });
   }
 

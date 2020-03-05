@@ -1,11 +1,11 @@
 <div class="container">
-    <form [formGroup]="productForm" (ngSubmit)="add()" class="col-md-12">
+    <form [formGroup]="artikelForm" (ngSubmit)="update()" class="col-md-12">
         <div class=" col-md-6 col-sm-8">
             <div class="col-md-12">
                 <ol class="breadcrumb">
                     <li>Upload artikel image</li>
                 </ol>
-                <cristal-image-uploader [imageUrl]="artikel?.imageUrl" (setImageUrl)="setImageUrl($event)">
+                <cristal-image-uploader [imageUrl]="artikel?.image_url" (setImageUrl)="setImageUrl($event)">
                 </cristal-image-uploader>
             </div>
         </div>
@@ -20,7 +20,7 @@
                             <div class="form-group required">
                                 <label class="control-label col-md-4 requiredField">Titel</label>
                                 <div class="controls col-md-12 ">
-                                    <input formControlName="titel" class="input-md textinput textInput form-control"
+                                    <input formControlName="title" class="input-md textinput textInput form-control"
                                         type="text" />
                                 </div>
                             </div>
@@ -37,7 +37,7 @@
             </div>
             <div class="col-md-12">
                 <div class="controls col">
-                    <input type="submit" value="Add" class="col-md-12 btn btn btn-primary" />
+                    <input type="submit" value="Update" class="col-md-12 btn btn btn-primary" />
                 </div>
             </div>
             <div class="col-md-12">

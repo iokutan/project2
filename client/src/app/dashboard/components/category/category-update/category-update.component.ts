@@ -14,8 +14,8 @@ export class CategoryUpdateComponent implements OnInit {
   category: any; 
 
   constructor(private categoryService: CategoryService,
-    private router: Router,
-    private route: ActivatedRoute,
+              private router: Router,
+              private route: ActivatedRoute,
               private fb: FormBuilder) { }
 
   ngOnInit() {
@@ -23,7 +23,7 @@ export class CategoryUpdateComponent implements OnInit {
       this.param = params['id'];
       this.getCategoryDetails();
     });
-    this.createOrderForm();
+    this.createCategoryForm();
   }
 
   getCategoryDetails(){
@@ -33,7 +33,7 @@ export class CategoryUpdateComponent implements OnInit {
     });
   }
 
-  createOrderForm() {
+  createCategoryForm() {
     this.categoryForm = this.fb.group({
       category_name: [ '', Validators.required]
     });
@@ -44,6 +44,7 @@ export class CategoryUpdateComponent implements OnInit {
     this.category.category_name = categoryName;
     this.categoryService.update(this.category).subscribe(data => {
       this.getCategoryDetails();
+      this.router.navigate(['/dashboard','category-list']);
     })
   }
 

@@ -1,8 +1,9 @@
+
   <div class="row">
-    <form class="col-md-12" [formGroup]="categoryForm" (ngSubmit)="add()">
+    <form class="col-md-12" [formGroup]="artikelCategoryForm" (ngSubmit)="add()">
       <div class="mainbox col-md-9 col-sm-6">
         <ol class="breadcrumb">
-          <li>Add Category Name</li>
+          <li>Add Artikel Category Name</li>
         </ol>
         <div class="panel panel-info">
           <div class="panel-body">
@@ -18,9 +19,9 @@
           </div>
         </div>
         <div class="row">
-          <button type="submit" class="btn btn-success col-md-4 mx-5" [disabled]="!categoryForm.valid">Add</button>
+          <button type="submit" class="btn btn-success col-md-4 mx-5" [disabled]="!artikelCategoryForm.valid">Add</button>
           <button type="button" class="btn btn-warning col-md-4 "
-            [routerLink]="['/dashboard', 'category-list']">Cancel</button>
+            [routerLink]="['/dashboard', 'artikel-category-list']">Cancel</button>
         </div>
       </div>
     </form>
