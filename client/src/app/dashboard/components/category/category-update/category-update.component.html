@@ -1,6 +1,5 @@
-<div class="row">
-  <form class="col-md-12" [formGroup]="categoryForm" (ngSubmit)="update()">
-    <div class="mainbox col-md-9 col-sm-6">
+  <form class="col-md-9" [formGroup]="categoryForm" (ngSubmit)="update()">
+    <div class="col-md-12 col-sm-6">
       <ol class="breadcrumb">
         <li>Edit Category Name</li>
       </ol>
@@ -10,8 +9,7 @@
             <div class="form-group required">
               <label class="control-label col-md-12  requiredField">Name</label>
               <div class="controls col-md-12 ">
-                <input formControlName="category_name" class="input-md  textinput textInput form-control"
-                  type="text" />
+                <input formControlName="category_name" class="input-md  textinput textInput form-control" type="text" />
               </div>
             </div>
           </div>
@@ -24,5 +22,4 @@
       </div>
     </div>
   </form>
-</div>
     

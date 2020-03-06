@@ -6,7 +6,6 @@ import { ProductService } from 'src/app/dashboard/services/product.service';
 import { CategoryService } from 'src/app/dashboard/services/category.service';
 
 @Component({
-  // tslint:disable-next-line:component-selector
   selector: 'cristal-product-update',
   templateUrl: './product-update.component.html',
   styleUrls: ['./product-update.component.css']
@@ -46,7 +45,6 @@ export class ProductUpdateComponent implements OnInit {
 
           this.setForm(this.product);
 
-          // tslint:disable-next-line:no-shadowed-variable
           this.modelService.getByCategory(this.selectedCategory).subscribe(c => {
             this.models = c;
             this.selectedModel = data.model.model_id;
