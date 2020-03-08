@@ -1,5 +1,5 @@
 import * as express from "express";
-import {ProductCategory} from "../models";
+import {ProductCategory, ProductModel} from "../models";
 import {Auth} from "../auth/auth";
 import {BaseController} from "./BaseController";
 import * as _ from 'lodash';
@@ -67,7 +67,13 @@ export class ProductCategoryController extends BaseController{
 
     public async delete(req: express.Request, res: express.Response, next: express.NextFunction) {
         try {
-          const productCategorie = await ProductCategory.findOne<ProductCategory>({where: { category_id: req.params.category_id }});
+            const productModelCategory = await ProductModel
+          .findOne<ProductModel>({where: { category_id: req.params.category_id }});
+            if(productModelCategory){
+                return res.status(401).send("Can not be deleted, has Child Models");
+            }
+          const productCategorie = await ProductCategory
+          .findOne<ProductCategory>({where: { category_id: req.params.category_id }});
           if(productCategorie) {
             await productCategorie.destroy();
             res.status(201).send(productCategorie);

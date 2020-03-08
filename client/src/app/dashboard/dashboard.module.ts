@@ -58,7 +58,7 @@ import { ArtikelCategoryService } from './services/artikel-category.service';
     ArtikelUpdateComponent,
     ArtikelCategoryComponent,
     ArtikelCategoryNewComponent,
-    ArtikelCategoryUpdateComponent
+    ArtikelCategoryUpdateComponent,
   ],
   providers: [
     IsAuthorizedGuard,

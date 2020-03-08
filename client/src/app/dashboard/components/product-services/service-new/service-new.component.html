@@ -8,24 +8,25 @@
                 <div class="panel panel-info">
                     <div class="panel-body">
                         <div class="form-horizontal">
+
+                            <div class="form-group mx-3 required">
+                                <label class="control-label col-md-4 requiredField">Pruduct</label>
+                                <select class="custom-select form-control" formControlName="product_id">
+                                  <option [ngValue]="product" *ngFor="let product of products">
+                                    {{product?.name}}</option>
+                                </select>
+                              </div>
                             <div class="form-group required">
-                                <label class="control-label col-md-4 requiredField">Order Number</label>
+                                <label class="control-label col-md-4 requiredField"> Service Name</label>
                                 <div class="controls col-md-12 ">
-                                    <input formControlName="orderNumber"
-                                        class="input-md textinput textInput form-control" type="text" />
-                                </div>
-                            </div>
-                            <div class="form-group required">
-                                <label class="control-label col-md-4 requiredField">Product Name</label>
-                                <div class="controls col-md-12 ">
-                                    <input formControlName="productName"
+                                    <input formControlName="service_name"
                                         class="input-md  textinput textInput form-control" type="text" />
                                 </div>
                             </div>
                             <div class="form-group required">
-                                <label class="control-label col-md-4 requiredField"> Service Name</label>
+                                <label class="control-label col-md-4 requiredField"> Discount</label>
                                 <div class="controls col-md-12 ">
-                                    <input formControlName="serviceName"
+                                    <input formControlName="discount"
                                         class="input-md  textinput textInput form-control" type="text" />
                                 </div>
                             </div>

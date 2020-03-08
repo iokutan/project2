@@ -101,6 +101,11 @@ class ProductModelController extends BaseController_1.BaseController {
     delete(req, res, next) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
+                const product = yield models_1.Product
+                    .findOne({ where: { category_id: req.params.model_id } });
+                if (product) {
+                    return res.status(401).send("Can not be deleted, has Child Products");
+                }
                 const productCategorie = yield models_1.ProductModel.findOne({ where: { model_id: req.params.model_id } });
                 if (productCategorie) {
                     yield productCategorie.destroy();
