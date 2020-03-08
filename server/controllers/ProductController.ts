@@ -29,6 +29,17 @@ export class ProductController extends BaseController{
         }
     }
 
+    public async getByModelId(req: express.Request, res: express.Response, next: express.NextFunction) {
+        try {
+            const products = await Product.findAll<Product>({
+                where: { category_id: req.params.model_id}
+            });
+            res.status(201).json(products);
+        } catch (error) {
+            res.status(400).send(error);
+        }
+    }
+
     public async getById(req: express.Request, res: express.Response, next: express.NextFunction) {
         try {
             const product = await Product
@@ -128,6 +139,7 @@ export class ProductController extends BaseController{
     private buildRoutes() {
         this.router.get("/", Auth.getBearerMiddleware(), this.get.bind(this));
         this.router.get("/:productId", Auth.getBearerMiddleware(), this.getById.bind(this));
+        this.router.get("/byModel/:model_id", Auth.getBearerMiddleware(), this.getByModelId.bind(this));
         this.router.post("/create/:productId", Auth.getBearerMiddleware(), this.post.bind(this));
         this.router.post("/uploadImage", Auth.getBearerMiddleware(), this.uploadImage.bind(this));
         this.router.delete("/:productId", Auth.getBearerMiddleware(), this.delete.bind(this));

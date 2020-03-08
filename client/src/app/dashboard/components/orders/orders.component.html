@@ -4,7 +4,7 @@
         <h4>Order List</h4>
       </div>
     <div class="add-product">
-      <a [routerLink]="['/dashboard', 'order-detail']" routerLinkActive="active">
+      <a [routerLink]="['/dashboard', 'orders-new']" routerLinkActive="active">
         <button type="button" class="btn btn-primary">Add Order</button>
       </a>
     </div>
@@ -28,11 +28,11 @@
           <td>{{item.name}}</td>
           <td>{{item.description}}</td>
           <td>{{item.status}}</td>
-          <td>{{item.price}}</td>
+          <td>{{item.total}}</td>
           <td>{{item.due_date | date : 'mediumDate'}}</td>
           <td>
             <div>
-              <button type="botton" class="btn btn-success" style="width: 5rem; height: 2rem;" [routerLink]="['/dashboard', 'order-detail', item.order_id ]" routerLinkActive="active">Edit</button>
+              <button type="botton" class="btn btn-success" style="width: 5rem; height: 2rem;" [routerLink]="['/dashboard', 'orders-update', item?.order_id ]" routerLinkActive="active">Edit</button>
             </div>
           </td>
         </tr>

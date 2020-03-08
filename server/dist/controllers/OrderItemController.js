@@ -31,15 +31,8 @@ class OrderItemController extends BaseController_1.BaseController {
     post(req, res, next) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                var order = yield models_1.OrderItem.build(req.body);
-                const errors = yield order.validate();
-                if (errors && errors.errors) {
-                    throw new Error(errors.errors.join());
-                }
-                else {
-                    yield order.save();
-                    res.status(201).send(order);
-                }
+                const result = yield models_1.OrderItem.bulkCreate(req.body);
+                res.status(201).send(result);
             }
             catch (error) {
                 if (error.errors)

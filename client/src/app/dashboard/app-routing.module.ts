@@ -21,6 +21,8 @@ import { ArtikelUpdateComponent } from './components/artikels/artikel-update/art
 import { ArtikelCategoryComponent } from './components/artikel-category/artikel-category.component';
 import { ArtikelCategoryNewComponent } from './components/artikel-category/artikel-category-new/artikel-category-new.component';
 import { ArtikelCategoryUpdateComponent } from './components/artikel-category/artikel-category-update/artikel-category-update.component';
+import { OrdersNewComponent } from './components/orders/orders-new/orders-new.component';
+import { OrdersUpdateComponent } from './components/orders/orders-update/orders-update.component';
 
 
 const routes: Routes = [
@@ -47,6 +49,8 @@ const routes: Routes = [
       { path: 'artikel-category-list', component: ArtikelCategoryComponent},
       { path: 'artikel-category-new', component: ArtikelCategoryNewComponent},
       { path: 'artikel-category-update/:id', component: ArtikelCategoryUpdateComponent},
+      { path: 'orders-new', component: OrdersNewComponent},
+      { path: 'orders-update/:id', component: OrdersUpdateComponent},
   ]}
 ];
 

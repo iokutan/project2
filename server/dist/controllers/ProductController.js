@@ -37,6 +37,19 @@ class ProductController extends BaseController_1.BaseController {
             }
         });
     }
+    getByModelId(req, res, next) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const products = yield models_1.Product.findAll({
+                    where: { category_id: req.params.model_id }
+                });
+                res.status(201).json(products);
+            }
+            catch (error) {
+                res.status(400).send(error);
+            }
+        });
+    }
     getById(req, res, next) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
@@ -147,6 +160,7 @@ class ProductController extends BaseController_1.BaseController {
     buildRoutes() {
         this.router.get("/", auth_1.Auth.getBearerMiddleware(), this.get.bind(this));
         this.router.get("/:productId", auth_1.Auth.getBearerMiddleware(), this.getById.bind(this));
+        this.router.get("/byModel/:model_id", auth_1.Auth.getBearerMiddleware(), this.getByModelId.bind(this));
         this.router.post("/create/:productId", auth_1.Auth.getBearerMiddleware(), this.post.bind(this));
         this.router.post("/uploadImage", auth_1.Auth.getBearerMiddleware(), this.uploadImage.bind(this));
         this.router.delete("/:productId", auth_1.Auth.getBearerMiddleware(), this.delete.bind(this));

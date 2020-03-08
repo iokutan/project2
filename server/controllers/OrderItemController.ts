@@ -22,14 +22,8 @@ export class OrderItemController extends BaseController{
 
     public async post(req: express.Request, res: express.Response, next: express.NextFunction) {
         try {
-            var order = await OrderItem.build(req.body);
-            const errors = await order.validate();
-            if (errors && errors.errors) {
-                throw new Error(errors.errors.join());
-            } else {
-                await order.save();
-                res.status(201).send(order);
-            }
+            const result = await OrderItem.bulkCreate(req.body);
+            res.status(201).send(result);
         } catch (error) {
             if(error.errors)
                 res.status(400).send(error.errors.map(a => a.message));

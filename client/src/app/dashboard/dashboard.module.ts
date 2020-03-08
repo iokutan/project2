@@ -32,6 +32,8 @@ import { ArtikelCategoryComponent } from './components/artikel-category/artikel-
 import { ArtikelCategoryNewComponent } from './components/artikel-category/artikel-category-new/artikel-category-new.component';
 import { ArtikelCategoryUpdateComponent } from './components/artikel-category/artikel-category-update/artikel-category-update.component';
 import { ArtikelCategoryService } from './services/artikel-category.service';
+import { OrdersUpdateComponent } from './components/orders/orders-update/orders-update.component';
+import { OrdersNewComponent } from './components/orders/orders-new/orders-new.component';
 
 
 @NgModule({
@@ -59,6 +61,8 @@ import { ArtikelCategoryService } from './services/artikel-category.service';
     ArtikelCategoryComponent,
     ArtikelCategoryNewComponent,
     ArtikelCategoryUpdateComponent,
+    OrdersUpdateComponent,
+    OrdersNewComponent,
   ],
   providers: [
     IsAuthorizedGuard,

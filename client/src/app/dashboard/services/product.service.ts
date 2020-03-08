@@ -26,6 +26,10 @@ export class ProductService {
     return this.http.get(`${this.serverUrl}`).pipe(map((res: Response) => res));
   }
 
+  public getByModelId(modelId): Observable<any> {
+    return this.http.get(`${this.serverUrl}/byModel/${modelId}`).pipe(map((res: Response) => res));
+  }
+
   public getById(productId: string): Observable<any> {
     return this.http.get(`${this.serverUrl}/${productId}`).pipe(map((res: Response) => res));
   }

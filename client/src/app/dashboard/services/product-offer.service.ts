@@ -21,6 +21,10 @@ export class ProductOfferService {
     return this.http.get(`${this.serverUrl}`).pipe(map((res: Response) => res));
   }
 
+  public getByProductId(productId): Observable<any> {
+    return this.http.get(`${this.serverUrl}/byProduct/${productId}`).pipe(map((res: Response) => res));
+  }
+
   public getById(service_id: string): Observable<any> {
     return this.http.get(`${this.serverUrl}/${service_id}`).pipe(map((res: Response) => res));
   }

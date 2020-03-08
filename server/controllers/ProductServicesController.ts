@@ -26,10 +26,22 @@ export class ProductServicesController extends BaseController{
         }
     }
 
+    public async getByProductId(req: express.Request, res: express.Response, next: express.NextFunction) {
+        try {
+            const productServices = await ProductService.findAll<ProductService>({
+                where: { product_id: req.params.product_id},
+                include: [ Product ]
+            });
+            res.json(productServices);
+        } catch (error) {
+            res.status(400).send(error);
+        }
+    }
+
     public async getById(req: express.Request, res: express.Response, next: express.NextFunction) {
         try {
             const product = await ProductService
-                  .findOne<ProductService>({where: { product_id: req.params.product_id }});
+                  .findOne<ProductService>({where: { service_id: req.params.service_id }});
             if(product){
                 res.status(201).send(product);
             } else {
@@ -59,7 +71,9 @@ export class ProductServicesController extends BaseController{
 
     public async put(req: express.Request, res: express.Response, next: express.NextFunction) {
         try {
-            const productServic = await ProductService.findOne<ProductService>({where: { product_id: req.params.product_id }});
+            const productServic = await ProductService
+            .findOne<ProductService>({where: { service_id: req.params.service_id }});
+            
             if(productServic){
                 await productServic.update(req.body);
                 res.status(201).send(productServic);
@@ -73,7 +87,8 @@ export class ProductServicesController extends BaseController{
 
     public async delete(req: express.Request, res: express.Response, next: express.NextFunction) {
         try {
-          const productServic = await ProductService.findOne<ProductService>({where: { product_id: req.params.product_id }});
+          const productServic = await ProductService
+          .findOne<ProductService>({where: { service_id: req.params.service_id }});
           if(productServic) {
             await productServic.destroy();
             res.status(201).send(productServic);
@@ -88,8 +103,9 @@ export class ProductServicesController extends BaseController{
     private buildRoutes() {
         this.router.get("/", Auth.getBearerMiddleware(), this.get.bind(this));
         this.router.post("/", Auth.getBearerMiddleware(), this.post.bind(this));
-        this.router.get("/:product_id", Auth.getBearerMiddleware(), this.getById.bind(this));
-        this.router.delete("/:product_id", Auth.getBearerMiddleware(), this.delete.bind(this));
-        this.router.put("/:product_id", Auth.getBearerMiddleware(), this.put.bind(this));
+        this.router.get("/:service_id", Auth.getBearerMiddleware(), this.getById.bind(this));
+        this.router.get("/byProduct/:product_id", Auth.getBearerMiddleware(), this.getByProductId.bind(this));
+        this.router.delete("/:service_id", Auth.getBearerMiddleware(), this.delete.bind(this));
+        this.router.put("/:service_id", Auth.getBearerMiddleware(), this.put.bind(this));
     }
 }

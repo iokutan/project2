@@ -23,14 +23,15 @@ export class ServiceUpdateComponent implements OnInit {
               private productService: ProductService) { }
 
   ngOnInit() {
-    this.route.params.subscribe(params => {
-      this.param = params['product_id'];
-    });
-    this.productService.getAll().subscribe(data => {
-      this.products = data;
-    });
-    this.getServiceDetails();
     this.createModelForm();
+    this.route.params.subscribe(params => {
+      this.param = params['id'];
+      this.productService.getAll().subscribe(data => {
+        this.products = data;
+      });
+    });
+    
+    this.getServiceDetails();
   }
   createModelForm() {
     this.serviceOfferForm = this.fb.group({
@@ -45,20 +46,25 @@ export class ServiceUpdateComponent implements OnInit {
   getServiceDetails(){
     this.productOfferService.getById(this.param).subscribe(data => {
       this.serviceOffer = data;
+      
       this.serviceOfferForm.get('product_id').setValue(this.serviceOffer.product_id)
+      this.serviceOfferForm.get('discount').setValue(this.serviceOffer.discount)
+      this.serviceOfferForm.get('service_name').setValue(this.serviceOffer.service_name)
+      this.serviceOfferForm.get('price').setValue(this.serviceOffer.price)
     });
   }
 
   update() {
     const form = this.serviceOfferForm.value;
     form.product_id = this.serviceOffer.product_id;
+    form.service_id = this.serviceOffer.service_id;
     this.productOfferService.update(form).subscribe(data => {
       this.serviceOffer = data;
     });
   }
 
   delete() {
-    this.productOfferService.delete(this.serviceOffer.product_id).subscribe(data => {
+    this.productOfferService.delete(this.serviceOffer.service_id).subscribe(data => {
       this.router.navigate(['/dashboard', 'service-list']);
     });
   }
