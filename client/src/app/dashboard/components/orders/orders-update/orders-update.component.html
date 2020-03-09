@@ -1,1 +1,150 @@
-<p>orders-update works!</p>
+<div class="container">
+    <form [formGroup]="productSelectionForm" (ngSubmit)="update()" class="col-md-12">
+        <div class="row">
+            <div class="mainbox col-md-12 col-sm-8">
+                <ol class="breadcrumb">
+                    <li>Add Order</li>
+                </ol>
+                <div class="form-horizontal row">
+                    <div class="form-group required col-md-4 col-sm-12">
+                        <label class="control-label    requiredField">Category</label>
+                        <select class="custom-select form-control " formControlName="currentCategory"
+                            placeholder="Select category" (change)="setModels()">
+                            <option [ngValue]="category.category_id" *ngFor="let category of categories">
+                                {{category?.category_name}}</option>
+                        </select>
+                    </div>
+                    <div class="form-group required col-md-4 col-sm-12">
+                        <label class="control-label    requiredField">Model</label>
+                        <select class="custom-select form-control " formControlName="currentModel"
+                            placeholder="Select models" (change)="setProducts()">
+                            <option [ngValue]="model.model_id" *ngFor="let model of models">
+                                {{model?.model_name}}</option>
+                        </select>
+                    </div>
+                    <div class="form-group required col-md-4  col-sm-12">
+                        <label class="control-label    requiredField">Product</label>
+                        <select class="custom-select form-control" formControlName="currentProduct"
+                            placeholder="Select product" (change)="setServices()">
+                            <option [ngValue]="product.product_id" *ngFor="let product of products">
+                                {{product?.name}}</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12  d-flex justify-content-between" >
+                <div>
+                    <div *ngIf="services?.length">
+                    <ol class="breadcrumb">
+                        <li>Available Services</li>
+                    </ol>
+                    <table class="table table-striped">
+                        <thead>
+                          <tr>
+                            <th scope="col">Service Name</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Discount</th>
+                            <th scope="col"></th>
+                          </tr>
+                        </thead>
+                        <tbody class="text-align-center">
+                          <tr *ngFor="let item of services">
+                            <td>
+                                <div class="form-check">
+                                    <input type="checkbox" (change)="setSelectedService($event, item)" class="form-check-input">
+                                </div>
+                            </td> 
+                            <td>{{ item?.service_name }}</td> 
+                            <td>{{ item?.price }}</td> 
+                            <td>{{ item?.discount }}</td> 
+                            <td>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                </div>
+                <div *ngIf="selectedServices?.length">
+                    <ol class="breadcrumb">
+                        <li>Selected Services</li>
+                    </ol>
+                    <div>
+                        <table class="table table-striped">
+                            <thead>
+                              <tr>
+                                <th scope="col">Product</th>
+                                <th scope="col">Service Name</th>
+                                <th scope="col">Price</th>
+                              </tr>
+                            </thead>
+                            <tbody class="text-align-center">
+                              <tr *ngFor="let item of selectedServices">
+                                <td>{{ item?.product?.name }}</td> 
+                                <td>{{ item?.service_name }}</td> 
+                                <td>{{ item?.price }}</td> 
+                                <td> <button type="button" class="button" (click)="removeSelectedService(item)"><i class="fa fa-trash"></i></button>  </td>
+                              </tr>
+                              <tr>
+                                <td colspan="4"> <span class="d-flex justify-content-end"><b>Total</b> : {{getTotal(selectedServices)}}</span></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                    </div>
+            
+                </div>
+            </div>
+            
+        </div>
+    </form>
+
+    <form [formGroup]="orderForm" (ngSubmit)="update()" class="col-md-12">
+        <div class="form-group required">
+            <label class="control-label col-md-4  requiredField">Customer name</label>
+            <div class="controls col-md-12 ">
+                <input formControlName="name" class="input-md  textinput textInput form-control"
+                    type="text" />
+            </div>
+        </div>
+        <div class="form-group required">
+            <label class="control-label col-md-4  requiredField">Discount</label>
+            <div class="controls col-md-12 ">
+                <input formControlName="discount" class="input-md  textinput textInput form-control"
+                    type="number" />
+            </div>
+        </div>
+        <div class="form-group required">
+            <label class="control-label col-md-4  requiredField">Total</label>
+            <div class="controls col-md-12 ">
+                <input formControlName="total" class="input-md  textinput textInput form-control"
+                    type="number" />
+            </div>
+        </div>
+        <div class="form-group required">
+            <label class="control-label col-md-4  requiredField">Due date</label>
+            <div class="controls col-md-12 ">
+                <input formControlName="due_date" class="input-md  textinput textInput form-control"
+                    type="date" />
+            </div>
+        </div>
+        <div class="form-group required">
+            <label class="control-label col-md-4  requiredField">Status</label>
+            <div class="controls col-md-12 ">
+                <input formControlName="status" class="input-md  textinput textInput form-control"
+                    type="text" />
+            </div>
+        </div>
+        <div class="form-group required">
+            <label class="control-label col-md-4  requiredField">Order number</label>
+            <div class="controls col-md-12 ">
+                <input formControlName="orderNumber" class="input-md  textinput textInput form-control"
+                    type="text" />
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="controls col">
+                <input type="button" value="Update" (click)="updateOrder()" class="col-md-12 btn btn btn-primary" />
+            </div>
+        </div>
+    </form>
+</div>
