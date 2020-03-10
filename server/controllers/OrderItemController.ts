@@ -33,10 +33,13 @@ export class OrderItemController extends BaseController{
 
     public async put(req: express.Request, res: express.Response, next: express.NextFunction) {
         try {
-            const order = await OrderItem.findOne<OrderItem>({where: { orderItem_id: req.params.orderItemId }});
-            if(order){
-                await order.updateAttributes(req.body);
-                res.status(201).send(order);
+            const orders = await OrderItem.destroy({
+                where: { order_id: req.params.orderId 
+            }});
+            console.log('ASGFAEFAWEFAWEF', orders);
+            const orderItems = await OrderItem.bulkCreate(req.body);
+            if(orderItems){
+                res.status(201).send({});
             } else {
                 res.status(404).send("OrderItem not found");
             }
@@ -63,6 +66,6 @@ export class OrderItemController extends BaseController{
         this.router.get("/", Auth.getBearerMiddleware(), this.get.bind(this));
         this.router.post("/", Auth.getBearerMiddleware(), this.post.bind(this));
         this.router.delete("/:orderItemId", Auth.getBearerMiddleware(), this.delete.bind(this));
-        this.router.put("/:orderItemId", Auth.getBearerMiddleware(), this.put.bind(this));
+        this.router.put("/:orderId", Auth.getBearerMiddleware(), this.put.bind(this));
     }
 }

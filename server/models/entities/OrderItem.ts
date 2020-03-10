@@ -4,6 +4,7 @@ import {BaseModel} from "./BaseModel";
 import { Order } from './Order';
 import { User } from './User';
 import { Product } from './Product';
+import { ProductService } from './ProductService';
 
 @Table
 export class OrderItem extends BaseModel<OrderItem> {
@@ -33,4 +34,11 @@ export class OrderItem extends BaseModel<OrderItem> {
 
     @BelongsTo(() => Product)
     product: Product;
+
+    @ForeignKey(() => ProductService)
+    @Column
+    service_id: string;
+
+    @BelongsTo(() => ProductService)
+    service: ProductService;
 }

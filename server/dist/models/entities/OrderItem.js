@@ -13,6 +13,7 @@ const sequelize_typescript_1 = require("sequelize-typescript");
 const BaseModel_1 = require("./BaseModel");
 const Order_1 = require("./Order");
 const Product_1 = require("./Product");
+const ProductService_1 = require("./ProductService");
 let OrderItem = class OrderItem extends BaseModel_1.BaseModel {
 };
 __decorate([
@@ -46,6 +47,15 @@ __decorate([
     sequelize_typescript_1.BelongsTo(() => Product_1.Product),
     __metadata("design:type", Product_1.Product)
 ], OrderItem.prototype, "product", void 0);
+__decorate([
+    sequelize_typescript_1.ForeignKey(() => ProductService_1.ProductService),
+    sequelize_typescript_1.Column,
+    __metadata("design:type", String)
+], OrderItem.prototype, "service_id", void 0);
+__decorate([
+    sequelize_typescript_1.BelongsTo(() => ProductService_1.ProductService),
+    __metadata("design:type", ProductService_1.ProductService)
+], OrderItem.prototype, "service", void 0);
 OrderItem = __decorate([
     sequelize_typescript_1.Table
 ], OrderItem);

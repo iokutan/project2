@@ -42,6 +42,14 @@ class OrderController extends BaseController_1.BaseController {
                             model: models_1.OrderItem,
                             include: [
                                 {
+                                    model: models_1.ProductService,
+                                    include: [
+                                        {
+                                            model: models_1.Product
+                                        }
+                                    ]
+                                },
+                                {
                                     model: models_1.Product,
                                     include: [
                                         {

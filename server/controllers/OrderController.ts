@@ -1,5 +1,5 @@
 import * as express from "express";
-import {Order, User, Address, OrderItem, ProductCategory, Product, ProductModel} from "../models";
+import {Order, User, Address, OrderItem, ProductCategory, Product, ProductModel, ProductService} from "../models";
 import {Auth} from "../auth/auth";
 import {BaseController} from "./BaseController";
 import * as _ from 'lodash';
@@ -34,6 +34,14 @@ export class OrderController extends BaseController{
                         {
                           model: OrderItem,
                           include: [
+                              {
+                                model: ProductService,
+                                include: [
+                                    {
+                                        model: Product
+                                    }
+                                ]    
+                              },
                               {
                                   model: Product,
                                   include: [
@@ -77,6 +85,7 @@ export class OrderController extends BaseController{
     public async put(req: express.Request, res: express.Response, next: express.NextFunction) {
         try {
             const order = await Order.findOne<Order>({where: { order_id: req.params.order_id }});
+
             if(order){
                 await order.updateAttributes(req.body);
                 res.status(201).send(order);

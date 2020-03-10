@@ -110,7 +110,8 @@ export class OrdersNewComponent implements OnInit {
              order_id: order['order_id'],
              discount: order['discount'],
              piece: 1,
-             product_id: a.product_id
+             product_id: a.product_id,
+             service_id: a.service_id
           };
           return item;
         });
