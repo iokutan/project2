@@ -1,13 +1,25 @@
 <div class="row my-5 border-circle">
     <div class="col-3 ">
-      <nav class="nav nav-pills flex-column">
-        <a class="nav-link" [routerLink]="['dashboard-main']" routerLinkActive="active">Orders</a>
-        <a class="nav-link" [routerLink]="['category-list']" routerLinkActive="active">Categories</a>
-        <a class="nav-link" [routerLink]="['model-list']" routerLinkActive="active">Models</a>
-        <a class="nav-link" [routerLink]="['product-list']" routerLinkActive="active">Products</a>
-        <a class="nav-link" [routerLink]="['service-list']" routerLinkActive="active">Services</a>
-        <a class="nav-link" [routerLink]="['artikel-category-list']" routerLinkActive="active">Artikel Categories</a>
-        <a class="nav-link" [routerLink]="['artikel-list']" routerLinkActive="active">Artikels</a>
+      <nav class="nav flex-column">
+        <a class="nav-link btn btn-outline-warning my-3" [routerLink]="['dashboard-main']" routerLinkActive="active">Main</a>
+
+        <button class="btn btn-outline-info my-1" type="button" data-toggle="collapse" data-target="#productsLinks" aria-expanded="false" aria-controls="productsLinks">
+          Products
+        </button>
+        <div class="collapse" id="productsLinks">
+          <a class="nav-link btn btn-outline-primary my-1" [routerLink]="['category-list']" routerLinkActive="active">Categories</a>
+          <a class="nav-link btn btn-outline-primary my-1" [routerLink]="['model-list']" routerLinkActive="active">Models</a>
+          <a class="nav-link btn btn-outline-primary my-1" [routerLink]="['product-list']" routerLinkActive="active">Products</a>
+        </div>
+        <a class="nav-link btn btn-outline-success my-1" [routerLink]="['service-list']" routerLinkActive="active">Services</a>
+        <a class="nav-link btn btn-outline-info my-1" [routerLink]="['orders-list']" routerLinkActive="active">Orders</a>
+        <button class="btn btn-outline-secondary my-1" type="button" data-toggle="collapse" data-target="#artikelLinks" aria-expanded="false" aria-controls="artikelLinks">
+          Artikels
+        </button>
+        <div class="collapse" id="artikelLinks">
+        <a class="nav-link btn btn-outline-secondary my-1" [routerLink]="['artikel-category-list']" routerLinkActive="active">Categories</a>
+        <a class="nav-link btn btn-outline-secondary my-1" [routerLink]="['artikel-list']" routerLinkActive="active">Artikels</a>
+        </div>
       </nav>
     </div>
   </div>

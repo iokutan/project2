@@ -1,5 +1,5 @@
 <div class="container">
-    <form [formGroup]="productSelectionForm" (ngSubmit)="update()" class="col-md-12">
+    <form [formGroup]="productSelectionForm" (ngSubmit)="add()" class="col-md-12">
         <div class="row">
             <div class="mainbox col-md-12 col-sm-8">
                 <ol class="breadcrumb">
@@ -98,7 +98,7 @@
         </div>
     </form>
 
-    <form [formGroup]="orderForm" (ngSubmit)="update()" class="col-md-12">
+    <form [formGroup]="orderForm" (ngSubmit)="add()" class="col-md-12">
         <div class="form-group required">
             <label class="control-label col-md-4  requiredField">Customer name</label>
             <div class="controls col-md-12 ">

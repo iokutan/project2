@@ -28,7 +28,6 @@ export class CategoryNewComponent implements OnInit {
   add(){
     const form = this.categoryForm.value;
     this.categoryService.create(form).subscribe(data => {
-      this.router.navigate(['/dashboard','category-list']);
     })
   }
 }

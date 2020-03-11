@@ -6,7 +6,7 @@ import { ProductService } from 'src/app/dashboard/services/product.service';
 import { ProductOfferService } from 'src/app/dashboard/services/product-offer.service';
 import { OrderServiceService } from 'src/app/dashboard/services/order-service.service';
 import { OrderItemService } from 'src/app/dashboard/services/order-item.service';
-import { Router, ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'cristal-orders-update',
@@ -18,36 +18,37 @@ export class OrdersUpdateComponent implements OnInit {
   models: any[];
   products: any[];
   services: any[];
-  param: any;
-  order: any;
   selectedServices: any[];
   productSelectionForm: FormGroup;
   orderForm: FormGroup;
+  param: string;
+
 
   constructor(private categoryService: CategoryService,
-    private router: Router,
-    private route: ActivatedRoute,
     private modelService: ModelService,
     private productService: ProductService,
     private productOfferService: ProductOfferService,
     private orderService: OrderServiceService,
     private orderItemService: OrderItemService,
+    private router: Router,
+    private route: ActivatedRoute,
     private fb: FormBuilder) { }
 
   ngOnInit() {
+    this.route.params.subscribe(params => {
+      this.param = params.id;
+      this.getDetails(this.param);
+    });
+
     this.setProductSelectionForm();
     this.setOrderForm();
-    this.route.params.subscribe(params => {
-      this.param = params['id'];
-      this.orderService.getAll().subscribe(data => {
-        this.products = data;
-      });
-    });
+    this.selectedServices = [];
+
     this.categoryService.getAll().subscribe(categories => {
       this.categories = categories;
     });
   }
-  
+
   setProductSelectionForm(){
     this.productSelectionForm = this.fb.group({
       currentCategory: [ '', Validators.required],
@@ -57,16 +58,27 @@ export class OrdersUpdateComponent implements OnInit {
   }
 
   setOrderForm(){
-    this.orderItemService.getById(this.param).subscribe(data => {
-      this.order = data;
-      
-      this.orderForm.get('name').setValue(this.order.name)
-      this.orderForm.get('discount').setValue(this.order.discount)
-      this.orderForm.get('total').setValue(this.order.total)
-      this.orderForm.get('due_date').setValue(this.order.due_date)
-      this.orderForm.get('status').setValue(this.order.status)
-      this.orderForm.get('orderNumber').setValue(this.order.orderNumber)
+    this.orderForm = this.fb.group({
+      name: [ '', Validators.required],
+      discount: [ 0, Validators.required],
+      total: [ 0, Validators.required],
+      due_date: [ new Date(), Validators.required],
+      status: [ 1, Validators.required],
+      orderNumber: [ '', Validators.required],
+      order_id: [ '', Validators.required]
+    });
+  }
 
+  getDetails(id) {
+    this.orderService.getById(id).subscribe(order => {
+      this.selectedServices = order.order_items.map(a => a.service);
+      this.orderForm.get('name').setValue(order.name);
+      this.orderForm.get('discount').setValue(order.discount);
+      this.orderForm.get('total').setValue(order.total);
+      this.orderForm.get('due_date').setValue(new Date(order.due_date).toISOString().substring(0,10));
+      this.orderForm.get('status').setValue(order.status);
+      this.orderForm.get('orderNumber').setValue(order.orderNumber);
+      this.orderForm.get('order_id').setValue(order.order_id);
     });
   }
 
@@ -114,18 +126,26 @@ export class OrdersUpdateComponent implements OnInit {
 
   updateOrder(){
     const form = this.orderForm.value;
-    form.product_id = this.order.product_id;
-      this.orderService.update(form).subscribe(data => {
+    form.order_id = this.orderForm.get('order_id').value;
+
+    if(this.orderForm.valid && (this.selectedServices.length > 0)) {
+      this.orderService.update(form).subscribe(order => {
 
         this.selectedServices = this.selectedServices.map(a => {
           const item = {
-             order_id: data['order_id'],
-             discount: data['discount'],
+             order_id: order['order_id'],
+             discount: order['discount'],
              piece: 1,
-             product_id: a.product_id
+             product_id: a.product_id,
+             service_id: a.service_id
           };
           return item;
+        });
+ 
+        this.orderItemService.update(this.selectedServices, form.order_id).subscribe(orderItems => {
+          this.getDetails(form.order_id);
         });
      });
     }
   }
+}

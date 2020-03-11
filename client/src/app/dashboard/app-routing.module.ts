@@ -23,6 +23,7 @@ import { ArtikelCategoryNewComponent } from './components/artikel-category/artik
 import { ArtikelCategoryUpdateComponent } from './components/artikel-category/artikel-category-update/artikel-category-update.component';
 import { OrdersNewComponent } from './components/orders/orders-new/orders-new.component';
 import { OrdersUpdateComponent } from './components/orders/orders-update/orders-update.component';
+import { DashboardMainComponent } from './components/dashboard-main/dashboard-main.component';
 
 
 const routes: Routes = [
@@ -30,7 +31,7 @@ const routes: Routes = [
   canActivate: [IsAuthorizedGuard],
   children: [
       { path: '', redirectTo: 'dashboard-main', pathMatch: 'full'},
-      { path: 'dashboard-main', component: OrdersComponent},
+      { path: 'dashboard-main', component: DashboardMainComponent},
       { path: 'category-list', component: CategoryComponent},
       { path: 'category-update/:id', component: CategoryUpdateComponent},
       { path: 'category-new', component: CategoryNewComponent},
@@ -49,6 +50,7 @@ const routes: Routes = [
       { path: 'artikel-category-list', component: ArtikelCategoryComponent},
       { path: 'artikel-category-new', component: ArtikelCategoryNewComponent},
       { path: 'artikel-category-update/:id', component: ArtikelCategoryUpdateComponent},
+      { path: 'orders-list', component: OrdersComponent},
       { path: 'orders-new', component: OrdersNewComponent},
       { path: 'orders-update/:id', component: OrdersUpdateComponent},
   ]}

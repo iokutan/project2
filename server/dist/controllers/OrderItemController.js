@@ -44,10 +44,14 @@ class OrderItemController extends BaseController_1.BaseController {
     put(req, res, next) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const order = yield models_1.OrderItem.findOne({ where: { orderItem_id: req.params.orderItemId } });
-                if (order) {
-                    yield order.updateAttributes(req.body);
-                    res.status(201).send(order);
+                const orders = yield models_1.OrderItem.destroy({
+                    where: { order_id: req.params.orderId
+                    }
+                });
+                console.log('ASGFAEFAWEFAWEF', orders);
+                const orderItems = yield models_1.OrderItem.bulkCreate(req.body);
+                if (orderItems) {
+                    res.status(201).send({});
                 }
                 else {
                     res.status(404).send("OrderItem not found");
@@ -79,7 +83,7 @@ class OrderItemController extends BaseController_1.BaseController {
         this.router.get("/", auth_1.Auth.getBearerMiddleware(), this.get.bind(this));
         this.router.post("/", auth_1.Auth.getBearerMiddleware(), this.post.bind(this));
         this.router.delete("/:orderItemId", auth_1.Auth.getBearerMiddleware(), this.delete.bind(this));
-        this.router.put("/:orderItemId", auth_1.Auth.getBearerMiddleware(), this.put.bind(this));
+        this.router.put("/:orderId", auth_1.Auth.getBearerMiddleware(), this.put.bind(this));
     }
 }
 exports.OrderItemController = OrderItemController;

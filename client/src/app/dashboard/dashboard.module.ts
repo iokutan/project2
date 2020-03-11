@@ -34,6 +34,7 @@ import { ArtikelCategoryUpdateComponent } from './components/artikel-category/ar
 import { ArtikelCategoryService } from './services/artikel-category.service';
 import { OrdersUpdateComponent } from './components/orders/orders-update/orders-update.component';
 import { OrdersNewComponent } from './components/orders/orders-new/orders-new.component';
+import { DashboardMainComponent } from './components/dashboard-main/dashboard-main.component';
 
 
 @NgModule({
@@ -63,6 +64,7 @@ import { OrdersNewComponent } from './components/orders/orders-new/orders-new.co
     ArtikelCategoryUpdateComponent,
     OrdersUpdateComponent,
     OrdersNewComponent,
+    DashboardMainComponent,
   ],
   providers: [
     IsAuthorizedGuard,
