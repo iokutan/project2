@@ -40,7 +40,6 @@ export class ModelNewComponent implements OnInit {
     form.category_id = form.category_name.category_id;
 
     this.modelService.create(form).subscribe(data => {
-      this.router.navigate(['/dashboard','model-list']);
     })
   }
 

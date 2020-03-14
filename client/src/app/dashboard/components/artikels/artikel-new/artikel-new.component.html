@@ -1,6 +1,6 @@
 <div class="container">
-    <form [formGroup]="artikelForm" (ngSubmit)="add()" class="col-md-12">
-        <div class=" col-md-6 col-sm-8">
+    <form [formGroup]="artikelForm" (ngSubmit)="add()" class="row">
+        <div class=" col-md-5 col-sm-8">
             <div class="col-md-12">
                 <ol class="breadcrumb">
                     <li>Upload artikel image</li>
@@ -9,7 +9,7 @@
                 </cristal-image-uploader>
             </div>
         </div>
-        <div class="row">
+        <div class="col-md-7">
             <div class="mainbox col-md-12 col-sm-8">
                 <ol class="breadcrumb">
                     <li>Add Artikel details</li>
@@ -35,10 +35,10 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-12">
-                <div class="controls col">
-                    <input type="submit" value="Add" class="col-md-12 btn btn btn-primary" />
-                </div>
+        </div>
+        <div class="col-md-12">
+            <div class="controls col">
+                <input type="submit" value="Add" class="col-md-12 btn btn btn-primary" />
             </div>
         </div>
     </form>

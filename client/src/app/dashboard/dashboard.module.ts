@@ -64,7 +64,11 @@ import { ProductNavComponent } from './components/product-nav/product-nav.compon
     ArtikelCategoryUpdateComponent,
     OrdersUpdateComponent,
     OrdersNewComponent,
+<<<<<<< HEAD
     ProductNavComponent,
+=======
+    DashboardMainComponent,
+>>>>>>> 366638f8f0ddc2a3e5c768c24b65173b6a9555cd
   ],
   providers: [
     IsAuthorizedGuard,

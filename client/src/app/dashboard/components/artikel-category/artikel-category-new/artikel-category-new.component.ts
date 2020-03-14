@@ -27,7 +27,6 @@ export class ArtikelCategoryNewComponent implements OnInit {
   add(){
     const form = this.artikelCategoryForm.value;
     this.ArtikelCategoryService.create(form).subscribe(data => {
-      console.log("created", data);
     })
   }
 

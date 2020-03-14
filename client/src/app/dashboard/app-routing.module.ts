@@ -23,7 +23,11 @@ import { ArtikelCategoryNewComponent } from './components/artikel-category/artik
 import { ArtikelCategoryUpdateComponent } from './components/artikel-category/artikel-category-update/artikel-category-update.component';
 import { OrdersNewComponent } from './components/orders/orders-new/orders-new.component';
 import { OrdersUpdateComponent } from './components/orders/orders-update/orders-update.component';
+<<<<<<< HEAD
 import { ProductNavComponent } from './components/product-nav/product-nav.component';
+=======
+import { DashboardMainComponent } from './components/dashboard-main/dashboard-main.component';
+>>>>>>> 366638f8f0ddc2a3e5c768c24b65173b6a9555cd
 
 
 const routes: Routes = [
@@ -31,6 +35,7 @@ const routes: Routes = [
   canActivate: [IsAuthorizedGuard],
   children: [
       { path: '', redirectTo: 'dashboard-main', pathMatch: 'full'},
+<<<<<<< HEAD
       { path: 'dashboard-main', component: OrdersComponent},
       
       
@@ -52,12 +57,28 @@ const routes: Routes = [
           { path: 'service-update/:id', component: ServiceUpdateComponent},
         ]
       },
+=======
+      { path: 'dashboard-main', component: DashboardMainComponent},
+      { path: 'category-list', component: CategoryComponent},
+      { path: 'category-update/:id', component: CategoryUpdateComponent},
+      { path: 'category-new', component: CategoryNewComponent},
+      { path: 'model-list', component: ModelComponent},
+      { path: 'model-new', component: ModelNewComponent},
+      { path: 'model-update/:id', component: ModelUpdateComponent},
+      { path: 'product-list', component: ProductComponent},
+      { path: 'product-new', component: ProductNewComponent},
+      { path: 'product-update/:id', component: ProductUpdateComponent},
+      { path: 'service-list', component: ProductServicesComponent},
+      { path: 'service-new', component: ServiceNewComponent},
+      { path: 'service-update/:id', component: ServiceUpdateComponent},
+>>>>>>> 366638f8f0ddc2a3e5c768c24b65173b6a9555cd
       { path: 'artikel-list', component: ArtikelsComponent},
       { path: 'artikel-new', component: ArtikelNewComponent},
       { path: 'artikel-update/:id', component: ArtikelUpdateComponent},
       { path: 'artikel-category-list', component: ArtikelCategoryComponent},
       { path: 'artikel-category-new', component: ArtikelCategoryNewComponent},
       { path: 'artikel-category-update/:id', component: ArtikelCategoryUpdateComponent},
+      { path: 'orders-list', component: OrdersComponent},
       { path: 'orders-new', component: OrdersNewComponent},
       { path: 'orders-update/:id', component: OrdersUpdateComponent},
   ]}

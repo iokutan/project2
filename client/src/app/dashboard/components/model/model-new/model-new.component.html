@@ -1,17 +1,17 @@
 <form [formGroup]="modelForm" (ngSubmit)="add()" class="col-md-9">
-  <div class="col-md-12">
+  <div class="col-md-12 col-sm-6">
     <ol class="breadcrumb">
       <li>Add new Model</li>
     </ol>
     <div class="col-md-12">
       <div class="form-group required">
-        <label class="control-label col-md-4  mx-3 requiredField"> Model Name</label>
-        <div class="controls col-md-12 ">
-          <input formControlName="model_name" class="input-md extInput form-control" type="text" />
+        <label class="control-label requiredField"> Model Name</label>
+        <div class="controls ">
+          <input formControlName="model_name" class="form-control" type="text" />
         </div>
       </div>
-      <div class="form-group mx-3 required">
-        <label class="control-label col-md-4 requiredField">Category</label>
+      <div class="form-group required">
+        <label class="control-label col-md-12 requiredField">Category</label>
         <select class="custom-select form-control" formControlName="category_name" placeholder="Select category">
           <option [ngValue]="category" *ngFor="let category of categories">
             {{category?.category_name}}</option>
