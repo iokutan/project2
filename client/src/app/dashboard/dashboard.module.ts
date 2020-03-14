@@ -35,6 +35,7 @@ import { ArtikelCategoryService } from './services/artikel-category.service';
 import { OrdersUpdateComponent } from './components/orders/orders-update/orders-update.component';
 import { OrdersNewComponent } from './components/orders/orders-new/orders-new.component';
 import { ProductNavComponent } from './components/product-nav/product-nav.component';
+import { ArtikelsNavComponent } from './components/artikels-nav/artikels-nav.component';
 
 
 @NgModule({
@@ -65,6 +66,7 @@ import { ProductNavComponent } from './components/product-nav/product-nav.compon
     OrdersUpdateComponent,
     OrdersNewComponent,
     ProductNavComponent,
+    ArtikelsNavComponent,
   ],
   providers: [
     IsAuthorizedGuard,

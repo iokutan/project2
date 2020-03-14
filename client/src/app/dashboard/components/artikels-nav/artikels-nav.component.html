@@ -1,0 +1,19 @@
+
+<div class="card height">
+    <div class="card-body">
+      <div class="card-block">
+        <ul class="nav nav-tabs nav-linetriangle no-hover-bg nav-justified">
+          <li class="nav-item">
+            <a class="nav-link active" id="artikel-list-tab" data-toggle="tab" [routerLink]="['/dashboard/artikels/artikel-list']" aria-controls="artikel-list" aria-expanded="false">Artikel List</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " id="artikel-category-tab" data-toggle="tab" [routerLink]="['/dashboard/artikels/artikel-category-list']" aria-controls="artikel-category" aria-expanded="true">Artikel Category</a>
+          </li>
+        </ul>
+        <div class="tab-content px-1 pt-1 pt-5">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+    </div>
+  </div>
+  

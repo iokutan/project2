@@ -2,9 +2,6 @@
     <form [formGroup]="artikelForm" (ngSubmit)="update()" class="col-md-12">
         <div class=" col-md-6 col-sm-8">
             <div class="col-md-12">
-                <ol class="breadcrumb">
-                    <li>Upload artikel image</li>
-                </ol>
                 <cristal-image-uploader [imageUrl]="artikel?.image_url" (setImageUrl)="setImageUrl($event)">
                 </cristal-image-uploader>
             </div>

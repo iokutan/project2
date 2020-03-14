@@ -2,9 +2,7 @@
     <form [formGroup]="productSelectionForm" (ngSubmit)="add()" class="col-md-12">
         <div class="row">
             <div class="mainbox col-md-12 col-sm-8">
-                <ol class="breadcrumb">
-                    <li>Add Order</li>
-                </ol>
+                
                 <div class="form-horizontal row">
                     <div class="form-group required col-md-4 col-sm-12">
                         <label class="control-label    requiredField">Category</label>
@@ -41,11 +39,11 @@
                     </ol>
                     <table class="table table-striped">
                         <thead>
-                          <tr>
-                            <th scope="col">Service Name</th>
+                          <tr class="">
+                            <th scope="col"></th>
+                            <th scope="col">Service</th>
                             <th scope="col">Price</th>
                             <th scope="col">Discount</th>
-                            <th scope="col"></th>
                           </tr>
                         </thead>
                         <tbody class="text-align-center">
@@ -74,7 +72,7 @@
                             <thead>
                               <tr>
                                 <th scope="col">Product</th>
-                                <th scope="col">Service Name</th>
+                                <th scope="col">Service</th>
                                 <th scope="col">Price</th>
                               </tr>
                             </thead>
@@ -83,7 +81,7 @@
                                 <td>{{ item?.product?.name }}</td> 
                                 <td>{{ item?.service_name }}</td> 
                                 <td>{{ item?.price }}</td> 
-                                <td> <button type="button" class="button" (click)="removeSelectedService(item)"><i class="fa fa-trash"></i></button>  </td>
+                                <td> <button type="button" class="button" (click)="removeSelectedService(item)"><i class="fa fa-trash-alt"></i></button>  </td>
                               </tr>
                               <tr>
                                 <td colspan="4"> <span class="d-flex justify-content-end"><b>Total</b> : {{getTotal(selectedServices)}}</span></td>

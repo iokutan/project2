@@ -22,14 +22,14 @@
       <tbody class="text-align-center">
         <tr *ngFor="let item of orders">
           <td scope="row">
-            <img src="./assets/images/certina.jpg"  style="width: 4rem; height: 4rem;" class="" alt="">
+            <img src="{{item.imageurl}}"  style="width: 4rem; height: 4rem;" class="" alt="">
           </td>
           <td>{{item.name}}</td>
           <td>{{item.status}}</td>
           <td>{{item.total}}</td>
           <td>{{item.due_date | date : 'mediumDate'}}</td>
           <td>
-            <div>
+            <div class="d-flex justify-content-end">
               <button type="botton" class="btn btn-success" style="width: 5rem; height: 2rem;" [routerLink]="['/dashboard', 'orders-update', item?.order_id ]" routerLinkActive="active">Edit</button>
             </div>
           </td>

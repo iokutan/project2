@@ -24,6 +24,7 @@ import { ArtikelCategoryUpdateComponent } from './components/artikel-category/ar
 import { OrdersNewComponent } from './components/orders/orders-new/orders-new.component';
 import { OrdersUpdateComponent } from './components/orders/orders-update/orders-update.component';
 import { ProductNavComponent } from './components/product-nav/product-nav.component';
+import { ArtikelsNavComponent } from './components/artikels-nav/artikels-nav.component';
 
 
 const routes: Routes = [
@@ -52,12 +53,18 @@ const routes: Routes = [
           { path: 'service-update/:id', component: ServiceUpdateComponent},
         ]
       },
-      { path: 'artikel-list', component: ArtikelsComponent},
-      { path: 'artikel-new', component: ArtikelNewComponent},
-      { path: 'artikel-update/:id', component: ArtikelUpdateComponent},
-      { path: 'artikel-category-list', component: ArtikelCategoryComponent},
-      { path: 'artikel-category-new', component: ArtikelCategoryNewComponent},
-      { path: 'artikel-category-update/:id', component: ArtikelCategoryUpdateComponent},
+      { path: 'artikels', 
+        component: ArtikelsNavComponent,
+        children: [
+          { path: '', redirectTo: 'artikel-list', pathMatch: 'full'},
+          { path: 'artikel-list', component: ArtikelsComponent},
+          { path: 'artikel-new', component: ArtikelNewComponent},
+          { path: 'artikel-update/:id', component: ArtikelUpdateComponent},
+          { path: 'artikel-category-list', component: ArtikelCategoryComponent},
+          { path: 'artikel-category-new', component: ArtikelCategoryNewComponent},
+          { path: 'artikel-category-update/:id', component: ArtikelCategoryUpdateComponent},
+        ]
+      },
       { path: 'orders-list', component: OrdersComponent},
       { path: 'orders-new', component: OrdersNewComponent},
       { path: 'orders-update/:id', component: OrdersUpdateComponent},

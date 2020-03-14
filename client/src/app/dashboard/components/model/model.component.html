@@ -21,7 +21,7 @@
         <td>{{item?.category?.category_name}}</td> 
         <td>{{item.model_name}}</td> 
         <td>
-          <div>
+          <div class="d-flex justify-content-end">
             <button type="botton" class="btn btn-success" style="width: 5rem; height: 2rem;" [routerLink]="['/dashboard','products', 'model-update', item?.model_id ]" routerLinkActive="active">Edit</button>
           </div>
         </td>
