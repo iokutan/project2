@@ -2,11 +2,8 @@
 
 <div class="product-status-wrap col-lg-12 col-md-12 col-sm-12 col-xs-12">
     <div class="d-flex flex-row bd-highlight justify-content-between mb-3">
-      <div>
-        <h4>Model List</h4>
-      </div>
     <div class="add-product">
-      <a [routerLink]="['/dashboard', 'model-new']" routerLinkActive="active">
+      <a [routerLink]="['/dashboard','products', 'model-new']" routerLinkActive="active">
         <button type="button" class="btn btn-primary">Add Model</button>
       </a>
     </div>
@@ -25,7 +22,7 @@
         <td>{{item.model_name}}</td> 
         <td>
           <div>
-            <button type="botton" class="btn btn-success" style="width: 5rem; height: 2rem;" [routerLink]="['/dashboard', 'model-update', item?.model_id ]" routerLinkActive="active">Edit</button>
+            <button type="botton" class="btn btn-success" style="width: 5rem; height: 2rem;" [routerLink]="['/dashboard','products', 'model-update', item?.model_id ]" routerLinkActive="active">Edit</button>
           </div>
         </td>
       </tr>

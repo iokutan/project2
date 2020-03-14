@@ -1,8 +1,5 @@
     <form class="col-md-9" [formGroup]="categoryForm" (ngSubmit)="add()">
       <div class="mainbox col-md-12 col-sm-6">
-        <ol class="breadcrumb">
-          <li>Add Category Name</li>
-        </ol>
         <div class="panel panel-info">
           <div class="panel-body">
             <div class="form-horizontal">
@@ -18,7 +15,7 @@
         <div class="row">
           <button type="submit" class="btn btn-success col-md-5 mx-4" [disabled]="!categoryForm.valid">Add</button>
           <button type="button" class="btn btn-warning col-md-5 mx-4"
-            [routerLink]="['/dashboard', 'category-list']">Cancel</button>
+            [routerLink]="['/dashboard', 'products','category-list']">Cancel</button>
         </div>
       </div>
     </form>

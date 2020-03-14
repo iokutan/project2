@@ -23,6 +23,7 @@ import { ArtikelCategoryNewComponent } from './components/artikel-category/artik
 import { ArtikelCategoryUpdateComponent } from './components/artikel-category/artikel-category-update/artikel-category-update.component';
 import { OrdersNewComponent } from './components/orders/orders-new/orders-new.component';
 import { OrdersUpdateComponent } from './components/orders/orders-update/orders-update.component';
+import { ProductNavComponent } from './components/product-nav/product-nav.component';
 
 
 const routes: Routes = [
@@ -31,18 +32,26 @@ const routes: Routes = [
   children: [
       { path: '', redirectTo: 'dashboard-main', pathMatch: 'full'},
       { path: 'dashboard-main', component: OrdersComponent},
-      { path: 'category-list', component: CategoryComponent},
-      { path: 'category-update/:id', component: CategoryUpdateComponent},
-      { path: 'category-new', component: CategoryNewComponent},
-      { path: 'model-list', component: ModelComponent},
-      { path: 'model-new', component: ModelNewComponent},
-      { path: 'model-update/:id', component: ModelUpdateComponent},
-      { path: 'product-list', component: ProductComponent},
-      { path: 'product-new', component: ProductNewComponent},
-      { path: 'product-update/:id', component: ProductUpdateComponent},
-      { path: 'service-list', component: ProductServicesComponent},
-      { path: 'service-new', component: ServiceNewComponent},
-      { path: 'service-update/:id', component: ServiceUpdateComponent},
+      
+      
+      { path: 'products', 
+        component: ProductNavComponent,
+        children: [
+          { path: '', redirectTo: 'category-list', pathMatch: 'full'},
+          { path: 'category-list', component: CategoryComponent},
+          { path: 'category-update/:id', component: CategoryUpdateComponent},
+          { path: 'category-new', component: CategoryNewComponent},
+          { path: 'model-list', component: ModelComponent},
+          { path: 'model-new', component: ModelNewComponent},
+          { path: 'model-update/:id', component: ModelUpdateComponent},
+          { path: 'product-list', component: ProductComponent},
+          { path: 'product-new', component: ProductNewComponent},
+          { path: 'product-update/:id', component: ProductUpdateComponent},
+          { path: 'service-list', component: ProductServicesComponent},
+          { path: 'service-new', component: ServiceNewComponent},
+          { path: 'service-update/:id', component: ServiceUpdateComponent},
+        ]
+      },
       { path: 'artikel-list', component: ArtikelsComponent},
       { path: 'artikel-new', component: ArtikelNewComponent},
       { path: 'artikel-update/:id', component: ArtikelUpdateComponent},

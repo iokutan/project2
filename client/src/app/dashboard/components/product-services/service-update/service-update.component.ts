@@ -65,7 +65,7 @@ export class ServiceUpdateComponent implements OnInit {
 
   delete() {
     this.productOfferService.delete(this.serviceOffer.service_id).subscribe(data => {
-      this.router.navigate(['/dashboard', 'service-list']);
+      this.router.navigate(['/dashboard', 'products','service-list']);
     });
   }
 

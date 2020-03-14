@@ -2,11 +2,8 @@
 
 <div class="product-status-wrap col-lg-12 col-md-12 col-sm-12 col-xs-12">
     <div class="d-flex flex-row bd-highlight justify-content-between mb-3">
-      <div>
-        <h4>Service List</h4>
-      </div>
     <div class="add-product">
-      <a [routerLink]="['/dashboard', 'service-new']" routerLinkActive="active">
+      <a [routerLink]="['/dashboard','products', 'service-new']" routerLinkActive="active">
         <button type="button" class="btn btn-primary">Add Service</button>
       </a>
     </div>
@@ -30,7 +27,7 @@
         <td>
           <div>
             <button type="botton" class="btn btn-success" 
-            style="width: 5rem; height: 2rem;" [routerLink]="['/dashboard', 'service-update', item?.service_id]" routerLinkActive="active">Edit</button>
+            style="width: 5rem; height: 2rem;" [routerLink]="['/dashboard', 'products','service-update', item?.service_id]" routerLinkActive="active">Edit</button>
           </div>
         </td>
       </tr>

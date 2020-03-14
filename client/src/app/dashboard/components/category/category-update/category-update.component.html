@@ -1,8 +1,5 @@
   <form class="col-md-9" [formGroup]="categoryForm" (ngSubmit)="update()">
     <div class="col-md-12 col-sm-6">
-      <ol class="breadcrumb">
-        <li>Edit Category Name</li>
-      </ol>
       <div class="panel panel-info">
         <div class="panel-body">
           <div class="form-horizontal">
@@ -17,7 +14,7 @@
       </div>
       <div class="row">
         <button type="submit" class="col-md-3 btn btn-success mx-4"  [disabled]="!categoryForm.valid">Update</button>
-        <button type="button" class="col-md-3 btn btn-warning mx-4" [routerLink]="['/dashboard', 'category-list']">Cancel</button>
+        <button type="button" class="col-md-3 btn btn-warning mx-4" [routerLink]="['/dashboard', 'products','category-list']">Cancel</button>
         <button type="button" class="col-md-3 btn btn-danger mx-4" (click)="delete()">Delete</button>
       </div>
     </div>
