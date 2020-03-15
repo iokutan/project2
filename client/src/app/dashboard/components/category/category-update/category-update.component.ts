@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { CategoryService } from 'src/app/dashboard/services/category.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { NotificationService } from 'src/app/services/notification.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'cristal-category-update',
@@ -16,6 +18,7 @@ export class CategoryUpdateComponent implements OnInit {
   constructor(private categoryService: CategoryService,
               private router: Router,
               private route: ActivatedRoute,
+              private notificationService: NotificationService,
               private fb: FormBuilder) { }
 
   ngOnInit() {
@@ -42,15 +45,25 @@ export class CategoryUpdateComponent implements OnInit {
   update(){
     const categoryName = this.categoryForm.get('category_name').value;
     this.category.category_name = categoryName;
-    this.categoryService.update(this.category).subscribe(data => {
+    this.categoryService.update(this.category)
+    .subscribe(
+      (data) => {
+        this.notificationService.success('Category updated!');
       this.getCategoryDetails();
-      this.router.navigate(['/dashboard','category-list']);
-    })
+      this.router.navigate(['/dashboard','products','category-list']);
+    },
+    (response: HttpErrorResponse) => { 
+      this.notificationService.error(`Product could not be updated! ${response.error}`); });
   }
 
   delete(){
-    this.categoryService.delete(this.category.category_id).subscribe(data => {
-      this.router.navigate(['/dashboard','category-list']);
-    })
+    this.categoryService.delete(this.category.category_id)
+    .subscribe(
+      (data) => {
+        this.notificationService.success('Category deleted!');
+        this.router.navigate(['/dashboard','products','category-list']);
+    },
+    (response: HttpErrorResponse) => { 
+      this.notificationService.error(`Category could not be deleted! ${response.error}`); });
   }
 }

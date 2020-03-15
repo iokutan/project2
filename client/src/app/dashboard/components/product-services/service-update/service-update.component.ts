@@ -3,6 +3,8 @@ import { ProductOfferService } from 'src/app/dashboard/services/product-offer.se
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ProductService } from 'src/app/dashboard/services/product.service';
+import { NotificationService } from 'src/app/services/notification.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'cristal-service-update',
@@ -20,6 +22,7 @@ export class ServiceUpdateComponent implements OnInit {
               private router: Router,
               private route: ActivatedRoute,
               private fb: FormBuilder,
+              private notificationService: NotificationService,
               private productService: ProductService) { }
 
   ngOnInit() {
@@ -58,15 +61,26 @@ export class ServiceUpdateComponent implements OnInit {
     const form = this.serviceOfferForm.value;
     form.product_id = this.serviceOffer.product_id;
     form.service_id = this.serviceOffer.service_id;
-    this.productOfferService.update(form).subscribe(data => {
-      this.serviceOffer = data;
-    });
+    this.productOfferService.update(form)
+    .subscribe(
+      (data) => {
+        this.notificationService.success('Product Service updated!');
+        this.serviceOffer = data;
+        this.router.navigate(['/dashboard', 'products', 'service-list']);
+    },
+    (response: HttpErrorResponse) => { 
+      this.notificationService.error(`Product Service could not be updated! ${response.error}`); });
   }
 
   delete() {
-    this.productOfferService.delete(this.serviceOffer.service_id).subscribe(data => {
+    this.productOfferService.delete(this.serviceOffer.service_id)
+    .subscribe(
+      (data) => {
+        this.notificationService.success('Product Service deleted!');
       this.router.navigate(['/dashboard', 'products','service-list']);
-    });
+    },
+    (response: HttpErrorResponse) => { 
+      this.notificationService.error(`Product could not be deleted! ${response.error}`); });
   }
 
 }

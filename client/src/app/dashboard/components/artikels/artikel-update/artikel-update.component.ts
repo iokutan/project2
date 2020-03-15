@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ArtikelService } from 'src/app/dashboard/services/artikel.service';
-
+import { NotificationService } from 'src/app/services/notification.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'cristal-artikel-update',
@@ -18,6 +19,7 @@ export class ArtikelUpdateComponent implements OnInit {
   constructor(private artikelService: ArtikelService,
               private router: Router,
               private route: ActivatedRoute,
+              private notificationService: NotificationService,
               private fb: FormBuilder) { }
 
   ngOnInit() {
@@ -52,15 +54,25 @@ export class ArtikelUpdateComponent implements OnInit {
   update() {
     const form = this.artikelForm.value;
     form.artikel_id = this.artikel.artikel_id;
-    this.artikelService.update(form).subscribe(data => {
+    this.artikelService.update(form)
+    .subscribe(
+      (data) => {
       this.artikel = data;
-    });
+      this.notificationService.success('Artikel updated!');
+      this.router.navigate(['/dashboard', 'artikels', 'artikel-list']);
+    },
+    (response: HttpErrorResponse) => { 
+      this.notificationService.error(`Artikel could not be updated! ${response.error}`); });
   }
 
   delete() {
-    this.artikelService.delete(this.artikel.artikel_id).subscribe(data => {
-      this.router.navigate(['/dashboard', 'artikel-list']);
-    });
+    this.artikelService.delete(this.artikel.artikel_id)
+    .subscribe(
+      (data) => {
+        this.notificationService.success('Artikel deleted!');
+        this.router.navigate(['/dashboard', 'artikels', 'artikel-list']);
+    },
+    (response: HttpErrorResponse) => { 
+      this.notificationService.error(`Artikel could not be deleted! ${response.error}`); });
   }
-
 }

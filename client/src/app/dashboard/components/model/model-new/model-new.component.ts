@@ -3,6 +3,8 @@ import { ModelService } from 'src/app/dashboard/services/model.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CategoryService } from 'src/app/dashboard/services/category.service';
+import { NotificationService } from 'src/app/services/notification.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'cristal-model-new',
@@ -18,6 +20,7 @@ export class ModelNewComponent implements OnInit {
               private route: ActivatedRoute, 
               private router: Router,
               private categoryService: CategoryService,
+              private notificationService: NotificationService,
               private fb: FormBuilder) { }
 
   ngOnInit() {
@@ -39,8 +42,14 @@ export class ModelNewComponent implements OnInit {
     const form = this.modelForm.value;
     form.category_id = form.category_name.category_id;
 
-    this.modelService.create(form).subscribe(data => {
-    })
+    this.modelService.create(form)
+    .subscribe(
+      (data) => {
+        this.notificationService.success('Model added!');
+        this.router.navigate(['/dashboard', 'products', 'model-list']);
+      },
+        (response: HttpErrorResponse) => { 
+          this.notificationService.error(`Model could not be added! ${response.error}`); });
   }
 
 }

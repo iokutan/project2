@@ -111,16 +111,16 @@ export class ProductUpdateComponent implements OnInit {
         this.selectedModel = data.model.model_id;
         this.selectedCategory = data.model.category.category_id;
         this.product = data;
+        this.router.navigate(['/dashboard', 'products', 'product-list']);
       },
       (response: HttpErrorResponse) => { 
-        this.notificationService.error(`Product could not be updated! ${response.error}`); }
-    );
+        this.notificationService.error(`Product could not be updated! ${response.error}`); });
   }
 
   delete() {
     this.productService.delete(this.product.product_id)
     .subscribe(
-      data => {
+      (data) => {
       this.notificationService.success('Product deleted!');
       this.router.navigate(['/dashboard', 'products', 'product-list']);
     },

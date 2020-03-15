@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ArtikelService } from 'src/app/dashboard/services/artikel.service';
+import { NotificationService } from 'src/app/services/notification.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'cristal-artikel-new',
@@ -16,6 +18,7 @@ export class ArtikelNewComponent implements OnInit {
   constructor(private artikelService: ArtikelService,
               private router: Router,
               private route: ActivatedRoute,
+              private notificationService: NotificationService,
               private fb: FormBuilder) { }
 
   ngOnInit() {
@@ -35,9 +38,15 @@ export class ArtikelNewComponent implements OnInit {
   }
   add() {
     const form = this.artikelForm.value;
-    this.artikelService.create(form).subscribe(data => {
+    this.artikelService.create(form)
+    .subscribe(
+      (data) => {
       this.artikel = data;
-    });
+      this.notificationService.success('Artikel added!');
+      this.router.navigate(['/dashboard', 'artikels', 'artikel-list']);
+    },
+    (response: HttpErrorResponse) => { 
+      this.notificationService.error(`Artikel could not be added! ${response.error}`); });
   }
 
 }

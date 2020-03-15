@@ -4,9 +4,8 @@ import { ModelService } from 'src/app/dashboard/services/model.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from 'src/app/dashboard/services/product.service';
 import { CategoryService } from 'src/app/dashboard/services/category.service';
-import { NotifierService } from 'angular-notifier';
-import { NotifierNotificationOptions } from 'angular-notifier/lib/models/notifier-notification.model';
 import { NotificationService } from 'src/app/services/notification.service';
+import { HttpErrorResponse } from '@angular/common/http';
 @Component({
   // tslint:disable-next-line:component-selector
   selector: 'cristal-product-new',
@@ -77,6 +76,9 @@ export class ProductNewComponent implements OnInit {
     this.productService.create(form).subscribe(data => {
       this.notificationService.success('New product added!');
       this.product = data;
-    });
+      this.router.navigate(['/dashboard', 'products', 'product-list']);
+    },
+    (response: HttpErrorResponse) => { 
+      this.notificationService.error(`Product could not be added! ${response.error}`); });
+  };
   }
-}

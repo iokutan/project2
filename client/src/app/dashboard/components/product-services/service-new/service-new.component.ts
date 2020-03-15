@@ -3,6 +3,8 @@ import { ProductOfferService } from 'src/app/dashboard/services/product-offer.se
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ProductService } from 'src/app/dashboard/services/product.service';
+import { NotificationService } from 'src/app/services/notification.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'cristal-service-new',
@@ -19,6 +21,7 @@ export class ServiceNewComponent implements OnInit {
               private router: Router,
               private route: ActivatedRoute,
               private fb: FormBuilder,
+              private notificationService: NotificationService,
               private productService: ProductService) { }
 
   ngOnInit() {
@@ -42,7 +45,11 @@ export class ServiceNewComponent implements OnInit {
     form.product_id = this.serviceOfferForm.get('product_id').value.product_id;
     this.productOfferService.create(form).subscribe(data => {
       this.serviceOffer = data;
-    });
+      this.notificationService.success('Product Service added!');
+      this.router.navigate(['/dashboard', 'products', 'service-list']);
+    },
+    (response: HttpErrorResponse) => { 
+      this.notificationService.error(`Product Service could not be added! ${response.error}`); });
   }
 
 }
