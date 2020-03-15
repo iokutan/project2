@@ -1,7 +1,6 @@
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
-
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -64,7 +63,7 @@ import { HomePageRoutesModule } from './app-routing.module';
     SalesMainComponent,
     SaleUhrenComponent,
     SaleSchmuckComponent,
-    AktuelComponent,
+    AktuelComponent
   ],
   imports: [
     HttpClientModule,

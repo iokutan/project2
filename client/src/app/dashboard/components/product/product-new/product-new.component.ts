@@ -4,6 +4,9 @@ import { ModelService } from 'src/app/dashboard/services/model.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from 'src/app/dashboard/services/product.service';
 import { CategoryService } from 'src/app/dashboard/services/category.service';
+import { NotifierService } from 'angular-notifier';
+import { NotifierNotificationOptions } from 'angular-notifier/lib/models/notifier-notification.model';
+import { NotificationService } from 'src/app/services/notification.service';
 @Component({
   // tslint:disable-next-line:component-selector
   selector: 'cristal-product-new',
@@ -25,6 +28,7 @@ export class ProductNewComponent implements OnInit {
               private productService: ProductService,
               private router: Router,
               private route: ActivatedRoute,
+              private notificationService: NotificationService,
               private fb: FormBuilder) { }
 
   ngOnInit() {
@@ -71,6 +75,7 @@ export class ProductNewComponent implements OnInit {
     const form = this.productForm.value;
     form.imageUrl = this.productForm.get('imageUrl').value;
     this.productService.create(form).subscribe(data => {
+      this.notificationService.success('New product added!');
       this.product = data;
     });
   }

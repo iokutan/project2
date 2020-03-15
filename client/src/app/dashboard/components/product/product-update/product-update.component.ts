@@ -4,6 +4,8 @@ import { ModelService } from 'src/app/dashboard/services/model.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from 'src/app/dashboard/services/product.service';
 import { CategoryService } from 'src/app/dashboard/services/category.service';
+import { NotificationService } from 'src/app/services/notification.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'cristal-product-update',
@@ -25,6 +27,7 @@ export class ProductUpdateComponent implements OnInit {
               private router: Router,
               private productService: ProductService,
               private route: ActivatedRoute,
+              private notificationService: NotificationService,
               private fb: FormBuilder) { }
 
   ngOnInit() {
@@ -101,18 +104,27 @@ export class ProductUpdateComponent implements OnInit {
     const form = this.productForm.value;
     form.imageUrl = this.productForm.get('imageUrl').value;
     form.product_id = this.product.product_id;
-    this.productService.update(form).subscribe(data => {
-      this.selectedModel = data.model.model_id;
-      this.selectedCategory = data.model.category.category_id;
-      this.product = data;
-    });
+    this.productService.update(form)
+    .subscribe(
+      (data) => {
+        this.notificationService.success('Product updated!');
+        this.selectedModel = data.model.model_id;
+        this.selectedCategory = data.model.category.category_id;
+        this.product = data;
+      },
+      (response: HttpErrorResponse) => { 
+        this.notificationService.error(`Product could not be updated! ${response.error}`); }
+    );
   }
 
   delete() {
-    this.productService.delete(this.product.product_id).subscribe(data => {
-      this.router.navigate(['/dashboard', 'product-list']);
-    });
+    this.productService.delete(this.product.product_id)
+    .subscribe(
+      data => {
+      this.notificationService.success('Product deleted!');
+      this.router.navigate(['/dashboard', 'products', 'product-list']);
+    },
+      (response: HttpErrorResponse) => { 
+        this.notificationService.error(`Product could not be deleted! ${response.error}`); });
   }
-
-
 }

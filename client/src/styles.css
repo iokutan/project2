@@ -2,6 +2,7 @@
 @import "~bootstrap/dist/css/bootstrap.min.css";
 @import "~@fortawesome/fontawesome-free/css/all.min.css";
 @import "./assets/css/bootstrap.extended.css";
+@import "../node_modules/angular-notifier/styles.css";
 
 body {
   padding-top: 3rem;

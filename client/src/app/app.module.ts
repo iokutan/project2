@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { NotifierModule } from "angular-notifier";
 
 import { AuthService } from './services/authentication.service';
 import { AppHttpService } from './services/http.service';
@@ -12,6 +13,7 @@ import { HomeModule } from './home/home.module';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { NotificationService } from './services/notification.service';
 
 
 @NgModule({
@@ -25,11 +27,25 @@ import { AppComponent } from './app.component';
     BrowserModule,
     AppRoutingModule,
     DashboardModule,
-    HomeModule
+    HomeModule,
+    NotifierModule.withConfig({
+      position: {
+        horizontal: {
+          position: 'right',
+          distance: 12
+        },
+        vertical: {
+          position: 'top',
+          distance: 12,
+          gap: 10
+        }
+      }    
+    })
   ],
   providers: [
     AuthService,
     AppHttpService,
+    NotificationService,
     TokenService,
     {
       provide: HTTP_INTERCEPTORS,
