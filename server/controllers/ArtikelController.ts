@@ -1,5 +1,5 @@
 import * as express from "express";
-import {Artikel} from "../models";
+import {Artikel, ArtikelCategory} from "../models";
 import {Auth} from "../auth/auth";
 import {BaseController} from "./BaseController";
 import * as _ from 'lodash';
@@ -13,7 +13,9 @@ export class ArtikelController extends BaseController{
 
     public async get(req: express.Request, res: express.Response, next: express.NextFunction) {
         try {
-            const artikels = await Artikel.findAll<Artikel>();
+            const artikels = await Artikel.findAll<Artikel>({
+                include: [ ArtikelCategory]
+            });
             res.json(artikels);
         } catch (error) {
             res.status(400).send(error);
@@ -82,7 +84,7 @@ export class ArtikelController extends BaseController{
     }
  
     private buildRoutes() {
-        this.router.get("/", Auth.getBearerMiddleware(), this.get.bind(this));
+        this.router.get("/", this.get.bind(this));
         this.router.get("/:artikelId", Auth.getBearerMiddleware(), this.getById.bind(this));
         this.router.post("/:categoryId", Auth.getBearerMiddleware(), this.post.bind(this));
         this.router.delete("/:artikelId", Auth.getBearerMiddleware(), this.delete.bind(this));

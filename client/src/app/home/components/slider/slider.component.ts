@@ -1,5 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Feature } from 'src/app/Feature';
+import { ArtikelService } from 'src/app/dashboard/services/artikel.service';
+import { NgbCarousel, NgbSlideEvent, NgbSlideEventSource } from '@ng-bootstrap/ng-bootstrap';
+
+
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -8,34 +12,38 @@ import { Feature } from 'src/app/Feature';
   styleUrls: ['./slider.component.css']
 })
 export class SliderComponent implements OnInit {
+  sliders: any[];
+  paused = false;
+  unpauseOnArrow = false;
+  pauseOnIndicator = false;
+  pauseOnHover = true;
+  @ViewChild('carousel', {static : true}) carousel: NgbCarousel;
+  
+  constructor(private productService: ArtikelService) {}
 
-  constructor() { }
-  sliders: Feature[] = [{
-    title: 'Goldschmied und Uhrenmacher vor Ort!',
-    description: 'Ab Januar 2020 ist auch unser Goldschmied für Sie vor Ort da!',
-    link: '/services/service-main',
-    position: 'active',
-    image: '/assets/images/goldsmith.jpg'
-  },
-
-  {
-    title: 'Online Offerte einholen für Ihr Altgold, Markenuhr oder Nachfrage !',
-    description: 'Die Anfragen sind natürlich für Sie absolut unverbindlich und kostenfrei.',
-    link: '/contact',
-    position: '',
-    image: '/assets/images/ankauf-gold2.jpg'
-  },
-
-  {
-    title: 'Valentinstag Aktion',
-    description: ' Geschenk für ihn <=> Geschenk für sie',
-    link: '/aktuel',
-    position: '',
-    image: '/assets/images/valentinstag2.jpg'
-  },
-
-];
   ngOnInit() {
+    this.productService.getAll().subscribe(data =>{
+      this.sliders = data.filter(a => a.category.category_name == 'Slider');
+    })
+  }
+
+  togglePaused() {
+    if (this.paused) {
+      this.carousel.cycle();
+    } else {
+      this.carousel.pause();
+    }
+    this.paused = !this.paused;
+  }
+
+  onSlide(slideEvent: NgbSlideEvent) {
+    if (this.unpauseOnArrow && slideEvent.paused &&
+      (slideEvent.source === NgbSlideEventSource.ARROW_LEFT || slideEvent.source === NgbSlideEventSource.ARROW_RIGHT)) {
+      this.togglePaused();
+    }
+    if (this.pauseOnIndicator && !slideEvent.paused && slideEvent.source === NgbSlideEventSource.INDICATOR) {
+      this.togglePaused();
+    }
   }
 
 }

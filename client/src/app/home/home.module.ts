@@ -1,6 +1,6 @@
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -71,7 +71,8 @@ import { HomePageRoutesModule } from './app-routing.module';
     CommonModule,
     BrowserModule,
     AppRoutingModule,
-    FormsModule, ReactiveFormsModule
+    FormsModule, ReactiveFormsModule,
+    NgbModule
   ]
 })
 export class HomeModule { }

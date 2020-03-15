@@ -20,6 +20,22 @@ export class ArtikelCategoryController extends BaseController{
         }
     }
 
+    public async getById(req: express.Request, res: express.Response, next: express.NextFunction) {
+        try {
+            const category = await ArtikelCategory
+                  .findOne<ArtikelCategory>({
+                      where: { category_id: req.params.categoryId },
+                    });
+            if(category){
+                res.status(201).send(category);
+            } else {
+                res.status(404).send("category not found");
+            }
+        } catch (error) {
+            res.status(400).send(error);
+        }
+    }
+
     public async post(req: express.Request, res: express.Response, next: express.NextFunction) {
         try {
             var artikelCategory = await ArtikelCategory.build(req.body);
@@ -67,6 +83,7 @@ export class ArtikelCategoryController extends BaseController{
  
     private buildRoutes() {
         this.router.get("/", Auth.getBearerMiddleware(), this.get.bind(this));
+        this.router.get("/:categoryId", Auth.getBearerMiddleware(), this.getById.bind(this));
         this.router.post("/", Auth.getBearerMiddleware(), this.post.bind(this));
         this.router.delete("/:categoryId", Auth.getBearerMiddleware(), this.delete.bind(this));
         this.router.put("/:categoryId", Auth.getBearerMiddleware(), this.put.bind(this));

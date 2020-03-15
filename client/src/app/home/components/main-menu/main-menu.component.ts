@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TokenService } from 'src/app/services/token.service';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -7,10 +8,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./main-menu.component.css']
 })
 export class MainMenuComponent implements OnInit {
-
-  constructor() { }
+  istokenExpired: boolean;
+  constructor(private tokenService: TokenService) { }
 
   ngOnInit() {
+    try {
+      this.istokenExpired = this.tokenService.isTokenExpired();
+    } catch (error) {
+      
+    }
+    
   }
 
 }

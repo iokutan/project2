@@ -11,9 +11,19 @@
                 <ol class="breadcrumb">
                     <li>Add Artikel details</li>
                 </ol>
-                <div class="panel panel-info">
+                <div class="panel panel-info" *ngIf="artikel">
                     <div class="panel-body">
                         <div class="form-horizontal">
+
+                            <div class="form-group required">
+                                <label class="control-label col-md-4 requiredField">category</label>
+                                <select class="custom-select form-control mx-3" placeholder="Select category"
+                                formControlName="category">
+                                <option [ngValue]="category?.category_id" *ngFor="let category of categories">
+                                        {{category?.category_name}}</option>
+                                </select>
+                            </div>
+
                             <div class="form-group required">
                                 <label class="control-label col-md-4 requiredField">Titel</label>
                                 <div class="controls col-md-12 ">
@@ -37,7 +47,7 @@
                     <input type="submit" value="Update" class="col-md-12 btn btn btn-primary" />
                 </div>
             </div>
-            <div class="col-md-12">
+            <div class="col-md-12 mt-3">
                 <div class="controls col">
                     <input type="button" value="Delete" class="col-md-12 btn btn btn-danger" (click)="delete()" />
                 </div>

@@ -2,17 +2,17 @@
   <div class="row my-5 justify-content-center">
     <div class="col-md-3 m-3 border border-succes rounded" *ngFor="let uhr of uhren">
       <div class="col-md-12">
-        <img [src]="uhr.image" width="100%" height="250" alt="">
+        <img [src]="uhr?.imageUrl" width="100%" height="250" alt="">
       </div>
       <div class="col-md-12 text-center">
         <div class="justify-content-center">
           <div>
-            <h4>{{uhr.name}}</h4>
+            <h4>{{uhr?.name}}</h4>
           </div>
           <div>
-            <p>{{uhr.model}}</p>
+            <p>Color: {{uhr?.color}}</p>
           </div>
-          <div><strong>{{uhr.price | currency: 'CHF'}}</strong></div>
+          <div><strong>{{uhr?.price | currency: 'CHF'}}</strong></div>
         </div>
       </div>
     </div>

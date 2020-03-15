@@ -18,7 +18,7 @@ export class InfoBoxComponent implements OnInit {
   infoboxes: Feature[] = [{
       title: 'Uhren Ankauf',
       description: 'Wir antworten Ihnen innerhalb weniger Stunden auf Ihre Anfrage mit einem Vorabangebot.',
-      link: 'uhren-ankauf',
+      link: '/home/uhren-ankauf',
       position: '',
       image: '/assets/images/uhren-ankauf.png'
     },
@@ -26,7 +26,7 @@ export class InfoBoxComponent implements OnInit {
     {
       title: 'Gold Ankauf',
       description: 'Die Anfragen sind natürlich für Sie absolut unverbindlich und kostenfrei.',
-      link: 'gold-ankauf',
+      link: '/home/gold-ankauf',
       position: '',
       image: '/assets/images/gold-ankauf.jpg'
     },
@@ -34,7 +34,7 @@ export class InfoBoxComponent implements OnInit {
     {
       title: 'Nachfrage',
       description: 'Stellen Sie Ihre Fragen nach Verfügbarkeit und Preise oder Spezielanfertigung.',
-      link: 'offerte',
+      link: '/home/offerte',
       position: '',
       image: '/assets/images/nachfrage.png'
     },

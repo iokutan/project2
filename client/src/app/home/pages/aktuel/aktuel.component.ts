@@ -5,6 +5,7 @@ import {
 import {
   Feature
 } from 'src/app/Feature';
+import { ArtikelService } from 'src/app/dashboard/services/artikel.service';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -13,25 +14,13 @@ import {
   styleUrls: ['./aktuel.component.css']
 })
 export class AktuelComponent implements OnInit {
+  artikels: any [];
+  constructor(private artikelservice: ArtikelService) {}
 
-  constructor() {}
-  aktuels: Feature[] = [{
-      title: 'Valentinstag Aktion',
-      description: '20% Rabatt auf alle Uhren Ab 1. Februar bis 14 Februar !',
-      position: '',
-      link: '',
-      image: '/assets/images/valentinstag.jpg'
-    },
-
-    {
-      title: 'Bateriewechsel Aktion',
-      description: 'Ab 03. März bis 18. März ist Bateriewechsel statt 18.- CHF für 10.-CHF',
-      position: 'order-md-2',
-      link: '',
-      image: '/assets/images/batterie.jpg'
-    }
-  ];
-
-  ngOnInit() {}
+  ngOnInit() {
+    this.artikelservice.getAll().subscribe(data =>{
+      this.artikels = data.filter(a => a.category.category_name == 'aktuel');
+    })
+  }
 
 }

@@ -41,6 +41,10 @@ __decorate([
     sequelize_typescript_1.Column,
     __metadata("design:type", String)
 ], Artikel.prototype, "category_id", void 0);
+__decorate([
+    sequelize_typescript_1.BelongsTo(() => ArtikelCategory_1.ArtikelCategory),
+    __metadata("design:type", ArtikelCategory_1.ArtikelCategory)
+], Artikel.prototype, "category", void 0);
 Artikel = __decorate([
     sequelize_typescript_1.Table
 ], Artikel);

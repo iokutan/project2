@@ -14,7 +14,7 @@ export class ArtikelService {
    }
 
   public create(artikel): Observable<Response> {
-    return this.http.post(`${this.serverUrl}`, artikel, { headers: { 'Content-Type': 'application/json' }}).pipe(map((res: Response) => res));
+    return this.http.post(`${this.serverUrl}/${artikel.category_id}`, artikel, { headers: { 'Content-Type': 'application/json' }}).pipe(map((res: Response) => res));
   }
 
   public getAll(): Observable<any> {

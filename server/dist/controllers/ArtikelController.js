@@ -20,7 +20,9 @@ class ArtikelController extends BaseController_1.BaseController {
     get(req, res, next) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const artikels = yield models_1.Artikel.findAll();
+                const artikels = yield models_1.Artikel.findAll({
+                    include: [models_1.ArtikelCategory]
+                });
                 res.json(artikels);
             }
             catch (error) {
@@ -102,7 +104,7 @@ class ArtikelController extends BaseController_1.BaseController {
         });
     }
     buildRoutes() {
-        this.router.get("/", auth_1.Auth.getBearerMiddleware(), this.get.bind(this));
+        this.router.get("/", this.get.bind(this));
         this.router.get("/:artikelId", auth_1.Auth.getBearerMiddleware(), this.getById.bind(this));
         this.router.post("/:categoryId", auth_1.Auth.getBearerMiddleware(), this.post.bind(this));
         this.router.delete("/:artikelId", auth_1.Auth.getBearerMiddleware(), this.delete.bind(this));

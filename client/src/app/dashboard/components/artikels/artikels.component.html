@@ -12,6 +12,7 @@
     <thead>
       <tr>
         <th scope="col">Image</th>
+        <th scope="col">category</th>
         <th scope="col">Titel</th>
         <th scope="col">Body</th>
         <th scope="col"></th>
@@ -21,6 +22,7 @@
 
       <tr *ngFor="let item of artikels">
         <td><img src="{{item?.image_url}}" width="40" alt=""></td> 
+        <td>{{item?.category.category_name}}</td> 
         <td>{{item?.title}}</td> 
         <td>{{item?.body}}</td> 
         <td>

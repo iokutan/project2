@@ -1,5 +1,5 @@
 import {AllowNull, Column, DataType, HasOne, ForeignKey,
-     Table, Unique, Default, PrimaryKey, IsUUID} from 'sequelize-typescript';
+     Table, Unique, Default, PrimaryKey, IsUUID, BelongsTo} from 'sequelize-typescript';
 import {BaseModel} from "./BaseModel";
 import { ArtikelCategory } from './ArtikelCategory';
 
@@ -27,4 +27,7 @@ export class Artikel extends BaseModel<Artikel> {
     @ForeignKey(() => ArtikelCategory)
     @Column
     category_id: string;
+
+    @BelongsTo(() => ArtikelCategory)
+    category: ArtikelCategory;
 }

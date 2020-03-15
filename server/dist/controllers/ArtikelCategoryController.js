@@ -28,6 +28,25 @@ class ArtikelCategoryController extends BaseController_1.BaseController {
             }
         });
     }
+    getById(req, res, next) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const category = yield models_1.ArtikelCategory
+                    .findOne({
+                    where: { category_id: req.params.categoryId },
+                });
+                if (category) {
+                    res.status(201).send(category);
+                }
+                else {
+                    res.status(404).send("category not found");
+                }
+            }
+            catch (error) {
+                res.status(400).send(error);
+            }
+        });
+    }
     post(req, res, next) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
@@ -84,6 +103,7 @@ class ArtikelCategoryController extends BaseController_1.BaseController {
     }
     buildRoutes() {
         this.router.get("/", auth_1.Auth.getBearerMiddleware(), this.get.bind(this));
+        this.router.get("/:categoryId", auth_1.Auth.getBearerMiddleware(), this.getById.bind(this));
         this.router.post("/", auth_1.Auth.getBearerMiddleware(), this.post.bind(this));
         this.router.delete("/:categoryId", auth_1.Auth.getBearerMiddleware(), this.delete.bind(this));
         this.router.put("/:categoryId", auth_1.Auth.getBearerMiddleware(), this.put.bind(this));

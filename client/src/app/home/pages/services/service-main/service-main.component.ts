@@ -14,13 +14,13 @@ export class ServiceMainComponent implements OnInit {
     { title: 'Uhren Reparatur',
       description: '',
       position: '',
-      link: '/services/uhren-reparatur',
+      link: '/home/services/uhren-reparatur',
       image: '/assets/images/watch-repair.jpg'},
 
     { title: 'Schmuck Reparatur',
       description: '',
       position: 'order-md-2',
-      link: '/services/schmuck-reparatur',
+      link: '/home/services/schmuck-reparatur',
       image: '/assets/images/jewelery-repair.jpg'}
   ];
   ngOnInit() {
