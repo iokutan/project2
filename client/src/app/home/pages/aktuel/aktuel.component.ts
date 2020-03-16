@@ -15,11 +15,13 @@ import { ArtikelService } from 'src/app/dashboard/services/artikel.service';
 })
 export class AktuelComponent implements OnInit {
   artikels: any [];
-  constructor(private artikelservice: ArtikelService) {}
+
+  constructor(private artikelservice: ArtikelService) {  
+  }
 
   ngOnInit() {
     this.artikelservice.getAll().subscribe(data =>{
-      this.artikels = data.filter(a => a.category.category_name == 'aktuel');
+      this.artikels = data.filter(a => a.category.category_name == 'Aktuel');
     })
   }
 

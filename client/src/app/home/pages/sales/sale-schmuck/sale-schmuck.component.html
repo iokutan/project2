@@ -2,17 +2,17 @@
   <div class="row my-5 justify-content-center">
     <div class="col-md-3 m-3 border border-succes rounded" *ngFor="let jewel of jewelery">
       <div class="col-md-12">
-        <img [src]="jewel.image" width="100%" height="250" alt="">
+        <img [src]="jewel?.imageUrl" width="100%" height="250" alt="">
       </div>
       <div class="col-md-12 text-center">
         <div class="justify-content-center">
           <div>
-            <h4>{{jewel.name}}</h4>
+            <h4>{{jewel?.name}}</h4>
           </div>
           <div>
-            <p>{{jewel.model}}</p>
+            <p>Color:{{jewel?.color}}</p>
           </div>
-          <div><strong>{{jewel.price | currency: 'CHF'}}</strong></div>
+          <div><strong>{{jewel?.price | currency: 'CHF'}}</strong></div>
         </div>
       </div>
     </div>

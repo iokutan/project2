@@ -17,7 +17,7 @@ export class SalesMainComponent implements OnInit {
       title: 'Uhren in Sale',
       description: 'Solange vorrat',
       position: '',
-      link: '/sales/sale-uhren',
+      link: '/home/sales/sale-uhren',
       image: '/assets/images/watches.jpg'
     },
 
@@ -25,7 +25,7 @@ export class SalesMainComponent implements OnInit {
       title: 'Schmuck in Sale',
       description: 'Speziele einheiten von uns',
       position: 'order-md-2',
-      link: '/sales/sale-schmuck',
+      link: '/home/sales/sale-schmuck',
       image: '/assets/images/jewelery.jpg'
     }
   ];

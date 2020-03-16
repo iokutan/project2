@@ -12,12 +12,7 @@ export class MainMenuComponent implements OnInit {
   constructor(private tokenService: TokenService) { }
 
   ngOnInit() {
-    try {
-      this.istokenExpired = this.tokenService.isTokenExpired();
-    } catch (error) {
-      
-    }
-    
+  
   }
 
 }

@@ -8,6 +8,7 @@ import { OrderServiceService } from 'src/app/dashboard/services/order-service.se
 import { OrderItemService } from 'src/app/dashboard/services/order-item.service';
 import { NotificationService } from 'src/app/services/notification.service';
 import { HttpErrorResponse } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'cristal-orders-new',
@@ -28,6 +29,7 @@ export class OrdersNewComponent implements OnInit {
     private productService: ProductService,
     private productOfferService: ProductOfferService,
     private orderService: OrderServiceService,
+    private router: Router,
     private orderItemService: OrderItemService,
     private notificationService: NotificationService,
     private fb: FormBuilder) { }
@@ -119,13 +121,19 @@ export class OrdersNewComponent implements OnInit {
           return item;
         });
  
-        this.orderItemService.create(this.selectedServices).subscribe(orderItems => {
+        this.orderItemService.create(this.selectedServices)
+        .subscribe(
+          orderItems => {
           this.services = [];
           this.products = [];
           this.selectedServices = [];
           this.models = [];
           this.setOrderForm();
-        });
+          this.notificationService.success('New Order added!');
+          this.router.navigate(['/dashboard', 'dashboard-main']);
+        },
+        (response: HttpErrorResponse) => { 
+          this.notificationService.error(`Order could not be added! ${response.error}`); });
      });
     }
   }

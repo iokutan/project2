@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SaleService } from 'src/app/services/sale.service';
-import { ArtikelService } from 'src/app/dashboard/services/artikel.service';
+import { ProductService } from 'src/app/dashboard/services/product.service';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -10,15 +9,14 @@ import { ArtikelService } from 'src/app/dashboard/services/artikel.service';
 })
 export class SaleSchmuckComponent implements OnInit {
 
-  jewelery: any;
+  jewelery: any [];
 
-  constructor(private artikelService: ArtikelService) { }
+  constructor(private productService: ProductService) { }
 
   ngOnInit() {
-    this.artikelService.getAll().subscribe(data => {
-      console.log("haloo", data)
-      //this.jewelery = data.filter(a => a.category.category_name == );
-    });
+    this.productService.getAll().subscribe(data =>{
+      this.jewelery = data.filter(a => a.model.category.category_name == 'Schmuck');
+    })
   }
 
 }

@@ -7,7 +7,8 @@ import { ProductOfferService } from 'src/app/dashboard/services/product-offer.se
 import { OrderServiceService } from 'src/app/dashboard/services/order-service.service';
 import { OrderItemService } from 'src/app/dashboard/services/order-item.service';
 import { ActivatedRoute, Router } from '@angular/router';
-
+import { NotificationService } from 'src/app/services/notification.service';
+import { HttpErrorResponse } from '@angular/common/http';
 @Component({
   selector: 'cristal-orders-update',
   templateUrl: './orders-update.component.html',
@@ -31,6 +32,7 @@ export class OrdersUpdateComponent implements OnInit {
     private orderService: OrderServiceService,
     private orderItemService: OrderItemService,
     private router: Router,
+    private notificationService: NotificationService,
     private route: ActivatedRoute,
     private fb: FormBuilder) { }
 
@@ -142,9 +144,16 @@ export class OrdersUpdateComponent implements OnInit {
           return item;
         });
  
-        this.orderItemService.update(this.selectedServices, form.order_id).subscribe(orderItems => {
+        this.orderItemService.update(this.selectedServices, form.order_id)
+        .subscribe(
+          orderItems => {
           this.getDetails(form.order_id);
-        });
+          this.notificationService.success('Order updated!');
+          this.router.navigate(['/dashboard', 'dashboard-main']);
+        },
+
+        (response: HttpErrorResponse) => { 
+          this.notificationService.error(`Order could not be updated! ${response.error}`); });
      });
     }
   }

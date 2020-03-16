@@ -15,7 +15,7 @@ export class SaleUhrenComponent implements OnInit {
  
    ngOnInit() {
      this.productService.getAll().subscribe(data =>{
-       this.uhren = data.filter(a => a.model.category.category_name == 'Uhr');
+       this.uhren = data.filter(a => a.model.category.category_name == 'Uhren');
      })
    }
 
