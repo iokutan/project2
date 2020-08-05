@@ -32,7 +32,7 @@
     "dotenv": "^4.0.0",
     "errorhandler": "^1.4.2",
     "express": "^4.13.3",
-    "express-fileupload": "^1.1.6",
+    "express-fileupload": "^1.1.9",
     "express-limiter": "^1.6.1",
     "formidable": "^1.2.2",
     "html-pdf": "^2.2.0",
