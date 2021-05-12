@@ -37,7 +37,7 @@
     "formidable": "^1.2.2",
     "html-pdf": "^2.2.0",
     "jsonwebtoken": "^8.1.0",
-    "mathjs": "^5.4.0",
+    "mathjs": "^7.5.1",
     "method-override": "^2.3.5",
     "moment": "^2.23.0",
     "morgan": "^1.6.1",
