@@ -36,7 +36,7 @@
     "express-limiter": "^1.6.1",
     "formidable": "^1.2.2",
     "html-pdf": "^2.2.0",
-    "jsonwebtoken": "^8.1.0",
+    "jsonwebtoken": "^9.0.0",
     "mathjs": "^5.4.0",
     "method-override": "^2.3.5",
     "moment": "^2.23.0",
